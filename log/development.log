@@ -1,0 +1,1221 @@
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (2.8ms)[0m   [0mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (45.6ms)[0m   [0;1mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateSections (20090216081020)
+  [4;35;1mSQL (2.8ms)[0m   [0mCREATE TABLE `sections` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255), `page_id` int(11), `position` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20090216081020')[0m
+Migrating to CreatePages (20090216081102)
+  [4;35;1mSQL (3.4ms)[0m   [0mCREATE TABLE `pages` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255), `file_name` varchar(255), `position` int(11), `parent_id` int(11), `lft` int(11), `rgt` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20090216081102')[0m
+Migrating to CreateContentMappings (20090216081359)
+  [4;35;1mSQL (3.6ms)[0m   [0mCREATE TABLE `content_mappings` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `page_id` int(11), `section_id` int(11), `asset_type` int(11), `asset_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20090216081359')[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (2.6ms)[0m   [0;1mSHOW FIELDS FROM `content_mappings`[0m
+  [4;35;1mSQL (1.6ms)[0m   [0mdescribe `content_mappings`[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSHOW KEYS FROM `content_mappings`[0m
+  [4;35;1mSQL (1.3ms)[0m   [0mSHOW FIELDS FROM `pages`[0m
+  [4;36;1mSQL (3.3ms)[0m   [0;1mdescribe `pages`[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSHOW KEYS FROM `pages`[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1mSHOW FIELDS FROM `sections`[0m
+  [4;35;1mSQL (1.9ms)[0m   [0mdescribe `sections`[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSHOW KEYS FROM `sections`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSHOW FULL TABLES WHERE Table_type = 'BASE TABLE'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSHOW CREATE TABLE `content_mappings`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSHOW CREATE TABLE `pages`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSHOW CREATE TABLE `schema_migrations`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSHOW CREATE TABLE `sections`[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mDROP DATABASE IF EXISTS `stockyard_test`[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mCREATE DATABASE `stockyard_test` DEFAULT CHARACTER SET `utf8`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET foreign_key_checks = 0[0m
+  [4;35;1mSQL (28.9ms)[0m   [0mCREATE TABLE `content_mappings` (
+ `id` int(11) NOT NULL auto_increment,
+ `page_id` int(11) default NULL,
+ `section_id` int(11) default NULL,
+ `asset_type` int(11) default NULL,
+ `asset_id` int(11) default NULL,
+ `created_at` datetime default NULL,
+ `updated_at` datetime default NULL,
+ PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;[0m
+  [4;36;1mSQL (3.4ms)[0m   [0;1mCREATE TABLE `pages` (
+ `id` int(11) NOT NULL auto_increment,
+ `title` varchar(255) default NULL,
+ `file_name` varchar(255) default NULL,
+ `position` int(11) default NULL,
+ `parent_id` int(11) default NULL,
+ `lft` int(11) default NULL,
+ `rgt` int(11) default NULL,
+ `created_at` datetime default NULL,
+ `updated_at` datetime default NULL,
+ PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;[0m
+  [4;35;1mSQL (3.7ms)[0m   [0mCREATE TABLE `schema_migrations` (
+ `version` varchar(255) NOT NULL,
+ UNIQUE KEY `unique_schema_migrations` (`version`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;[0m
+  [4;36;1mSQL (3.3ms)[0m   [0;1mCREATE TABLE `sections` (
+ `id` int(11) NOT NULL auto_increment,
+ `title` varchar(255) default NULL,
+ `page_id` int(11) default NULL,
+ `position` int(11) default NULL,
+ `created_at` datetime default NULL,
+ `updated_at` datetime default NULL,
+ PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;[0m
+  [4;35;1mSQL (1.2ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090216081020');[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20090216081102');[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090216081359');[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PagesController#home (for 127.0.0.1 at 2009-02-17 16:33:37) [GET]
+
+ActionController::UnknownAction (No action responded to home. Actions: create, destroy, edit, index, new, show, and update):
+  actionpack (2.3.0) lib/action_controller/filters.rb:617:in `call_filters'
+  actionpack (2.3.0) lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+  actionpack (2.3.0) lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+  actionpack (2.3.0) lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+  actionpack (2.3.0) lib/action_controller/rescue.rb:154:in `perform_action_without_flash'
+  actionpack (2.3.0) lib/action_controller/flash.rb:141:in `perform_action'
+  actionpack (2.3.0) lib/action_controller/base.rb:523:in `send'
+  actionpack (2.3.0) lib/action_controller/base.rb:523:in `process_without_filters'
+  actionpack (2.3.0) lib/action_controller/filters.rb:606:in `sass_old_process'
+  haml (2.0.3) lib/sass/plugin/rails.rb:19:in `process'
+  actionpack (2.3.0) lib/action_controller/base.rb:391:in `process'
+  actionpack (2.3.0) lib/action_controller/base.rb:386:in `call'
+  actionpack (2.3.0) lib/action_controller/routing/route_set.rb:433:in `call'
+  actionpack (2.3.0) lib/action_controller/dispatcher.rb:65:in `dispatch'
+  actionpack (2.3.0) lib/action_controller/dispatcher.rb:88:in `_call'
+  actionpack (2.3.0) lib/action_controller/dispatcher.rb:59:in `initialize'
+  activerecord (2.3.0) lib/active_record/query_cache.rb:29:in `call'
+  activerecord (2.3.0) lib/active_record/query_cache.rb:29:in `call'
+  activerecord (2.3.0) lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+  activerecord (2.3.0) lib/active_record/query_cache.rb:9:in `cache'
+  activerecord (2.3.0) lib/active_record/query_cache.rb:28:in `call'
+  actionpack (2.3.0) lib/action_controller/params_parser.rb:15:in `call'
+  actionpack (2.3.0) lib/action_controller/rewindable_input.rb:25:in `call'
+  actionpack (2.3.0) lib/action_controller/session/cookie_store.rb:93:in `call'
+  actionpack (2.3.0) lib/action_controller/failsafe.rb:11:in `call'
+  actionpack (2.3.0) lib/action_controller/rack_ext/lock.rb:15:in `call'
+  actionpack (2.3.0) lib/action_controller/rack_ext/lock.rb:15:in `synchronize'
+  actionpack (2.3.0) lib/action_controller/rack_ext/lock.rb:15:in `call'
+  actionpack (2.3.0) lib/action_controller/dispatcher.rb:83:in `call'
+  rails (2.3.0) lib/rails/rack/static.rb:27:in `call'
+  rails (2.3.0) lib/rails/rack/log_tailer.rb:17:in `call'
+  rails (2.3.0) lib/commands/server.rb:100
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (48.9ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateSections (20090216081020)
+Migrating to CreatePages (20090216081102)
+Migrating to CreateContentMappings (20090216081359)
+Migrating to CreatePageTemplates (20090216083029)
+  [4;36;1mSQL (21.1ms)[0m   [0;1mCREATE TABLE `page_templates` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255), `file_name` varchar(255), `body` text, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090216083029')[0m
+Migrating to CreateAssets (20090216083707)
+  [4;36;1mSQL (32.0ms)[0m   [0;1mCREATE TABLE `assets` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090216083707')[0m
+Migrating to CreateTextBlocks (20090216083936)
+  [4;36;1mSQL (3.1ms)[0m   [0;1mCREATE TABLE `text_blocks` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255), `content` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090216083936')[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (2.2ms)[0m   [0mSHOW FIELDS FROM `assets`[0m
+  [4;36;1mSQL (2.1ms)[0m   [0;1mdescribe `assets`[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mSHOW KEYS FROM `assets`[0m
+  [4;36;1mSQL (4.3ms)[0m   [0;1mSHOW FIELDS FROM `content_mappings`[0m
+  [4;35;1mSQL (6.4ms)[0m   [0mdescribe `content_mappings`[0m
+  [4;36;1mSQL (1.7ms)[0m   [0;1mSHOW KEYS FROM `content_mappings`[0m
+  [4;35;1mSQL (28.2ms)[0m   [0mSHOW FIELDS FROM `page_templates`[0m
+  [4;36;1mSQL (2.4ms)[0m   [0;1mdescribe `page_templates`[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSHOW KEYS FROM `page_templates`[0m
+  [4;36;1mSQL (29.7ms)[0m   [0;1mSHOW FIELDS FROM `pages`[0m
+  [4;35;1mSQL (3.0ms)[0m   [0mdescribe `pages`[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSHOW KEYS FROM `pages`[0m
+  [4;35;1mSQL (5.1ms)[0m   [0mSHOW FIELDS FROM `sections`[0m
+  [4;36;1mSQL (2.9ms)[0m   [0;1mdescribe `sections`[0m
+  [4;35;1mSQL (1.5ms)[0m   [0mSHOW KEYS FROM `sections`[0m
+  [4;36;1mSQL (2.1ms)[0m   [0;1mSHOW FIELDS FROM `text_blocks`[0m
+  [4;35;1mSQL (2.1ms)[0m   [0mdescribe `text_blocks`[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSHOW KEYS FROM `text_blocks`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSHOW FULL TABLES WHERE Table_type = 'BASE TABLE'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSHOW CREATE TABLE `assets`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSHOW CREATE TABLE `content_mappings`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSHOW CREATE TABLE `page_templates`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSHOW CREATE TABLE `pages`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSHOW CREATE TABLE `schema_migrations`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSHOW CREATE TABLE `sections`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSHOW CREATE TABLE `text_blocks`[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (106.6ms)[0m   [0mDROP DATABASE IF EXISTS `stockyard_test`[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mCREATE DATABASE `stockyard_test` DEFAULT CHARACTER SET `utf8`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET foreign_key_checks = 0[0m
+  [4;36;1mSQL (21.4ms)[0m   [0;1mCREATE TABLE `assets` (
+ `id` int(11) NOT NULL auto_increment,
+ `created_at` datetime default NULL,
+ `updated_at` datetime default NULL,
+ PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;[0m
+  [4;35;1mSQL (7.1ms)[0m   [0mCREATE TABLE `content_mappings` (
+ `id` int(11) NOT NULL auto_increment,
+ `page_id` int(11) default NULL,
+ `section_id` int(11) default NULL,
+ `asset_type` int(11) default NULL,
+ `asset_id` int(11) default NULL,
+ `created_at` datetime default NULL,
+ `updated_at` datetime default NULL,
+ PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;[0m
+  [4;36;1mSQL (10.4ms)[0m   [0;1mCREATE TABLE `page_templates` (
+ `id` int(11) NOT NULL auto_increment,
+ `title` varchar(255) default NULL,
+ `file_name` varchar(255) default NULL,
+ `body` text,
+ `created_at` datetime default NULL,
+ `updated_at` datetime default NULL,
+ PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;[0m
+  [4;35;1mSQL (2.4ms)[0m   [0mCREATE TABLE `pages` (
+ `id` int(11) NOT NULL auto_increment,
+ `title` varchar(255) default NULL,
+ `file_name` varchar(255) default NULL,
+ `position` int(11) default NULL,
+ `parent_id` int(11) default NULL,
+ `lft` int(11) default NULL,
+ `rgt` int(11) default NULL,
+ `created_at` datetime default NULL,
+ `updated_at` datetime default NULL,
+ PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;[0m
+  [4;36;1mSQL (2.6ms)[0m   [0;1mCREATE TABLE `schema_migrations` (
+ `version` varchar(255) NOT NULL,
+ UNIQUE KEY `unique_schema_migrations` (`version`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;[0m
+  [4;35;1mSQL (1.8ms)[0m   [0mCREATE TABLE `sections` (
+ `id` int(11) NOT NULL auto_increment,
+ `title` varchar(255) default NULL,
+ `page_id` int(11) default NULL,
+ `position` int(11) default NULL,
+ `created_at` datetime default NULL,
+ `updated_at` datetime default NULL,
+ PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mCREATE TABLE `text_blocks` (
+ `id` int(11) NOT NULL auto_increment,
+ `title` varchar(255) default NULL,
+ `content` varchar(255) default NULL,
+ `created_at` datetime default NULL,
+ `updated_at` datetime default NULL,
+ PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090216081020');[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20090216081102');[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090216081359');[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20090216083029');[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090216083707');[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20090216083936');[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (5.3ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateSections (20090216081020)
+Migrating to CreatePages (20090216081102)
+Migrating to CreateContentMappings (20090216081359)
+Migrating to CreatePageTemplates (20090216083029)
+Migrating to CreateAssets (20090216083707)
+Migrating to CreateTextBlocks (20090216083936)
+Migrating to AddPageTemplateToPage (20090217235630)
+  [4;36;1mSQL (48.1ms)[0m   [0;1mALTER TABLE `pages` ADD `page_template_id` int(11)[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090217235630')[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (1.6ms)[0m   [0mSHOW FIELDS FROM `assets`[0m
+  [4;36;1mSQL (2.5ms)[0m   [0;1mdescribe `assets`[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mSHOW KEYS FROM `assets`[0m
+  [4;36;1mSQL (2.7ms)[0m   [0;1mSHOW FIELDS FROM `content_mappings`[0m
+  [4;35;1mSQL (1.8ms)[0m   [0mdescribe `content_mappings`[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1mSHOW KEYS FROM `content_mappings`[0m
+  [4;35;1mSQL (1.9ms)[0m   [0mSHOW FIELDS FROM `page_templates`[0m
+  [4;36;1mSQL (4.1ms)[0m   [0;1mdescribe `page_templates`[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW KEYS FROM `page_templates`[0m
+  [4;36;1mSQL (2.5ms)[0m   [0;1mSHOW FIELDS FROM `pages`[0m
+  [4;35;1mSQL (2.7ms)[0m   [0mdescribe `pages`[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mSHOW KEYS FROM `pages`[0m
+  [4;35;1mSQL (10.3ms)[0m   [0mSHOW FIELDS FROM `sections`[0m
+  [4;36;1mSQL (5.0ms)[0m   [0;1mdescribe `sections`[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSHOW KEYS FROM `sections`[0m
+  [4;36;1mSQL (2.1ms)[0m   [0;1mSHOW FIELDS FROM `text_blocks`[0m
+  [4;35;1mSQL (4.0ms)[0m   [0mdescribe `text_blocks`[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSHOW KEYS FROM `text_blocks`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSHOW FULL TABLES WHERE Table_type = 'BASE TABLE'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSHOW CREATE TABLE `assets`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSHOW CREATE TABLE `content_mappings`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSHOW CREATE TABLE `page_templates`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSHOW CREATE TABLE `pages`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSHOW CREATE TABLE `schema_migrations`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSHOW CREATE TABLE `sections`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSHOW CREATE TABLE `text_blocks`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (15.3ms)[0m   [0mDROP DATABASE IF EXISTS `stockyard_test`[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCREATE DATABASE `stockyard_test` DEFAULT CHARACTER SET `utf8`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET foreign_key_checks = 0[0m
+  [4;36;1mSQL (6.4ms)[0m   [0;1mCREATE TABLE `assets` (
+ `id` int(11) NOT NULL auto_increment,
+ `created_at` datetime default NULL,
+ `updated_at` datetime default NULL,
+ PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;[0m
+  [4;35;1mSQL (4.1ms)[0m   [0mCREATE TABLE `content_mappings` (
+ `id` int(11) NOT NULL auto_increment,
+ `page_id` int(11) default NULL,
+ `section_id` int(11) default NULL,
+ `asset_type` int(11) default NULL,
+ `asset_id` int(11) default NULL,
+ `created_at` datetime default NULL,
+ `updated_at` datetime default NULL,
+ PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;[0m
+  [4;36;1mSQL (3.7ms)[0m   [0;1mCREATE TABLE `page_templates` (
+ `id` int(11) NOT NULL auto_increment,
+ `title` varchar(255) default NULL,
+ `file_name` varchar(255) default NULL,
+ `body` text,
+ `created_at` datetime default NULL,
+ `updated_at` datetime default NULL,
+ PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;[0m
+  [4;35;1mSQL (4.0ms)[0m   [0mCREATE TABLE `pages` (
+ `id` int(11) NOT NULL auto_increment,
+ `title` varchar(255) default NULL,
+ `file_name` varchar(255) default NULL,
+ `position` int(11) default NULL,
+ `parent_id` int(11) default NULL,
+ `lft` int(11) default NULL,
+ `rgt` int(11) default NULL,
+ `created_at` datetime default NULL,
+ `updated_at` datetime default NULL,
+ `page_template_id` int(11) default NULL,
+ PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;[0m
+  [4;36;1mSQL (3.0ms)[0m   [0;1mCREATE TABLE `schema_migrations` (
+ `version` varchar(255) NOT NULL,
+ UNIQUE KEY `unique_schema_migrations` (`version`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;[0m
+  [4;35;1mSQL (4.2ms)[0m   [0mCREATE TABLE `sections` (
+ `id` int(11) NOT NULL auto_increment,
+ `title` varchar(255) default NULL,
+ `page_id` int(11) default NULL,
+ `position` int(11) default NULL,
+ `created_at` datetime default NULL,
+ `updated_at` datetime default NULL,
+ PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;[0m
+  [4;36;1mSQL (5.9ms)[0m   [0;1mCREATE TABLE `text_blocks` (
+ `id` int(11) NOT NULL auto_increment,
+ `title` varchar(255) default NULL,
+ `content` varchar(255) default NULL,
+ `created_at` datetime default NULL,
+ `updated_at` datetime default NULL,
+ PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;[0m
+  [4;35;1mSQL (1.0ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090216081020');[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20090216081102');[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090216081359');[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20090216083029');[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090216083707');[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20090216083936');[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090217235630');[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateSections (20090216081020)
+Migrating to CreatePages (20090216081102)
+Migrating to CreateContentMappings (20090216081359)
+Migrating to CreatePageTemplates (20090216083029)
+Migrating to CreateAssets (20090216083707)
+Migrating to CreateTextBlocks (20090216083936)
+Migrating to AddPageTemplateToPage (20090217235630)
+Migrating to AddPermalinkToPage (20090218000659)
+  [4;36;1mSQL (77.6ms)[0m   [0;1mALTER TABLE `pages` ADD `permalink` varchar(255)[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090218000659')[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (1.5ms)[0m   [0mSHOW FIELDS FROM `assets`[0m
+  [4;36;1mSQL (1.8ms)[0m   [0;1mdescribe `assets`[0m
+  [4;35;1mSQL (1.3ms)[0m   [0mSHOW KEYS FROM `assets`[0m
+  [4;36;1mSQL (2.1ms)[0m   [0;1mSHOW FIELDS FROM `content_mappings`[0m
+  [4;35;1mSQL (2.3ms)[0m   [0mdescribe `content_mappings`[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mSHOW KEYS FROM `content_mappings`[0m
+  [4;35;1mSQL (1.9ms)[0m   [0mSHOW FIELDS FROM `page_templates`[0m
+  [4;36;1mSQL (2.1ms)[0m   [0;1mdescribe `page_templates`[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSHOW KEYS FROM `page_templates`[0m
+  [4;36;1mSQL (2.4ms)[0m   [0;1mSHOW FIELDS FROM `pages`[0m
+  [4;35;1mSQL (3.0ms)[0m   [0mdescribe `pages`[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW KEYS FROM `pages`[0m
+  [4;35;1mSQL (2.1ms)[0m   [0mSHOW FIELDS FROM `sections`[0m
+  [4;36;1mSQL (3.0ms)[0m   [0;1mdescribe `sections`[0m
+  [4;35;1mSQL (1.3ms)[0m   [0mSHOW KEYS FROM `sections`[0m
+  [4;36;1mSQL (1.7ms)[0m   [0;1mSHOW FIELDS FROM `text_blocks`[0m
+  [4;35;1mSQL (2.5ms)[0m   [0mdescribe `text_blocks`[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSHOW KEYS FROM `text_blocks`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mSHOW FULL TABLES WHERE Table_type = 'BASE TABLE'[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW CREATE TABLE `assets`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSHOW CREATE TABLE `content_mappings`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSHOW CREATE TABLE `page_templates`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSHOW CREATE TABLE `pages`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSHOW CREATE TABLE `schema_migrations`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSHOW CREATE TABLE `sections`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSHOW CREATE TABLE `text_blocks`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (30.7ms)[0m   [0mDROP DATABASE IF EXISTS `stockyard_test`[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mCREATE DATABASE `stockyard_test` DEFAULT CHARACTER SET `utf8`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET foreign_key_checks = 0[0m
+  [4;36;1mSQL (2.4ms)[0m   [0;1mCREATE TABLE `assets` (
+ `id` int(11) NOT NULL auto_increment,
+ `created_at` datetime default NULL,
+ `updated_at` datetime default NULL,
+ PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;[0m
+  [4;35;1mSQL (4.2ms)[0m   [0mCREATE TABLE `content_mappings` (
+ `id` int(11) NOT NULL auto_increment,
+ `page_id` int(11) default NULL,
+ `section_id` int(11) default NULL,
+ `asset_type` int(11) default NULL,
+ `asset_id` int(11) default NULL,
+ `created_at` datetime default NULL,
+ `updated_at` datetime default NULL,
+ PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;[0m
+  [4;36;1mSQL (3.9ms)[0m   [0;1mCREATE TABLE `page_templates` (
+ `id` int(11) NOT NULL auto_increment,
+ `title` varchar(255) default NULL,
+ `file_name` varchar(255) default NULL,
+ `body` text,
+ `created_at` datetime default NULL,
+ `updated_at` datetime default NULL,
+ PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;[0m
+  [4;35;1mSQL (3.1ms)[0m   [0mCREATE TABLE `pages` (
+ `id` int(11) NOT NULL auto_increment,
+ `title` varchar(255) default NULL,
+ `file_name` varchar(255) default NULL,
+ `position` int(11) default NULL,
+ `parent_id` int(11) default NULL,
+ `lft` int(11) default NULL,
+ `rgt` int(11) default NULL,
+ `created_at` datetime default NULL,
+ `updated_at` datetime default NULL,
+ `page_template_id` int(11) default NULL,
+ `permalink` varchar(255) default NULL,
+ PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;[0m
+  [4;36;1mSQL (2.5ms)[0m   [0;1mCREATE TABLE `schema_migrations` (
+ `version` varchar(255) NOT NULL,
+ UNIQUE KEY `unique_schema_migrations` (`version`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;[0m
+  [4;35;1mSQL (2.3ms)[0m   [0mCREATE TABLE `sections` (
+ `id` int(11) NOT NULL auto_increment,
+ `title` varchar(255) default NULL,
+ `page_id` int(11) default NULL,
+ `position` int(11) default NULL,
+ `created_at` datetime default NULL,
+ `updated_at` datetime default NULL,
+ PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;[0m
+  [4;36;1mSQL (3.5ms)[0m   [0;1mCREATE TABLE `text_blocks` (
+ `id` int(11) NOT NULL auto_increment,
+ `title` varchar(255) default NULL,
+ `content` varchar(255) default NULL,
+ `created_at` datetime default NULL,
+ `updated_at` datetime default NULL,
+ PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;[0m
+  [4;35;1mSQL (1.2ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090216081020');[0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20090216081102');[0m
+  [4;35;1mSQL (17.7ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090216081359');[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20090216083029');[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090216083707');[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20090216083936');[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090217235630');[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20090218000659');[0m
+/!\ FAILSAFE /!\  Sun Mar 15 17:30:19 -0600 2009
+  Status: 500 Internal Server Error
+  Unknown database 'stockyard_development'
+    /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/connection_adapters/mysql_adapter.rb:576:in `real_connect'
+    /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/connection_adapters/mysql_adapter.rb:576:in `connect'
+    /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/connection_adapters/mysql_adapter.rb:204:in `initialize'
+    /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/connection_adapters/mysql_adapter.rb:76:in `new'
+    /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/connection_adapters/mysql_adapter.rb:76:in `mysql_connection'
+    /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/connection_adapters/abstract/connection_pool.rb:223:in `send'
+    /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/connection_adapters/abstract/connection_pool.rb:223:in `new_connection'
+    /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/connection_adapters/abstract/connection_pool.rb:245:in `checkout_new_connection'
+    /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/connection_adapters/abstract/connection_pool.rb:188:in `checkout'
+    /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/connection_adapters/abstract/connection_pool.rb:184:in `loop'
+    /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/connection_adapters/abstract/connection_pool.rb:184:in `checkout'
+    /usr/local/lib/ruby/1.8/monitor.rb:242:in `synchronize'
+    /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/connection_adapters/abstract/connection_pool.rb:183:in `checkout'
+    /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/connection_adapters/abstract/connection_pool.rb:98:in `connection'
+    /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/connection_adapters/abstract/connection_pool.rb:326:in `retrieve_connection'
+    /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/connection_adapters/abstract/connection_specification.rb:123:in `retrieve_connection'
+    /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/connection_adapters/abstract/connection_specification.rb:115:in `connection'
+    /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/query_cache.rb:9:in `cache'
+    /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/query_cache.rb:28:in `call'
+    /usr/local/lib/ruby/gems/1.8/gems/rack-0.9.1/lib/rack/head.rb:9:in `call'
+    /usr/local/lib/ruby/gems/1.8/gems/rack-0.9.1/lib/rack/methodoverride.rb:24:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/params_parser.rb:15:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rewindable_input.rb:25:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/session/cookie_store.rb:93:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/failsafe.rb:11:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rack_ext/lock.rb:15:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rack_ext/lock.rb:15:in `synchronize'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rack_ext/lock.rb:15:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/dispatcher.rb:83:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/rails-2.3.0/lib/rails/rack/static.rb:27:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/rails-2.3.0/lib/rails/rack/log_tailer.rb:17:in `call'
+    /usr/local/lib/ruby/gems/1.8/gems/rack-0.9.1/lib/rack/handler/mongrel.rb:59:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/rack-0.9.1/lib/rack/handler/mongrel.rb:32:in `run'
+    /Users/aaron/.gem/ruby/1.8/gems/rails-2.3.0/lib/commands/server.rb:100
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+    ./script/server:3
+/!\ FAILSAFE /!\  Sun Mar 15 17:30:31 -0600 2009
+  Status: 500 Internal Server Error
+  Unknown database 'stockyard_development'
+    /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/connection_adapters/mysql_adapter.rb:576:in `real_connect'
+    /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/connection_adapters/mysql_adapter.rb:576:in `connect'
+    /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/connection_adapters/mysql_adapter.rb:204:in `initialize'
+    /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/connection_adapters/mysql_adapter.rb:76:in `new'
+    /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/connection_adapters/mysql_adapter.rb:76:in `mysql_connection'
+    /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/connection_adapters/abstract/connection_pool.rb:223:in `send'
+    /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/connection_adapters/abstract/connection_pool.rb:223:in `new_connection'
+    /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/connection_adapters/abstract/connection_pool.rb:245:in `checkout_new_connection'
+    /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/connection_adapters/abstract/connection_pool.rb:188:in `checkout'
+    /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/connection_adapters/abstract/connection_pool.rb:184:in `loop'
+    /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/connection_adapters/abstract/connection_pool.rb:184:in `checkout'
+    /usr/local/lib/ruby/1.8/monitor.rb:242:in `synchronize'
+    /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/connection_adapters/abstract/connection_pool.rb:183:in `checkout'
+    /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/connection_adapters/abstract/connection_pool.rb:98:in `connection'
+    /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/connection_adapters/abstract/connection_pool.rb:326:in `retrieve_connection'
+    /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/connection_adapters/abstract/connection_specification.rb:123:in `retrieve_connection'
+    /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/connection_adapters/abstract/connection_specification.rb:115:in `connection'
+    /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/query_cache.rb:9:in `cache'
+    /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/query_cache.rb:28:in `call'
+    /usr/local/lib/ruby/gems/1.8/gems/rack-0.9.1/lib/rack/head.rb:9:in `call'
+    /usr/local/lib/ruby/gems/1.8/gems/rack-0.9.1/lib/rack/methodoverride.rb:24:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/params_parser.rb:15:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rewindable_input.rb:25:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/session/cookie_store.rb:93:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/failsafe.rb:11:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rack_ext/lock.rb:15:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rack_ext/lock.rb:15:in `synchronize'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rack_ext/lock.rb:15:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/dispatcher.rb:83:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/rails-2.3.0/lib/rails/rack/static.rb:27:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/rails-2.3.0/lib/rails/rack/log_tailer.rb:17:in `call'
+    /usr/local/lib/ruby/gems/1.8/gems/rack-0.9.1/lib/rack/handler/mongrel.rb:59:in `process'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+    /usr/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+    /usr/local/lib/ruby/gems/1.8/gems/rack-0.9.1/lib/rack/handler/mongrel.rb:32:in `run'
+    /Users/aaron/.gem/ruby/1.8/gems/rails-2.3.0/lib/commands/server.rb:100
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+    /usr/local/lib/ruby/site_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+    ./script/server:3
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (99.8ms)[0m   [0mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (178.8ms)[0m   [0;1mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateSections (20090216081020)
+  [4;35;1mSQL (95.6ms)[0m   [0mCREATE TABLE `sections` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255), `page_id` int(11), `position` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20090216081020')[0m
+Migrating to CreatePages (20090216081102)
+  [4;35;1mSQL (103.6ms)[0m   [0mCREATE TABLE `pages` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255), `file_name` varchar(255), `position` int(11), `parent_id` int(11), `lft` int(11), `rgt` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20090216081102')[0m
+Migrating to CreateContentMappings (20090216081359)
+  [4;35;1mSQL (101.8ms)[0m   [0mCREATE TABLE `content_mappings` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `page_id` int(11), `section_id` int(11), `asset_type` int(11), `asset_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20090216081359')[0m
+Migrating to CreatePageTemplates (20090216083029)
+  [4;35;1mSQL (94.0ms)[0m   [0mCREATE TABLE `page_templates` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255), `file_name` varchar(255), `body` text, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20090216083029')[0m
+Migrating to CreateAssets (20090216083707)
+  [4;35;1mSQL (93.9ms)[0m   [0mCREATE TABLE `assets` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20090216083707')[0m
+Migrating to CreateTextBlocks (20090216083936)
+  [4;35;1mSQL (93.0ms)[0m   [0mCREATE TABLE `text_blocks` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255), `content` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20090216083936')[0m
+Migrating to AddPageTemplateToPage (20090217235630)
+  [4;35;1mSQL (133.9ms)[0m   [0mALTER TABLE `pages` ADD `page_template_id` int(11)[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20090217235630')[0m
+Migrating to AddPermalinkToPage (20090218000659)
+  [4;35;1mSQL (116.5ms)[0m   [0mALTER TABLE `pages` ADD `permalink` varchar(255)[0m
+  [4;36;1mSQL (1.1ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20090218000659')[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.5ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (2.2ms)[0m   [0;1mSHOW FIELDS FROM `assets`[0m
+  [4;35;1mSQL (18.0ms)[0m   [0mdescribe `assets`[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW KEYS FROM `assets`[0m
+  [4;35;1mSQL (3.6ms)[0m   [0mSHOW FIELDS FROM `content_mappings`[0m
+  [4;36;1mSQL (2.0ms)[0m   [0;1mdescribe `content_mappings`[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSHOW KEYS FROM `content_mappings`[0m
+  [4;36;1mSQL (2.9ms)[0m   [0;1mSHOW FIELDS FROM `page_templates`[0m
+  [4;35;1mSQL (2.6ms)[0m   [0mdescribe `page_templates`[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW KEYS FROM `page_templates`[0m
+  [4;35;1mSQL (3.1ms)[0m   [0mSHOW FIELDS FROM `pages`[0m
+  [4;36;1mSQL (2.6ms)[0m   [0;1mdescribe `pages`[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW KEYS FROM `pages`[0m
+  [4;36;1mSQL (2.9ms)[0m   [0;1mSHOW FIELDS FROM `sections`[0m
+  [4;35;1mSQL (1.7ms)[0m   [0mdescribe `sections`[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW KEYS FROM `sections`[0m
+  [4;35;1mSQL (2.4ms)[0m   [0mSHOW FIELDS FROM `text_blocks`[0m
+  [4;36;1mSQL (2.4ms)[0m   [0;1mdescribe `text_blocks`[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW KEYS FROM `text_blocks`[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSHOW FULL TABLES WHERE Table_type = 'BASE TABLE'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSHOW CREATE TABLE `assets`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSHOW CREATE TABLE `content_mappings`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSHOW CREATE TABLE `page_templates`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSHOW CREATE TABLE `pages`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSHOW CREATE TABLE `schema_migrations`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSHOW CREATE TABLE `sections`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSHOW CREATE TABLE `text_blocks`[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (55.9ms)[0m   [0mDROP DATABASE IF EXISTS `stockyard_test`[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mCREATE DATABASE `stockyard_test` DEFAULT CHARACTER SET `utf8`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET foreign_key_checks = 0[0m
+  [4;36;1mSQL (70.0ms)[0m   [0;1mCREATE TABLE `assets` (
+ `id` int(11) NOT NULL AUTO_INCREMENT,
+ `created_at` datetime DEFAULT NULL,
+ `updated_at` datetime DEFAULT NULL,
+ PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;[0m
+  [4;35;1mSQL (117.7ms)[0m   [0mCREATE TABLE `content_mappings` (
+ `id` int(11) NOT NULL AUTO_INCREMENT,
+ `page_id` int(11) DEFAULT NULL,
+ `section_id` int(11) DEFAULT NULL,
+ `asset_type` int(11) DEFAULT NULL,
+ `asset_id` int(11) DEFAULT NULL,
+ `created_at` datetime DEFAULT NULL,
+ `updated_at` datetime DEFAULT NULL,
+ PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;[0m
+  [4;36;1mSQL (99.4ms)[0m   [0;1mCREATE TABLE `page_templates` (
+ `id` int(11) NOT NULL AUTO_INCREMENT,
+ `title` varchar(255) DEFAULT NULL,
+ `file_name` varchar(255) DEFAULT NULL,
+ `body` text,
+ `created_at` datetime DEFAULT NULL,
+ `updated_at` datetime DEFAULT NULL,
+ PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;[0m
+  [4;35;1mSQL (139.0ms)[0m   [0mCREATE TABLE `pages` (
+ `id` int(11) NOT NULL AUTO_INCREMENT,
+ `title` varchar(255) DEFAULT NULL,
+ `file_name` varchar(255) DEFAULT NULL,
+ `position` int(11) DEFAULT NULL,
+ `parent_id` int(11) DEFAULT NULL,
+ `lft` int(11) DEFAULT NULL,
+ `rgt` int(11) DEFAULT NULL,
+ `created_at` datetime DEFAULT NULL,
+ `updated_at` datetime DEFAULT NULL,
+ `page_template_id` int(11) DEFAULT NULL,
+ `permalink` varchar(255) DEFAULT NULL,
+ PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;[0m
+  [4;36;1mSQL (116.6ms)[0m   [0;1mCREATE TABLE `schema_migrations` (
+ `version` varchar(255) NOT NULL,
+ UNIQUE KEY `unique_schema_migrations` (`version`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;[0m
+  [4;35;1mSQL (143.1ms)[0m   [0mCREATE TABLE `sections` (
+ `id` int(11) NOT NULL AUTO_INCREMENT,
+ `title` varchar(255) DEFAULT NULL,
+ `page_id` int(11) DEFAULT NULL,
+ `position` int(11) DEFAULT NULL,
+ `created_at` datetime DEFAULT NULL,
+ `updated_at` datetime DEFAULT NULL,
+ PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;[0m
+  [4;36;1mSQL (120.6ms)[0m   [0;1mCREATE TABLE `text_blocks` (
+ `id` int(11) NOT NULL AUTO_INCREMENT,
+ `title` varchar(255) DEFAULT NULL,
+ `content` varchar(255) DEFAULT NULL,
+ `created_at` datetime DEFAULT NULL,
+ `updated_at` datetime DEFAULT NULL,
+ PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;[0m
+  [4;35;1mSQL (1.3ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090216081020');[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20090216081102');[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090216081359');[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20090216083029');[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090216083707');[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20090216083936');[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090217235630');[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20090218000659');[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PagesController#home (for 127.0.0.1 at 2009-03-15 17:32:09) [GET]
+
+ActionController::UnknownAction (No action responded to home. Actions: create, destroy, edit, index, new, show, and update):
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/filters.rb:617:in `call_filters'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rescue.rb:154:in `perform_action_without_flash'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/flash.rb:141:in `perform_action'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:523:in `send'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:523:in `process_without_filters'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/filters.rb:606:in `sass_old_process'
+  haml (2.0.9) lib/sass/plugin/rails.rb:19:in `process'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:391:in `process'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:386:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/routing/route_set.rb:433:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/dispatcher.rb:65:in `dispatch'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/dispatcher.rb:88:in `_call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/dispatcher.rb:59:in `initialize'
+  /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/query_cache.rb:29:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/query_cache.rb:29:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+  /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/query_cache.rb:9:in `cache'
+  /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/query_cache.rb:28:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/params_parser.rb:15:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rewindable_input.rb:25:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/session/cookie_store.rb:93:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/failsafe.rb:11:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rack_ext/lock.rb:15:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rack_ext/lock.rb:15:in `synchronize'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rack_ext/lock.rb:15:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/dispatcher.rb:83:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/rails-2.3.0/lib/rails/rack/static.rb:27:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/rails-2.3.0/lib/rails/rack/log_tailer.rb:17:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/rails-2.3.0/lib/commands/server.rb:100
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateSections (20090216081020)
+Migrating to CreatePages (20090216081102)
+Migrating to CreateContentMappings (20090216081359)
+Migrating to CreatePageTemplates (20090216083029)
+Migrating to CreateAssets (20090216083707)
+Migrating to CreateTextBlocks (20090216083936)
+Migrating to AddPageTemplateToPage (20090217235630)
+Migrating to AddPermalinkToPage (20090218000659)
+Migrating to CreateHomepage (20090315233332)
+  [4;36;1mPage Columns (3.3ms)[0m   [0;1mSHOW FIELDS FROM `pages`[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mBEGIN[0m
+  [4;36;1mPage Exists (0.3ms)[0m   [0;1mSELECT `pages`.id FROM `pages` WHERE (permalink = 'home-page') LIMIT 1[0m
+  [4;35;1mPage Create (0.3ms)[0m   [0mINSERT INTO `pages` (`position`, `permalink`, `created_at`, `title`, `updated_at`, `lft`, `file_name`, `parent_id`, `rgt`, `page_template_id`) VALUES(NULL, 'home-page', '2009-03-15 23:35:02', 'Home Page', '2009-03-15 23:35:02', NULL, NULL, NULL, NULL, NULL)[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mCOMMIT[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090315233332')[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (1.8ms)[0m   [0mSHOW FIELDS FROM `assets`[0m
+  [4;36;1mSQL (1.7ms)[0m   [0;1mdescribe `assets`[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSHOW KEYS FROM `assets`[0m
+  [4;36;1mSQL (2.5ms)[0m   [0;1mSHOW FIELDS FROM `content_mappings`[0m
+  [4;35;1mSQL (1.7ms)[0m   [0mdescribe `content_mappings`[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW KEYS FROM `content_mappings`[0m
+  [4;35;1mSQL (2.2ms)[0m   [0mSHOW FIELDS FROM `page_templates`[0m
+  [4;36;1mSQL (2.6ms)[0m   [0;1mdescribe `page_templates`[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSHOW KEYS FROM `page_templates`[0m
+  [4;36;1mSQL (2.8ms)[0m   [0;1mSHOW FIELDS FROM `pages`[0m
+  [4;35;1mSQL (2.8ms)[0m   [0mdescribe `pages`[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW KEYS FROM `pages`[0m
+  [4;35;1mSQL (2.1ms)[0m   [0mSHOW FIELDS FROM `sections`[0m
+  [4;36;1mSQL (1.8ms)[0m   [0;1mdescribe `sections`[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSHOW KEYS FROM `sections`[0m
+  [4;36;1mSQL (2.2ms)[0m   [0;1mSHOW FIELDS FROM `text_blocks`[0m
+  [4;35;1mSQL (2.4ms)[0m   [0mdescribe `text_blocks`[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW KEYS FROM `text_blocks`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PagesController#home (for 127.0.0.1 at 2009-03-15 17:35:06) [GET]
+
+ActionController::UnknownAction (No action responded to home. Actions: create, destroy, edit, index, new, show, and update):
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/filters.rb:617:in `call_filters'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rescue.rb:154:in `perform_action_without_flash'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/flash.rb:141:in `perform_action'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:523:in `send'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:523:in `process_without_filters'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/filters.rb:606:in `sass_old_process'
+  haml (2.0.9) lib/sass/plugin/rails.rb:19:in `process'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:391:in `process'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:386:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/routing/route_set.rb:433:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/dispatcher.rb:65:in `dispatch'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/dispatcher.rb:88:in `_call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/dispatcher.rb:59:in `initialize'
+  /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/query_cache.rb:29:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/query_cache.rb:29:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+  /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/query_cache.rb:9:in `cache'
+  /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/query_cache.rb:28:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/params_parser.rb:15:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rewindable_input.rb:25:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/session/cookie_store.rb:93:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/failsafe.rb:11:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rack_ext/lock.rb:15:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rack_ext/lock.rb:15:in `synchronize'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rack_ext/lock.rb:15:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/dispatcher.rb:83:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/rails-2.3.0/lib/rails/rack/static.rb:27:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/rails-2.3.0/lib/rails/rack/log_tailer.rb:17:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/rails-2.3.0/lib/commands/server.rb:100
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PagesController#home (for 127.0.0.1 at 2009-03-15 17:35:26) [GET]
+
+ActionController::UnknownAction (No action responded to home. Actions: create, destroy, edit, index, new, show, and update):
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/filters.rb:617:in `call_filters'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rescue.rb:154:in `perform_action_without_flash'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/flash.rb:141:in `perform_action'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:523:in `send'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:523:in `process_without_filters'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/filters.rb:606:in `sass_old_process'
+  haml (2.0.9) lib/sass/plugin/rails.rb:19:in `process'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:391:in `process'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:386:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/routing/route_set.rb:433:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/dispatcher.rb:65:in `dispatch'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/dispatcher.rb:88:in `_call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/dispatcher.rb:59:in `initialize'
+  /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/query_cache.rb:29:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/query_cache.rb:29:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+  /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/query_cache.rb:9:in `cache'
+  /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/query_cache.rb:28:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/params_parser.rb:15:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rewindable_input.rb:25:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/session/cookie_store.rb:93:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/failsafe.rb:11:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rack_ext/lock.rb:15:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rack_ext/lock.rb:15:in `synchronize'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rack_ext/lock.rb:15:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/dispatcher.rb:83:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/rails-2.3.0/lib/rails/rack/static.rb:27:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/rails-2.3.0/lib/rails/rack/log_tailer.rb:17:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/rails-2.3.0/lib/commands/server.rb:100
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PagesController#index (for 127.0.0.1 at 2009-03-15 17:35:32) [GET]
+  [4;36;1mPage Load (0.5ms)[0m   [0;1mSELECT * FROM `pages` [0m
+Rendering template within layouts/application
+Rendering pages/index
+  [4;35;1mPage Columns (3.4ms)[0m   [0mSHOW FIELDS FROM `pages`[0m
+Completed in 98ms (View: 67, DB: 4) | 200 OK [http://localhost/pages]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PagesController#edit (for 127.0.0.1 at 2009-03-15 17:35:35) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mPage Columns (2.4ms)[0m   [0;1mSHOW FIELDS FROM `pages`[0m
+  [4;35;1mPage Load (0.3ms)[0m   [0mSELECT * FROM `pages` WHERE (`pages`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering pages/edit
+Completed in 71ms (View: 42, DB: 3) | 200 OK [http://localhost/pages/1/edit]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PagesController#edit (for 127.0.0.1 at 2009-03-15 17:36:22) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mPage Columns (2.5ms)[0m   [0;1mSHOW FIELDS FROM `pages`[0m
+  [4;35;1mPage Load (0.4ms)[0m   [0mSELECT * FROM `pages` WHERE (`pages`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering pages/edit
+Completed in 88ms (View: 57, DB: 3) | 200 OK [http://localhost/pages/1/edit]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PagesController#update (for 127.0.0.1 at 2009-03-15 17:36:27) [PUT]
+  Parameters: {"commit"=>"Update", "authenticity_token"=>"yHv4ZrBxYALzx5xm2XvxAl3kmoIN8ISgIom/NOBoBHU=", "id"=>"1", "page"=>{"permalink"=>"home", "title"=>"Home Page", "file_name"=>"home", "parent_id"=>""}}
+  [4;36;1mPage Columns (2.5ms)[0m   [0;1mSHOW FIELDS FROM `pages`[0m
+  [4;35;1mPage Load (0.3ms)[0m   [0mSELECT * FROM `pages` WHERE (`pages`.`id` = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mPage Exists (0.4ms)[0m   [0mSELECT `pages`.id FROM `pages` WHERE (permalink = 'home' and id != 1) LIMIT 1[0m
+  [4;36;1mPage Update (0.3ms)[0m   [0;1mUPDATE `pages` SET `updated_at` = '2009-03-15 23:36:27', `file_name` = 'home' WHERE `id` = 1[0m
+  [4;35;1mSQL (1.1ms)[0m   [0mCOMMIT[0m
+Redirected to #<Page:0x2367764>
+Completed in 151ms (DB: 5) | 302 Found [http://localhost/pages/1]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PagesController#show (for 127.0.0.1 at 2009-03-15 17:36:27) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mPage Columns (2.7ms)[0m   [0;1mSHOW FIELDS FROM `pages`[0m
+  [4;35;1mPage Load (0.4ms)[0m   [0mSELECT * FROM `pages` WHERE (`pages`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering pages/show
+Completed in 68ms (View: 37, DB: 3) | 200 OK [http://localhost/pages/1]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PagesController#home (for 127.0.0.1 at 2009-03-15 17:36:32) [GET]
+
+ActionController::UnknownAction (No action responded to home. Actions: create, destroy, edit, index, new, show, and update):
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/filters.rb:617:in `call_filters'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rescue.rb:154:in `perform_action_without_flash'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/flash.rb:141:in `perform_action'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:523:in `send'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:523:in `process_without_filters'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/filters.rb:606:in `sass_old_process'
+  haml (2.0.9) lib/sass/plugin/rails.rb:19:in `process'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:391:in `process'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:386:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/routing/route_set.rb:433:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/dispatcher.rb:65:in `dispatch'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/dispatcher.rb:88:in `_call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/dispatcher.rb:59:in `initialize'
+  /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/query_cache.rb:29:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/query_cache.rb:29:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+  /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/query_cache.rb:9:in `cache'
+  /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/query_cache.rb:28:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/params_parser.rb:15:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rewindable_input.rb:25:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/session/cookie_store.rb:93:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/failsafe.rb:11:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rack_ext/lock.rb:15:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rack_ext/lock.rb:15:in `synchronize'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rack_ext/lock.rb:15:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/dispatcher.rb:83:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/rails-2.3.0/lib/rails/rack/static.rb:27:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/rails-2.3.0/lib/rails/rack/log_tailer.rb:17:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/rails-2.3.0/lib/commands/server.rb:100
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PagesController#home (for 127.0.0.1 at 2009-03-15 17:37:13) [GET]
+
+ActionController::UnknownAction (No action responded to home. Actions: create, destroy, edit, index, new, show, and update):
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/filters.rb:617:in `call_filters'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rescue.rb:154:in `perform_action_without_flash'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/flash.rb:141:in `perform_action'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:523:in `send'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:523:in `process_without_filters'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/filters.rb:606:in `sass_old_process'
+  haml (2.0.9) lib/sass/plugin/rails.rb:19:in `process'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:391:in `process'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:386:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/routing/route_set.rb:433:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/dispatcher.rb:65:in `dispatch'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/dispatcher.rb:88:in `_call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/dispatcher.rb:59:in `initialize'
+  /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/query_cache.rb:29:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/query_cache.rb:29:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+  /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/query_cache.rb:9:in `cache'
+  /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/query_cache.rb:28:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/params_parser.rb:15:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rewindable_input.rb:25:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/session/cookie_store.rb:93:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/failsafe.rb:11:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rack_ext/lock.rb:15:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rack_ext/lock.rb:15:in `synchronize'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rack_ext/lock.rb:15:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/dispatcher.rb:83:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/rails-2.3.0/lib/rails/rack/static.rb:27:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/rails-2.3.0/lib/rails/rack/log_tailer.rb:17:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/rails-2.3.0/lib/commands/server.rb:100
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PagesController#show (for 127.0.0.1 at 2009-03-15 17:37:42) [GET]
+  Parameters: {"id"=>1}
+  [4;36;1mPage Columns (2.2ms)[0m   [0;1mSHOW FIELDS FROM `pages`[0m
+  [4;35;1mPage Load (0.4ms)[0m   [0mSELECT * FROM `pages` WHERE (`pages`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering pages/show
+Completed in 88ms (View: 57, DB: 3) | 200 OK [http://localhost/]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PagesController#show (for 127.0.0.1 at 2009-03-15 17:38:02) [GET]
+  Parameters: {"id"=>1}
+  [4;36;1mPage Columns (3.3ms)[0m   [0;1mSHOW FIELDS FROM `pages`[0m
+  [4;35;1mPage Load (0.4ms)[0m   [0mSELECT * FROM `pages` WHERE (`pages`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering pages/show
+Completed in 161ms (View: 53, DB: 4) | 200 OK [http://localhost/]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PagesController#show (for 127.0.0.1 at 2009-03-15 17:38:16) [GET]
+  Parameters: {"id"=>1}
+  [4;36;1mPage Columns (2.0ms)[0m   [0;1mSHOW FIELDS FROM `pages`[0m
+  [4;35;1mPage Load (0.8ms)[0m   [0mSELECT * FROM `pages` WHERE (`pages`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering pages/show
+Completed in 100ms (View: 45, DB: 3) | 200 OK [http://localhost/]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PagesController#show (for 127.0.0.1 at 2009-03-15 17:38:23) [GET]
+  Parameters: {"id"=>1}
+  [4;36;1mPage Columns (2.3ms)[0m   [0;1mSHOW FIELDS FROM `pages`[0m
+  [4;35;1mPage Load (0.4ms)[0m   [0mSELECT * FROM `pages` WHERE (`pages`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering pages/show
+Completed in 70ms (View: 38, DB: 3) | 200 OK [http://localhost/]
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW TABLES[0m
+  [4;35;1mSQL (112.5ms)[0m   [0mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [4;36;1mSQL (189.4ms)[0m   [0;1mCREATE UNIQUE INDEX `unique_schema_migrations` ON `schema_migrations` (`version`)[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.5ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+Migrating to CreateSections (20090216081020)
+  [4;35;1mSQL (86.5ms)[0m   [0mCREATE TABLE `sections` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255), `page_id` int(11), `position` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20090216081020')[0m
+Migrating to CreatePages (20090216081102)
+  [4;35;1mSQL (108.9ms)[0m   [0mCREATE TABLE `pages` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255), `file_name` varchar(255), `position` int(11), `parent_id` int(11), `lft` int(11), `rgt` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20090216081102')[0m
+Migrating to CreateContentMappings (20090216081359)
+  [4;35;1mSQL (108.1ms)[0m   [0mCREATE TABLE `content_mappings` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `page_id` int(11), `section_id` int(11), `asset_type` varchar(255), `asset_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20090216081359')[0m
+Migrating to CreatePageTemplates (20090216083029)
+  [4;35;1mSQL (106.1ms)[0m   [0mCREATE TABLE `page_templates` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255), `file_name` varchar(255), `body` text, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20090216083029')[0m
+Migrating to CreateAssets (20090216083707)
+  [4;35;1mSQL (104.2ms)[0m   [0mCREATE TABLE `assets` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20090216083707')[0m
+Migrating to CreateTextBlocks (20090216083936)
+  [4;35;1mSQL (117.3ms)[0m   [0mCREATE TABLE `text_blocks` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `title` varchar(255), `content` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20090216083936')[0m
+Migrating to AddPageTemplateToPage (20090217235630)
+  [4;35;1mSQL (141.4ms)[0m   [0mALTER TABLE `pages` ADD `page_template_id` int(11)[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20090217235630')[0m
+Migrating to AddPermalinkToPage (20090218000659)
+  [4;35;1mSQL (152.9ms)[0m   [0mALTER TABLE `pages` ADD `permalink` varchar(255)[0m
+  [4;36;1mSQL (2.2ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20090218000659')[0m
+Migrating to CreateHomepage (20090315233332)
+  [4;35;1mPage Columns (3.2ms)[0m   [0mSHOW FIELDS FROM `pages`[0m
+  [4;36;1mSQL (1.2ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mPage Exists (0.4ms)[0m   [0mSELECT `pages`.id FROM `pages` WHERE (permalink = 'home-page') LIMIT 1[0m
+  [4;36;1mPage Create (0.3ms)[0m   [0;1mINSERT INTO `pages` (`position`, `permalink`, `created_at`, `title`, `updated_at`, `lft`, `file_name`, `parent_id`, `rgt`, `page_template_id`) VALUES(NULL, 'home-page', '2009-03-16 00:33:14', 'Home Page', '2009-03-16 00:33:14', NULL, NULL, NULL, NULL, NULL)[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mCOMMIT[0m
+  [4;36;1mSQL (1.0ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20090315233332')[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW TABLES[0m
+  [4;36;1mSQL (2.4ms)[0m   [0;1mSHOW FIELDS FROM `assets`[0m
+  [4;35;1mSQL (2.3ms)[0m   [0mdescribe `assets`[0m
+  [4;36;1mSQL (0.8ms)[0m   [0;1mSHOW KEYS FROM `assets`[0m
+  [4;35;1mSQL (3.4ms)[0m   [0mSHOW FIELDS FROM `content_mappings`[0m
+  [4;36;1mSQL (2.1ms)[0m   [0;1mdescribe `content_mappings`[0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSHOW KEYS FROM `content_mappings`[0m
+  [4;36;1mSQL (1.8ms)[0m   [0;1mSHOW FIELDS FROM `page_templates`[0m
+  [4;35;1mSQL (2.3ms)[0m   [0mdescribe `page_templates`[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mSHOW KEYS FROM `page_templates`[0m
+  [4;35;1mSQL (2.2ms)[0m   [0mSHOW FIELDS FROM `pages`[0m
+  [4;36;1mSQL (1.8ms)[0m   [0;1mdescribe `pages`[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSHOW KEYS FROM `pages`[0m
+  [4;36;1mSQL (2.5ms)[0m   [0;1mSHOW FIELDS FROM `sections`[0m
+  [4;35;1mSQL (2.5ms)[0m   [0mdescribe `sections`[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSHOW KEYS FROM `sections`[0m
+  [4;35;1mSQL (2.7ms)[0m   [0mSHOW FIELDS FROM `text_blocks`[0m
+  [4;36;1mSQL (1.6ms)[0m   [0;1mdescribe `text_blocks`[0m
+  [4;35;1mSQL (0.3ms)[0m   [0mSHOW KEYS FROM `text_blocks`[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mSHOW FULL TABLES WHERE Table_type = 'BASE TABLE'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSHOW CREATE TABLE `assets`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSHOW CREATE TABLE `content_mappings`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSHOW CREATE TABLE `page_templates`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSHOW CREATE TABLE `pages`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSHOW CREATE TABLE `schema_migrations`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSHOW CREATE TABLE `sections`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSHOW CREATE TABLE `text_blocks`[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mDROP DATABASE IF EXISTS `stockyard_test`[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mCREATE DATABASE `stockyard_test` DEFAULT CHARACTER SET `utf8`[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET foreign_key_checks = 0[0m
+  [4;36;1mSQL (91.5ms)[0m   [0;1mCREATE TABLE `assets` (
+ `id` int(11) NOT NULL AUTO_INCREMENT,
+ `created_at` datetime DEFAULT NULL,
+ `updated_at` datetime DEFAULT NULL,
+ PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;[0m
+  [4;35;1mSQL (173.0ms)[0m   [0mCREATE TABLE `content_mappings` (
+ `id` int(11) NOT NULL AUTO_INCREMENT,
+ `page_id` int(11) DEFAULT NULL,
+ `section_id` int(11) DEFAULT NULL,
+ `asset_type` varchar(255) DEFAULT NULL,
+ `asset_id` int(11) DEFAULT NULL,
+ `created_at` datetime DEFAULT NULL,
+ `updated_at` datetime DEFAULT NULL,
+ PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;[0m
+  [4;36;1mSQL (120.7ms)[0m   [0;1mCREATE TABLE `page_templates` (
+ `id` int(11) NOT NULL AUTO_INCREMENT,
+ `title` varchar(255) DEFAULT NULL,
+ `file_name` varchar(255) DEFAULT NULL,
+ `body` text,
+ `created_at` datetime DEFAULT NULL,
+ `updated_at` datetime DEFAULT NULL,
+ PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;[0m
+  [4;35;1mSQL (122.5ms)[0m   [0mCREATE TABLE `pages` (
+ `id` int(11) NOT NULL AUTO_INCREMENT,
+ `title` varchar(255) DEFAULT NULL,
+ `file_name` varchar(255) DEFAULT NULL,
+ `position` int(11) DEFAULT NULL,
+ `parent_id` int(11) DEFAULT NULL,
+ `lft` int(11) DEFAULT NULL,
+ `rgt` int(11) DEFAULT NULL,
+ `created_at` datetime DEFAULT NULL,
+ `updated_at` datetime DEFAULT NULL,
+ `page_template_id` int(11) DEFAULT NULL,
+ `permalink` varchar(255) DEFAULT NULL,
+ PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;[0m
+  [4;36;1mSQL (133.1ms)[0m   [0;1mCREATE TABLE `schema_migrations` (
+ `version` varchar(255) NOT NULL,
+ UNIQUE KEY `unique_schema_migrations` (`version`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;[0m
+  [4;35;1mSQL (109.9ms)[0m   [0mCREATE TABLE `sections` (
+ `id` int(11) NOT NULL AUTO_INCREMENT,
+ `title` varchar(255) DEFAULT NULL,
+ `page_id` int(11) DEFAULT NULL,
+ `position` int(11) DEFAULT NULL,
+ `created_at` datetime DEFAULT NULL,
+ `updated_at` datetime DEFAULT NULL,
+ PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;[0m
+  [4;36;1mSQL (121.4ms)[0m   [0;1mCREATE TABLE `text_blocks` (
+ `id` int(11) NOT NULL AUTO_INCREMENT,
+ `title` varchar(255) DEFAULT NULL,
+ `content` varchar(255) DEFAULT NULL,
+ `created_at` datetime DEFAULT NULL,
+ `updated_at` datetime DEFAULT NULL,
+ PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;[0m
+  [4;35;1mSQL (1.3ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090216081020');[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20090216081102');[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090216081359');[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20090216083029');[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090216083707');[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20090216083936');[0m
+  [4;35;1mSQL (0.8ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090217235630');[0m
+  [4;36;1mSQL (0.9ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20090218000659');[0m
+  [4;35;1mSQL (0.9ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090315233332');[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PagesController#show (for 127.0.0.1 at 2009-03-15 18:36:57) [GET]
+  Parameters: {"id"=>1}
+  [4;36;1mPage Columns (3.7ms)[0m   [0;1mSHOW FIELDS FROM `pages`[0m
+  [4;35;1mPage Load (0.4ms)[0m   [0mSELECT * FROM `pages` WHERE (`pages`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering pages/show
+Completed in 74ms (View: 40, DB: 4) | 200 OK [http://localhost/]

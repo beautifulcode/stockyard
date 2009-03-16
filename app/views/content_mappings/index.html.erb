@@ -1,0 +1,26 @@
+<h1>Listing content_mappings</h1>
+
+<table>
+  <tr>
+    <th>Page</th>
+    <th>Section</th>
+    <th>Asset type</th>
+    <th>Asset</th>
+  </tr>
+
+<% for content_mapping in @content_mappings %>
+  <tr>
+    <td><%=h content_mapping.page_id %></td>
+    <td><%=h content_mapping.section_id %></td>
+    <td><%=h content_mapping.asset_type %></td>
+    <td><%=h content_mapping.asset_id %></td>
+    <td><%= link_to 'Show', content_mapping %></td>
+    <td><%= link_to 'Edit', edit_content_mapping_path(content_mapping) %></td>
+    <td><%= link_to 'Destroy', content_mapping, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New content_mapping', new_content_mapping_path %>

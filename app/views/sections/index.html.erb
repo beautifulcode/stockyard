@@ -1,0 +1,24 @@
+<h1>Listing sections</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Page</th>
+    <th>Position</th>
+  </tr>
+
+<% for section in @sections %>
+  <tr>
+    <td><%=h section.title %></td>
+    <td><%=h section.page_id %></td>
+    <td><%=h section.position %></td>
+    <td><%= link_to 'Show', section %></td>
+    <td><%= link_to 'Edit', edit_section_path(section) %></td>
+    <td><%= link_to 'Destroy', section, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New section', new_section_path %>

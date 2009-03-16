@@ -1,0 +1,24 @@
+<h1>Listing page_templates</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>File name</th>
+    <th>Body</th>
+  </tr>
+
+<% for page_template in @page_templates %>
+  <tr>
+    <td><%=h page_template.title %></td>
+    <td><%=h page_template.file_name %></td>
+    <td><%=h page_template.body %></td>
+    <td><%= link_to 'Show', page_template %></td>
+    <td><%= link_to 'Edit', edit_page_template_path(page_template) %></td>
+    <td><%= link_to 'Destroy', page_template, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New page_template', new_page_template_path %>

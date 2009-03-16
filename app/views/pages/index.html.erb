@@ -1,0 +1,30 @@
+<h1>Listing pages</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>File name</th>
+    <th>Position</th>
+    <th>Parent</th>
+    <th>Lft</th>
+    <th>Rgt</th>
+  </tr>
+
+<% for page in @pages %>
+  <tr>
+    <td><%=h page.title %></td>
+    <td><%=h page.file_name %></td>
+    <td><%=h page.position %></td>
+    <td><%=h page.parent_id %></td>
+    <td><%=h page.lft %></td>
+    <td><%=h page.rgt %></td>
+    <td><%= link_to 'Show', page %></td>
+    <td><%= link_to 'Edit', edit_page_path(page) %></td>
+    <td><%= link_to 'Destroy', page, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New page', new_page_path %>

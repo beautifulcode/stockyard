@@ -1,0 +1,18 @@
+<p>
+  <b>Title:</b>
+  <%=h @page_template.title %>
+</p>
+
+<p>
+  <b>File name:</b>
+  <%=h @page_template.file_name %>
+</p>
+
+<p>
+  <b>Body:</b>
+  <%=h @page_template.body %>
+</p>
+
+
+<%= link_to 'Edit', edit_page_template_path(@page_template) %> |
+<%= link_to 'Back', page_templates_path %>

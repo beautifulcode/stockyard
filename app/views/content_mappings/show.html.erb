@@ -1,0 +1,23 @@
+<p>
+  <b>Page:</b>
+  <%=h @content_mapping.page_id %>
+</p>
+
+<p>
+  <b>Section:</b>
+  <%=h @content_mapping.section_id %>
+</p>
+
+<p>
+  <b>Asset type:</b>
+  <%=h @content_mapping.asset_type %>
+</p>
+
+<p>
+  <b>Asset:</b>
+  <%=h @content_mapping.asset_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_content_mapping_path(@content_mapping) %> |
+<%= link_to 'Back', content_mappings_path %>

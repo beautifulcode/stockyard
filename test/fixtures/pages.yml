@@ -1,0 +1,26 @@
+
+
+home:
+  id: 1
+  title: Home
+  file_name: home
+  parent_id: 0
+  page_template_id: 1
+  permalink: '/'
+  
+about:
+  id: 2
+  title: About
+  file_name: about
+  parent_id: 1
+  page_template_id: 1
+  permalink: '/internal'
+  
+nested:
+  id: 3
+  title: Nested
+  file_name: nested
+  parent_id: 2
+  page_template_id: 1
+  permalink: '/internal/nested'
+  

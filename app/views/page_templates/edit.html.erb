@@ -1,0 +1,24 @@
+<h1>Editing page_template</h1>
+
+<% form_for(@page_template) do |f| %>
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </p>
+  <p>
+    <%= f.label :file_name %><br />
+    <%= f.text_field :file_name %>
+  </p>
+  <p>
+    <%= f.label :body %><br />
+    <%= f.text_area :body %>
+  </p>
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @page_template %> |
+<%= link_to 'Back', page_templates_path %>

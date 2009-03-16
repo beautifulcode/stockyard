@@ -1,0 +1,2 @@
+module ContentMappingsHelper
+end

@@ -1,0 +1,11 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  title: Home
+  file_name: home
+  body: MyText
+
+two:
+  title: Internal
+  file_name: default
+  body: MyText
