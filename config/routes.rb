@@ -1,15 +1,14 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :page_templates
 
   map.resources :content_mappings
-
-  map.resources :pages
-
-  map.resources :pages
-
+  map.resources :pages, :has_many => :assets
+  map.resources :page_templates
   map.resources :sections
+  map.resources :assets
+  
+  # Asset Types
+  map.resources :text_blocks
 
-  map.resources :pages
 
   # The priority is based upon order of creation: first created -> highest priority.
 

@@ -1,0 +1,339 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>Action Controller: Exception caught</title>
+  <style>
+    body { background-color: #fff; color: #333; }
+
+    body, p, ol, ul, td {
+      font-family: verdana, arial, helvetica, sans-serif;
+      font-size:   13px;
+      line-height: 18px;
+    }
+
+    pre {
+      background-color: #eee;
+      padding: 10px;
+      font-size: 11px;
+    }
+
+    a { color: #000; }
+    a:visited { color: #666; }
+    a:hover { color: #fff; background-color:#000; }
+  </style>
+</head>
+<body>
+
+<h1>
+  ActionView::MissingTemplate in
+  Pages#show
+</h1>
+
+<p>
+  Showing <i>app/views/pages/show.html.erb</i> where line <b>#9</b> raised:
+  <pre><code>Missing template text_blocks/_text_block.erb in view path app/views</code></pre>
+</p>
+
+<p>Extracted source (around line <b>#9</b>):
+<pre><code>6: &lt;% @page.sections.each do |section| %&gt;
+7:   &lt;div class=&quot;section&quot;&gt;
+8:     &lt;% section.assets.each do |asset| %&gt;
+9:       &lt;%= render :partial =&gt; asset %&gt;
+10:     &lt;% end.else do %&gt;
+11:     
+12:     &lt;% end %&gt;
+</code></pre></p>
+
+<p></p>
+
+
+
+
+<p><code>RAILS_ROOT: /Users/aaron/projects/stockyard</code></p>
+
+<div id="traces">
+  
+    
+    <a href="#" onclick="document.getElementById('Framework-Trace').style.display='none';document.getElementById('Full-Trace').style.display='none';document.getElementById('Application-Trace').style.display='block';; return false;">Application Trace</a> |
+  
+    
+    <a href="#" onclick="document.getElementById('Application-Trace').style.display='none';document.getElementById('Full-Trace').style.display='none';document.getElementById('Framework-Trace').style.display='block';; return false;">Framework Trace</a> |
+  
+    
+    <a href="#" onclick="document.getElementById('Application-Trace').style.display='none';document.getElementById('Framework-Trace').style.display='none';document.getElementById('Full-Trace').style.display='block';; return false;">Full Trace</a> 
+  
+
+  
+    <div id="Application-Trace" style="display: block;">
+      <pre><code>/Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/template.rb:221:in `find_full_path'
+/Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/template.rb:102:in `initialize'
+/Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/paths.rb:54:in `new'
+/Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/paths.rb:54:in `find_template'
+/Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/partials.rb:231:in `_unmemoized__pick_partial_template'
+/Users/aaron/.gem/ruby/1.8/gems/activesupport-2.3.0/lib/active_support/memoizable.rb:84:in `_pick_partial_template'
+/Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/partials.rb:184:in `render_partial'
+/Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/partials.rb:197:in `render_partial'
+/Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/base.rb:249:in `render_without_haml'
+/usr/local/lib/ruby/gems/1.8/gems/haml-2.0.9/lib/haml/helpers/action_view_mods.rb:14:in `render'
+/Users/aaron/projects/stockyard/app/views/pages/show.html.erb:9:in `_run_erb_app47views47pages47show46html46erb'
+/Users/aaron/projects/stockyard/app/views/pages/show.html.erb:8:in `each'
+/Users/aaron/projects/stockyard/app/views/pages/show.html.erb:8:in `_run_erb_app47views47pages47show46html46erb'
+/Users/aaron/projects/stockyard/app/views/pages/show.html.erb:6:in `_run_erb_app47views47pages47show46html46erb'
+/Users/aaron/projects/stockyard/app/controllers/pages_controller.rb:18:in `show'</code></pre>
+    </div>
+  
+    <div id="Framework-Trace" style="display: none;">
+      <pre><code>/Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/template.rb:221:in `find_full_path'
+/Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/template.rb:102:in `initialize'
+/Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/paths.rb:54:in `new'
+/Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/paths.rb:54:in `find_template'
+/Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/partials.rb:231:in `_unmemoized__pick_partial_template'
+/Users/aaron/.gem/ruby/1.8/gems/activesupport-2.3.0/lib/active_support/memoizable.rb:84:in `_pick_partial_template'
+/Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/partials.rb:184:in `render_partial'
+/Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/partials.rb:197:in `render_partial'
+/Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/base.rb:249:in `render_without_haml'
+/usr/local/lib/ruby/gems/1.8/gems/haml-2.0.9/lib/haml/helpers/action_view_mods.rb:14:in `render'
+/Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/associations/association_collection.rb:363:in `method_missing_without_paginate'
+/Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/associations/association_proxy.rb:219:in `method_missing'
+/Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/associations/association_proxy.rb:219:in `each'
+/Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/associations/association_proxy.rb:219:in `send'
+/Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/associations/association_proxy.rb:219:in `method_missing'
+/Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/associations/association_collection.rb:363:in `method_missing_without_paginate'
+/usr/local/lib/ruby/gems/1.8/gems/mislav-will_paginate-2.2.3/lib/will_paginate/finder.rb:164:in `method_missing'
+/Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/renderable.rb:35:in `send'
+/Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/renderable.rb:35:in `render_without_template_tracking'
+/Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/test_case.rb:20:in `render'
+/Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/template.rb:182:in `render_template'
+/Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/base.rb:247:in `render_without_haml'
+/usr/local/lib/ruby/gems/1.8/gems/haml-2.0.9/lib/haml/helpers/action_view_mods.rb:14:in `render'
+/Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/base.rb:318:in `_render_with_layout'
+/Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/base.rb:244:in `render_without_haml'
+/usr/local/lib/ruby/gems/1.8/gems/haml-2.0.9/lib/haml/helpers/action_view_mods.rb:14:in `render'
+/Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:1180:in `render_for_file'
+/Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:912:in `render_without_benchmark'
+/Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/benchmarking.rb:51:in `render'
+/Users/aaron/.gem/ruby/1.8/gems/activesupport-2.3.0/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/usr/local/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/Users/aaron/.gem/ruby/1.8/gems/activesupport-2.3.0/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/benchmarking.rb:51:in `render'
+/Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/mime_responds.rb:135:in `send'
+/Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/mime_responds.rb:135:in `custom'
+/Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/mime_responds.rb:179:in `call'
+/Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/mime_responds.rb:179:in `respond'
+/Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/mime_responds.rb:173:in `each'
+/Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/mime_responds.rb:173:in `respond'
+/Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/mime_responds.rb:107:in `respond_to'
+/Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:1261:in `send'
+/Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:1261:in `perform_action_without_filters'
+/Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/filters.rb:617:in `call_filters'
+/Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+/Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/Users/aaron/.gem/ruby/1.8/gems/activesupport-2.3.0/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/usr/local/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/Users/aaron/.gem/ruby/1.8/gems/activesupport-2.3.0/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rescue.rb:154:in `perform_action_without_flash'
+/Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/flash.rb:141:in `perform_action'
+/Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:523:in `send'
+/Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:523:in `process_without_filters'
+/Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/filters.rb:606:in `sass_old_process'
+/usr/local/lib/ruby/gems/1.8/gems/haml-2.0.9/lib/sass/plugin/rails.rb:19:in `process'
+/Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:391:in `process'
+/Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:386:in `call'
+/Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/routing/route_set.rb:433:in `call'
+/Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/dispatcher.rb:65:in `dispatch'
+/Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/dispatcher.rb:88:in `_call'
+/Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/dispatcher.rb:59:in `initialize'
+/Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/query_cache.rb:29:in `call'
+/Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/query_cache.rb:29:in `call'
+/Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+/Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/query_cache.rb:9:in `cache'
+/Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/query_cache.rb:28:in `call'
+/usr/local/lib/ruby/gems/1.8/gems/rack-0.9.1/lib/rack/head.rb:9:in `call'
+/usr/local/lib/ruby/gems/1.8/gems/rack-0.9.1/lib/rack/methodoverride.rb:24:in `call'
+/Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/params_parser.rb:15:in `call'
+/Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rewindable_input.rb:25:in `call'
+/Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/session/cookie_store.rb:93:in `call'
+/Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/failsafe.rb:11:in `call'
+/Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rack_ext/lock.rb:15:in `call'
+/Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rack_ext/lock.rb:15:in `synchronize'
+/Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rack_ext/lock.rb:15:in `call'
+/Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/dispatcher.rb:83:in `call'
+/usr/local/lib/ruby/gems/1.8/gems/rack-0.9.1/lib/rack/lint.rb:45:in `_call'
+/usr/local/lib/ruby/gems/1.8/gems/rack-0.9.1/lib/rack/lint.rb:33:in `call'
+/Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/integration.rb:320:in `process'
+/Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/integration.rb:196:in `get'
+/Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/integration.rb:498:in `__send__'
+/Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/integration.rb:498:in `get'
+/usr/local/lib/ruby/gems/1.8/gems/webrat-0.4.2/lib/webrat/rails.rb:70:in `send'
+/usr/local/lib/ruby/gems/1.8/gems/webrat-0.4.2/lib/webrat/rails.rb:70:in `do_request'
+/usr/local/lib/ruby/gems/1.8/gems/webrat-0.4.2/lib/webrat/rails.rb:35:in `get'
+/usr/local/lib/ruby/gems/1.8/gems/webrat-0.4.2/lib/webrat/core/session.rb:104:in `send'
+/usr/local/lib/ruby/gems/1.8/gems/webrat-0.4.2/lib/webrat/core/session.rb:104:in `request_page'
+/usr/local/lib/ruby/gems/1.8/gems/webrat-0.4.2/lib/webrat/core/session.rb:205:in `visit'
+/usr/local/lib/ruby/gems/1.8/gems/thoughtbot-shoulda-2.9.1/lib/shoulda/context.rb:271:in `call'
+/usr/local/lib/ruby/gems/1.8/gems/thoughtbot-shoulda-2.9.1/lib/shoulda/context.rb:271:in `run_current_setup_blocks'
+/usr/local/lib/ruby/gems/1.8/gems/thoughtbot-shoulda-2.9.1/lib/shoulda/context.rb:270:in `each'
+/usr/local/lib/ruby/gems/1.8/gems/thoughtbot-shoulda-2.9.1/lib/shoulda/context.rb:270:in `run_current_setup_blocks'
+/usr/local/lib/ruby/gems/1.8/gems/thoughtbot-shoulda-2.9.1/lib/shoulda/context.rb:252:in `test: When visiting the homepage as a public user, should see Text Blocks, with the classes 'text_block' and 'asset'. '
+/Users/aaron/.gem/ruby/1.8/gems/activesupport-2.3.0/lib/active_support/testing/setup_and_teardown.rb:57:in `__send__'
+/Users/aaron/.gem/ruby/1.8/gems/activesupport-2.3.0/lib/active_support/testing/setup_and_teardown.rb:57:in `run'
+/Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/integration.rb:652:in `run'
+/usr/local/lib/ruby/1.8/test/unit/testsuite.rb:34:in `run'
+/usr/local/lib/ruby/1.8/test/unit/testsuite.rb:33:in `each'
+/usr/local/lib/ruby/1.8/test/unit/testsuite.rb:33:in `run'
+/usr/local/lib/ruby/1.8/test/unit/testsuite.rb:34:in `run'
+/usr/local/lib/ruby/1.8/test/unit/testsuite.rb:33:in `each'
+/usr/local/lib/ruby/1.8/test/unit/testsuite.rb:33:in `run'
+/usr/local/lib/ruby/1.8/test/unit/ui/testrunnermediator.rb:46:in `run_suite'
+/usr/local/lib/ruby/1.8/test/unit/ui/console/testrunner.rb:67:in `start_mediator'
+/usr/local/lib/ruby/1.8/test/unit/ui/console/testrunner.rb:41:in `start'
+/usr/local/lib/ruby/1.8/test/unit/ui/testrunnerutilities.rb:29:in `run'
+/usr/local/lib/ruby/1.8/test/unit/autorunner.rb:216:in `run'
+/usr/local/lib/ruby/1.8/test/unit/autorunner.rb:12:in `run'
+/usr/local/lib/ruby/1.8/test/unit.rb:278</code></pre>
+    </div>
+  
+    <div id="Full-Trace" style="display: none;">
+      <pre><code>/Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/template.rb:221:in `find_full_path'
+/Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/template.rb:102:in `initialize'
+/Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/paths.rb:54:in `new'
+/Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/paths.rb:54:in `find_template'
+/Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/partials.rb:231:in `_unmemoized__pick_partial_template'
+/Users/aaron/.gem/ruby/1.8/gems/activesupport-2.3.0/lib/active_support/memoizable.rb:84:in `_pick_partial_template'
+/Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/partials.rb:184:in `render_partial'
+/Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/partials.rb:197:in `render_partial'
+/Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/base.rb:249:in `render_without_haml'
+/usr/local/lib/ruby/gems/1.8/gems/haml-2.0.9/lib/haml/helpers/action_view_mods.rb:14:in `render'
+/Users/aaron/projects/stockyard/app/views/pages/show.html.erb:9:in `_run_erb_app47views47pages47show46html46erb'
+/Users/aaron/projects/stockyard/app/views/pages/show.html.erb:8:in `each'
+/Users/aaron/projects/stockyard/app/views/pages/show.html.erb:8:in `_run_erb_app47views47pages47show46html46erb'
+/Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/associations/association_collection.rb:363:in `method_missing_without_paginate'
+/Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/associations/association_proxy.rb:219:in `method_missing'
+/Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/associations/association_proxy.rb:219:in `each'
+/Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/associations/association_proxy.rb:219:in `send'
+/Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/associations/association_proxy.rb:219:in `method_missing'
+/Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/associations/association_collection.rb:363:in `method_missing_without_paginate'
+/usr/local/lib/ruby/gems/1.8/gems/mislav-will_paginate-2.2.3/lib/will_paginate/finder.rb:164:in `method_missing'
+/Users/aaron/projects/stockyard/app/views/pages/show.html.erb:6:in `_run_erb_app47views47pages47show46html46erb'
+/Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/renderable.rb:35:in `send'
+/Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/renderable.rb:35:in `render_without_template_tracking'
+/Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/test_case.rb:20:in `render'
+/Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/template.rb:182:in `render_template'
+/Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/base.rb:247:in `render_without_haml'
+/usr/local/lib/ruby/gems/1.8/gems/haml-2.0.9/lib/haml/helpers/action_view_mods.rb:14:in `render'
+/Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/base.rb:318:in `_render_with_layout'
+/Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/base.rb:244:in `render_without_haml'
+/usr/local/lib/ruby/gems/1.8/gems/haml-2.0.9/lib/haml/helpers/action_view_mods.rb:14:in `render'
+/Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:1180:in `render_for_file'
+/Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:912:in `render_without_benchmark'
+/Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/benchmarking.rb:51:in `render'
+/Users/aaron/.gem/ruby/1.8/gems/activesupport-2.3.0/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/usr/local/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/Users/aaron/.gem/ruby/1.8/gems/activesupport-2.3.0/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/benchmarking.rb:51:in `render'
+/Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/mime_responds.rb:135:in `send'
+/Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/mime_responds.rb:135:in `custom'
+/Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/mime_responds.rb:179:in `call'
+/Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/mime_responds.rb:179:in `respond'
+/Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/mime_responds.rb:173:in `each'
+/Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/mime_responds.rb:173:in `respond'
+/Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/mime_responds.rb:107:in `respond_to'
+/Users/aaron/projects/stockyard/app/controllers/pages_controller.rb:18:in `show'
+/Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:1261:in `send'
+/Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:1261:in `perform_action_without_filters'
+/Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/filters.rb:617:in `call_filters'
+/Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+/Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/Users/aaron/.gem/ruby/1.8/gems/activesupport-2.3.0/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/usr/local/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/Users/aaron/.gem/ruby/1.8/gems/activesupport-2.3.0/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rescue.rb:154:in `perform_action_without_flash'
+/Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/flash.rb:141:in `perform_action'
+/Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:523:in `send'
+/Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:523:in `process_without_filters'
+/Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/filters.rb:606:in `sass_old_process'
+/usr/local/lib/ruby/gems/1.8/gems/haml-2.0.9/lib/sass/plugin/rails.rb:19:in `process'
+/Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:391:in `process'
+/Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:386:in `call'
+/Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/routing/route_set.rb:433:in `call'
+/Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/dispatcher.rb:65:in `dispatch'
+/Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/dispatcher.rb:88:in `_call'
+/Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/dispatcher.rb:59:in `initialize'
+/Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/query_cache.rb:29:in `call'
+/Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/query_cache.rb:29:in `call'
+/Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+/Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/query_cache.rb:9:in `cache'
+/Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/query_cache.rb:28:in `call'
+/usr/local/lib/ruby/gems/1.8/gems/rack-0.9.1/lib/rack/head.rb:9:in `call'
+/usr/local/lib/ruby/gems/1.8/gems/rack-0.9.1/lib/rack/methodoverride.rb:24:in `call'
+/Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/params_parser.rb:15:in `call'
+/Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rewindable_input.rb:25:in `call'
+/Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/session/cookie_store.rb:93:in `call'
+/Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/failsafe.rb:11:in `call'
+/Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rack_ext/lock.rb:15:in `call'
+/Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rack_ext/lock.rb:15:in `synchronize'
+/Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rack_ext/lock.rb:15:in `call'
+/Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/dispatcher.rb:83:in `call'
+/usr/local/lib/ruby/gems/1.8/gems/rack-0.9.1/lib/rack/lint.rb:45:in `_call'
+/usr/local/lib/ruby/gems/1.8/gems/rack-0.9.1/lib/rack/lint.rb:33:in `call'
+/Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/integration.rb:320:in `process'
+/Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/integration.rb:196:in `get'
+/Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/integration.rb:498:in `__send__'
+/Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/integration.rb:498:in `get'
+/usr/local/lib/ruby/gems/1.8/gems/webrat-0.4.2/lib/webrat/rails.rb:70:in `send'
+/usr/local/lib/ruby/gems/1.8/gems/webrat-0.4.2/lib/webrat/rails.rb:70:in `do_request'
+/usr/local/lib/ruby/gems/1.8/gems/webrat-0.4.2/lib/webrat/rails.rb:35:in `get'
+/usr/local/lib/ruby/gems/1.8/gems/webrat-0.4.2/lib/webrat/core/session.rb:104:in `send'
+/usr/local/lib/ruby/gems/1.8/gems/webrat-0.4.2/lib/webrat/core/session.rb:104:in `request_page'
+/usr/local/lib/ruby/gems/1.8/gems/webrat-0.4.2/lib/webrat/core/session.rb:205:in `visit'
+(eval):2:in `visit'
+test/integration/public_browsing_test.rb:8:in `__bind_1237176088_583868'
+/usr/local/lib/ruby/gems/1.8/gems/thoughtbot-shoulda-2.9.1/lib/shoulda/context.rb:271:in `call'
+/usr/local/lib/ruby/gems/1.8/gems/thoughtbot-shoulda-2.9.1/lib/shoulda/context.rb:271:in `run_current_setup_blocks'
+/usr/local/lib/ruby/gems/1.8/gems/thoughtbot-shoulda-2.9.1/lib/shoulda/context.rb:270:in `each'
+/usr/local/lib/ruby/gems/1.8/gems/thoughtbot-shoulda-2.9.1/lib/shoulda/context.rb:270:in `run_current_setup_blocks'
+/usr/local/lib/ruby/gems/1.8/gems/thoughtbot-shoulda-2.9.1/lib/shoulda/context.rb:252:in `test: When visiting the homepage as a public user, should see Text Blocks, with the classes 'text_block' and 'asset'. '
+/Users/aaron/.gem/ruby/1.8/gems/activesupport-2.3.0/lib/active_support/testing/setup_and_teardown.rb:57:in `__send__'
+/Users/aaron/.gem/ruby/1.8/gems/activesupport-2.3.0/lib/active_support/testing/setup_and_teardown.rb:57:in `run'
+/Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/integration.rb:652:in `run'
+/usr/local/lib/ruby/1.8/test/unit/testsuite.rb:34:in `run'
+/usr/local/lib/ruby/1.8/test/unit/testsuite.rb:33:in `each'
+/usr/local/lib/ruby/1.8/test/unit/testsuite.rb:33:in `run'
+/usr/local/lib/ruby/1.8/test/unit/testsuite.rb:34:in `run'
+/usr/local/lib/ruby/1.8/test/unit/testsuite.rb:33:in `each'
+/usr/local/lib/ruby/1.8/test/unit/testsuite.rb:33:in `run'
+/usr/local/lib/ruby/1.8/test/unit/ui/testrunnermediator.rb:46:in `run_suite'
+/usr/local/lib/ruby/1.8/test/unit/ui/console/testrunner.rb:67:in `start_mediator'
+/usr/local/lib/ruby/1.8/test/unit/ui/console/testrunner.rb:41:in `start'
+/usr/local/lib/ruby/1.8/test/unit/ui/testrunnerutilities.rb:29:in `run'
+/usr/local/lib/ruby/1.8/test/unit/autorunner.rb:216:in `run'
+/usr/local/lib/ruby/1.8/test/unit/autorunner.rb:12:in `run'
+/usr/local/lib/ruby/1.8/test/unit.rb:278
+test/integration/public_browsing_test.rb:6</code></pre>
+    </div>
+  
+</div>
+
+
+
+
+
+
+
+<h2 style="margin-top: 30px">Request</h2>
+<p><b>Parameters</b>: <pre>{&quot;id&quot;=&gt;1}</pre></p>
+
+<p><a href="#" onclick="document.getElementById('session_dump').style.display='block'; return false;">Show session dump</a></p>
+<div id="session_dump" style="display:none"><pre class='debug_dump'>--- 
+</pre></div>
+
+
+<h2 style="margin-top: 30px">Response</h2>
+<p><b>Headers</b>: <pre>{&quot;Content-Type&quot;=&gt;&quot;text/html&quot;,
+ &quot;Cache-Control&quot;=&gt;&quot;no-cache&quot;}</pre></p>
+
+
+
+</body>
+</html>

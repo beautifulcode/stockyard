@@ -3,6 +3,22 @@
   <%=h @page.title %>
 </p>
 
+<% @page.sections.each do |section| %>
+  <div class="section">
+    <% section.assets.each do |asset| %>
+      <%= render :partial => asset %>
+    <% end.else do %>
+    
+    <% end %>
+  </div>
+<% end.else do %>
+  <div class="empty">
+    No Sections
+  </div>
+<% end %>
+
+
+
 
 <%= link_to 'Edit', edit_page_path(@page) %> |
 <%= link_to 'Back', pages_path %>

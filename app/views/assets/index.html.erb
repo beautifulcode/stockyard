@@ -1,0 +1,10 @@
+<h1>Generic Asset Index</h1>
+
+<% @assets.each do |asset| %>
+  <%= link_to asset.title, asset %> - 
+  <%= link_to "Edit", edit_asset_path(asset) %>
+<% end.else do %>
+  <p>No Assets</p>
+<% end %>
+
+<p><%= link_to "New Asset", new_asset_path %></p>

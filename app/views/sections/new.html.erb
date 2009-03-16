@@ -1,23 +1,5 @@
 <h1>New section</h1>
+<%= render :partial => "form" %>
 
-<% form_for(@section) do |f| %>
-  <%= f.error_messages %>
-
-  <p>
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
-  </p>
-  <p>
-    <%= f.label :page_id %><br />
-    <%= f.text_field :page_id %>
-  </p>
-  <p>
-    <%= f.label :position %><br />
-    <%= f.text_field :position %>
-  </p>
-  <p>
-    <%= f.submit "Create" %>
-  </p>
-<% end %>
 
 <%= link_to 'Back', sections_path %>

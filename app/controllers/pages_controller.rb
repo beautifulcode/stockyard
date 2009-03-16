@@ -1,4 +1,7 @@
 class PagesController < ApplicationController
+  
+  # layout :determine_page_layout
+  
   # GET /pages
   # GET /pages.xml
   def index
@@ -14,7 +17,7 @@ class PagesController < ApplicationController
   # GET /pages/1.xml
   def show
     @page = Page.find(params[:id])
-
+    
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @page }
@@ -82,4 +85,14 @@ class PagesController < ApplicationController
       format.xml  { head :ok }
     end
   end
+  
+  
+  protected
+  
+  def determine_page_layout
+    'home'
+  end
+  
+  
+  
 end

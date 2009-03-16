@@ -10,22 +10,22 @@ two:
   page_id: 1
   section_id: 1
   asset_type: 'TextBlock'
-  asset_id: 1
+  asset_id: 2
 
 home_text:
   page_id: 1
   section_id: 1
   asset_type: 'TextBlock'
-  asset_id: 1
+  asset_id: 3
 
 home_text_2:
   page_id: 1
   section_id: 1
   asset_type: 'TextBlock'
-  asset_id: 2
+  asset_id: 4
 
 home_text_3:
   page_id: 1
   section_id: 2
   asset_type: 'TextBlock'
-  asset_id: 3
+  asset_id: 1

@@ -1219,3 +1219,1941 @@ Processing PagesController#show (for 127.0.0.1 at 2009-03-15 18:36:57) [GET]
 Rendering template within layouts/application
 Rendering pages/show
 Completed in 74ms (View: 40, DB: 4) | 200 OK [http://localhost/]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PagesController#show (for 127.0.0.1 at 2009-03-15 20:14:42) [GET]
+  Parameters: {"id"=>1}
+  [4;36;1mPage Columns (2.8ms)[0m   [0;1mSHOW FIELDS FROM `pages`[0m
+  [4;35;1mPage Load (0.4ms)[0m   [0mSELECT * FROM `pages` WHERE (`pages`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering pages/show
+Completed in 73ms (View: 40, DB: 3) | 200 OK [http://localhost/]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PagesController#show (for 127.0.0.1 at 2009-03-15 22:51:55) [GET]
+  Parameters: {"id"=>1}
+  [4;36;1mPage Columns (2.7ms)[0m   [0;1mSHOW FIELDS FROM `pages`[0m
+  [4;35;1mPage Load (0.3ms)[0m   [0mSELECT * FROM `pages` WHERE (`pages`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering pages/show
+  [4;36;1mSection Load (0.4ms)[0m   [0;1mSELECT DISTINCT `sections`.* FROM `sections` INNER JOIN `content_mappings` ON `sections`.id = `content_mappings`.section_id WHERE ((`content_mappings`.page_id = 1)) [0m
+
+ActionView::TemplateError (undefined method `else' for []:Array) on line #6 of app/views/pages/show.html.erb:
+3:   <%=h @page.title %>
+4: </p>
+5: 
+6: <% @page.sections.each do |section| %>
+7:   <div class="section">
+8:     <% section.assets.each do |asset| %>
+9:       <%= render :partial => asset %>
+
+    app/views/pages/show.html.erb:6
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/renderable.rb:35:in `send'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/renderable.rb:35:in `render'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/template.rb:182:in `render_template'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/base.rb:247:in `render_without_haml'
+    haml (2.0.9) lib/haml/helpers/action_view_mods.rb:14:in `render'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/base.rb:318:in `_render_with_layout'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/base.rb:244:in `render_without_haml'
+    haml (2.0.9) lib/haml/helpers/action_view_mods.rb:14:in `render'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:1180:in `render_for_file'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:912:in `render_without_benchmark'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/benchmarking.rb:51:in `render'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/benchmarking.rb:51:in `render'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/mime_responds.rb:135:in `send'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/mime_responds.rb:135:in `custom'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/mime_responds.rb:179:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/mime_responds.rb:179:in `respond'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/mime_responds.rb:173:in `each'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/mime_responds.rb:173:in `respond'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/mime_responds.rb:107:in `respond_to'
+    app/controllers/pages_controller.rb:21:in `show'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:1261:in `send'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:1261:in `perform_action_without_filters'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/filters.rb:617:in `call_filters'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rescue.rb:154:in `perform_action_without_flash'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/flash.rb:141:in `perform_action'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:523:in `send'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:523:in `process_without_filters'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/filters.rb:606:in `sass_old_process'
+    haml (2.0.9) lib/sass/plugin/rails.rb:19:in `process'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:391:in `process'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:386:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/routing/route_set.rb:433:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/dispatcher.rb:65:in `dispatch'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/dispatcher.rb:88:in `_call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/dispatcher.rb:59:in `initialize'
+    /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/query_cache.rb:29:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/query_cache.rb:29:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+    /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/query_cache.rb:9:in `cache'
+    /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/query_cache.rb:28:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/params_parser.rb:15:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rewindable_input.rb:25:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/session/cookie_store.rb:93:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/failsafe.rb:11:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rack_ext/lock.rb:15:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rack_ext/lock.rb:15:in `synchronize'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rack_ext/lock.rb:15:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/dispatcher.rb:83:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/rails-2.3.0/lib/rails/rack/static.rb:27:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/rails-2.3.0/lib/rails/rack/log_tailer.rb:17:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/rails-2.3.0/lib/commands/server.rb:100
+
+Rendered rescues/_trace (92.8ms)
+Rendered rescues/_request_and_response (1.0ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PagesController#show (for 127.0.0.1 at 2009-03-15 22:52:10) [GET]
+  Parameters: {"id"=>1}
+  [4;36;1mPage Columns (3.3ms)[0m   [0;1mSHOW FIELDS FROM `pages`[0m
+  [4;35;1mPage Load (0.4ms)[0m   [0mSELECT * FROM `pages` WHERE (`pages`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering pages/show
+  [4;36;1mSection Load (0.4ms)[0m   [0;1mSELECT DISTINCT `sections`.* FROM `sections` INNER JOIN `content_mappings` ON `sections`.id = `content_mappings`.section_id WHERE ((`content_mappings`.page_id = 1)) [0m
+Completed in 204ms (View: 68, DB: 5) | 200 OK [http://localhost/]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ContentMappingsController#index (for 127.0.0.1 at 2009-03-15 22:52:22) [GET]
+  [4;35;1mContentMapping Load (0.3ms)[0m   [0mSELECT * FROM `content_mappings` [0m
+Rendering template within layouts/application
+Rendering content_mappings/index
+Completed in 57ms (View: 31, DB: 1) | 200 OK [http://localhost/content_mappings]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ContentMappingsController#new (for 127.0.0.1 at 2009-03-15 22:52:25) [GET]
+  [4;36;1mContentMapping Columns (3.5ms)[0m   [0;1mSHOW FIELDS FROM `content_mappings`[0m
+Rendering template within layouts/application
+Rendering content_mappings/new
+Completed in 72ms (View: 45, DB: 4) | 200 OK [http://localhost/content_mappings/new]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (3.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ContentMappingsController#new (for 127.0.0.1 at 2009-03-15 22:53:50) [GET]
+  [4;35;1mContentMapping Columns (2.2ms)[0m   [0mSHOW FIELDS FROM `content_mappings`[0m
+Rendering template within layouts/application
+Rendering content_mappings/new
+Rendered content_mappings/_form (6.4ms)
+Completed in 86ms (View: 57, DB: 5) | 200 OK [http://localhost/content_mappings/new]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ContentMappingsController#new (for 127.0.0.1 at 2009-03-15 22:55:23) [GET]
+  [4;36;1mContentMapping Columns (2.4ms)[0m   [0;1mSHOW FIELDS FROM `content_mappings`[0m
+Rendering template within layouts/application
+Rendering content_mappings/new
+  [4;35;1mPage Load (0.3ms)[0m   [0mSELECT * FROM `pages` [0m
+  [4;36;1mPage Columns (2.2ms)[0m   [0;1mSHOW FIELDS FROM `pages`[0m
+
+ActionView::TemplateError (undefined method `merge' for [["Home Page", 1]]:Array) on line #5 of app/views/content_mappings/_form.html.erb:
+2: 
+3:   <p>
+4:     <%= f.label :page_id %><br />
+5:     <%= f. select("page", "page_id", Page.find(:all).collect {|p| [ p.title, p.id ] })  %>
+6:   </p>
+7:   <p>
+8:     <%= f.label :section_id %><br />
+
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/helpers/form_helper.rb:955:in `objectify_options'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/helpers/form_options_helper.rb:441:in `select'
+    app/views/content_mappings/_form.html.erb:5
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/renderable.rb:35:in `send'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/renderable.rb:35:in `render'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/renderable_partial.rb:20:in `render'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/benchmarking.rb:26:in `benchmark'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/benchmarking.rb:26:in `benchmark'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/renderable_partial.rb:19:in `render'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/template.rb:182:in `render_template'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/renderable_partial.rb:44:in `render_partial'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/partials.rb:184:in `render_partial'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/base.rb:249:in `render_without_haml'
+    haml (2.0.9) lib/haml/helpers/action_view_mods.rb:14:in `render'
+    app/views/content_mappings/new.html.erb:4
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/helpers/form_helper.rb:461:in `fields_for'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/helpers/form_helper.rb:253:in `form_for_without_haml'
+    haml (2.0.9) lib/haml/helpers/action_view_mods.rb:171:in `form_for'
+    app/views/content_mappings/new.html.erb:3
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/renderable.rb:35:in `send'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/renderable.rb:35:in `render'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/template.rb:182:in `render_template'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/base.rb:247:in `render_without_haml'
+    haml (2.0.9) lib/haml/helpers/action_view_mods.rb:14:in `render'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/base.rb:318:in `_render_with_layout'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/base.rb:244:in `render_without_haml'
+    haml (2.0.9) lib/haml/helpers/action_view_mods.rb:14:in `render'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:1180:in `render_for_file'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:912:in `render_without_benchmark'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/benchmarking.rb:51:in `render'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/benchmarking.rb:51:in `render'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/mime_responds.rb:135:in `send'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/mime_responds.rb:135:in `custom'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/mime_responds.rb:179:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/mime_responds.rb:179:in `respond'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/mime_responds.rb:173:in `each'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/mime_responds.rb:173:in `respond'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/mime_responds.rb:107:in `respond_to'
+    app/controllers/content_mappings_controller.rb:29:in `new'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:1261:in `send'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:1261:in `perform_action_without_filters'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/filters.rb:617:in `call_filters'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rescue.rb:154:in `perform_action_without_flash'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/flash.rb:141:in `perform_action'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:523:in `send'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:523:in `process_without_filters'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/filters.rb:606:in `sass_old_process'
+    haml (2.0.9) lib/sass/plugin/rails.rb:19:in `process'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:391:in `process'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:386:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/routing/route_set.rb:433:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/dispatcher.rb:65:in `dispatch'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/dispatcher.rb:88:in `_call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/dispatcher.rb:59:in `initialize'
+    /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/query_cache.rb:29:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/query_cache.rb:29:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+    /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/query_cache.rb:9:in `cache'
+    /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/query_cache.rb:28:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/params_parser.rb:15:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rewindable_input.rb:25:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/session/cookie_store.rb:93:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/failsafe.rb:11:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rack_ext/lock.rb:15:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rack_ext/lock.rb:15:in `synchronize'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rack_ext/lock.rb:15:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/dispatcher.rb:83:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/rails-2.3.0/lib/rails/rack/static.rb:27:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/rails-2.3.0/lib/rails/rack/log_tailer.rb:17:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/rails-2.3.0/lib/commands/server.rb:100
+
+Rendered rescues/_trace (118.2ms)
+Rendered rescues/_request_and_response (0.9ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ContentMappingsController#new (for 127.0.0.1 at 2009-03-15 22:55:34) [GET]
+  [4;35;1mContentMapping Columns (2.3ms)[0m   [0mSHOW FIELDS FROM `content_mappings`[0m
+Rendering template within layouts/application
+Rendering content_mappings/new
+  [4;36;1mPage Load (0.3ms)[0m   [0;1mSELECT * FROM `pages` [0m
+  [4;35;1mPage Columns (2.0ms)[0m   [0mSHOW FIELDS FROM `pages`[0m
+
+ActionView::TemplateError (undefined method `merge' for [["Home Page", 1]]:Array) on line #5 of app/views/content_mappings/_form.html.erb:
+2: 
+3:   <p>
+4:     <%= f.label :page_id %><br />
+5:     <%= f.select("page", "page_id", Page.find(:all).collect {|p| [ p.title, p.id ] })  %>
+6:   </p>
+7:   <p>
+8:     <%= f.label :section_id %><br />
+
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/helpers/form_helper.rb:955:in `objectify_options'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/helpers/form_options_helper.rb:441:in `select'
+    app/views/content_mappings/_form.html.erb:5
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/renderable.rb:35:in `send'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/renderable.rb:35:in `render'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/renderable_partial.rb:20:in `render'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/benchmarking.rb:26:in `benchmark'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/benchmarking.rb:26:in `benchmark'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/renderable_partial.rb:19:in `render'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/template.rb:182:in `render_template'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/renderable_partial.rb:44:in `render_partial'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/partials.rb:184:in `render_partial'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/base.rb:249:in `render_without_haml'
+    haml (2.0.9) lib/haml/helpers/action_view_mods.rb:14:in `render'
+    app/views/content_mappings/new.html.erb:4
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/helpers/form_helper.rb:461:in `fields_for'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/helpers/form_helper.rb:253:in `form_for_without_haml'
+    haml (2.0.9) lib/haml/helpers/action_view_mods.rb:171:in `form_for'
+    app/views/content_mappings/new.html.erb:3
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/renderable.rb:35:in `send'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/renderable.rb:35:in `render'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/template.rb:182:in `render_template'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/base.rb:247:in `render_without_haml'
+    haml (2.0.9) lib/haml/helpers/action_view_mods.rb:14:in `render'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/base.rb:318:in `_render_with_layout'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/base.rb:244:in `render_without_haml'
+    haml (2.0.9) lib/haml/helpers/action_view_mods.rb:14:in `render'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:1180:in `render_for_file'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:912:in `render_without_benchmark'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/benchmarking.rb:51:in `render'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/benchmarking.rb:51:in `render'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/mime_responds.rb:135:in `send'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/mime_responds.rb:135:in `custom'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/mime_responds.rb:179:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/mime_responds.rb:179:in `respond'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/mime_responds.rb:173:in `each'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/mime_responds.rb:173:in `respond'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/mime_responds.rb:107:in `respond_to'
+    app/controllers/content_mappings_controller.rb:29:in `new'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:1261:in `send'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:1261:in `perform_action_without_filters'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/filters.rb:617:in `call_filters'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rescue.rb:154:in `perform_action_without_flash'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/flash.rb:141:in `perform_action'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:523:in `send'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:523:in `process_without_filters'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/filters.rb:606:in `sass_old_process'
+    haml (2.0.9) lib/sass/plugin/rails.rb:19:in `process'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:391:in `process'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:386:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/routing/route_set.rb:433:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/dispatcher.rb:65:in `dispatch'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/dispatcher.rb:88:in `_call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/dispatcher.rb:59:in `initialize'
+    /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/query_cache.rb:29:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/query_cache.rb:29:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+    /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/query_cache.rb:9:in `cache'
+    /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/query_cache.rb:28:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/params_parser.rb:15:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rewindable_input.rb:25:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/session/cookie_store.rb:93:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/failsafe.rb:11:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rack_ext/lock.rb:15:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rack_ext/lock.rb:15:in `synchronize'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rack_ext/lock.rb:15:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/dispatcher.rb:83:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/rails-2.3.0/lib/rails/rack/static.rb:27:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/rails-2.3.0/lib/rails/rack/log_tailer.rb:17:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/rails-2.3.0/lib/commands/server.rb:100
+
+Rendered rescues/_trace (221.1ms)
+Rendered rescues/_request_and_response (0.5ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (4.8ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ContentMappingsController#new (for 127.0.0.1 at 2009-03-15 22:55:49) [GET]
+  [4;36;1mContentMapping Columns (22.0ms)[0m   [0;1mSHOW FIELDS FROM `content_mappings`[0m
+Rendering template within layouts/application
+Rendering content_mappings/new
+  [4;35;1mPage Load (7.7ms)[0m   [0mSELECT * FROM `pages` [0m
+  [4;36;1mPage Columns (10.9ms)[0m   [0;1mSHOW FIELDS FROM `pages`[0m
+Rendered content_mappings/_form (86.3ms)
+Completed in 196ms (View: 128, DB: 46) | 200 OK [http://localhost/content_mappings/new]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ContentMappingsController#new (for 127.0.0.1 at 2009-03-15 22:56:47) [GET]
+  [4;35;1mContentMapping Columns (2.5ms)[0m   [0mSHOW FIELDS FROM `content_mappings`[0m
+Rendering template within layouts/application
+Rendering content_mappings/new
+  [4;36;1mPage Load (0.5ms)[0m   [0;1mSELECT * FROM `pages` [0m
+  [4;35;1mPage Columns (1.7ms)[0m   [0mSHOW FIELDS FROM `pages`[0m
+  [4;36;1mSection Load (0.7ms)[0m   [0;1mSELECT * FROM `sections` [0m
+Rendered content_mappings/_form (51.0ms)
+Completed in 131ms (View: 99, DB: 6) | 200 OK [http://localhost/content_mappings/new]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ContentMappingsController#new (for 127.0.0.1 at 2009-03-15 22:57:06) [GET]
+  [4;35;1mContentMapping Columns (3.0ms)[0m   [0mSHOW FIELDS FROM `content_mappings`[0m
+Rendering template within layouts/application
+Rendering content_mappings/new
+  [4;36;1mPage Load (0.3ms)[0m   [0;1mSELECT * FROM `pages` [0m
+  [4;35;1mPage Columns (3.0ms)[0m   [0mSHOW FIELDS FROM `pages`[0m
+  [4;36;1mSection Load (0.3ms)[0m   [0;1mSELECT * FROM `sections` [0m
+Rendered content_mappings/_form (59.7ms)
+Completed in 142ms (View: 111, DB: 7) | 200 OK [http://localhost/content_mappings/new]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ContentMappingsController#new (for 127.0.0.1 at 2009-03-15 22:58:32) [GET]
+  [4;35;1mContentMapping Columns (2.2ms)[0m   [0mSHOW FIELDS FROM `content_mappings`[0m
+Rendering template within layouts/application
+Rendering content_mappings/new
+  [4;36;1mPage Load (0.3ms)[0m   [0;1mSELECT * FROM `pages` [0m
+  [4;35;1mPage Columns (3.7ms)[0m   [0mSHOW FIELDS FROM `pages`[0m
+  [4;36;1mSection Load (0.3ms)[0m   [0;1mSELECT * FROM `sections` [0m
+
+ActionView::TemplateError (undefined method `hidden' for #<ActionView::Helpers::FormBuilder:0x25ec64c>) on line #12 of app/views/content_mappings/_form.html.erb:
+9:     <%= f.select(:section_id, Section.find(:all).collect {|s| [ s.title, s.id ] }) %>
+10:   </p>
+11:   <p>
+12:     <%= f.hidden :asset_type %>
+13:   </p>
+14:   <p>
+15:     <%= f.label :asset_id %><br />
+
+    app/views/content_mappings/_form.html.erb:12
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/renderable.rb:35:in `send'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/renderable.rb:35:in `render'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/renderable_partial.rb:20:in `render'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/benchmarking.rb:26:in `benchmark'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/benchmarking.rb:26:in `benchmark'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/renderable_partial.rb:19:in `render'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/template.rb:182:in `render_template'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/renderable_partial.rb:44:in `render_partial'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/partials.rb:184:in `render_partial'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/base.rb:249:in `render_without_haml'
+    haml (2.0.9) lib/haml/helpers/action_view_mods.rb:14:in `render'
+    app/views/content_mappings/new.html.erb:4
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/helpers/form_helper.rb:461:in `fields_for'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/helpers/form_helper.rb:253:in `form_for_without_haml'
+    haml (2.0.9) lib/haml/helpers/action_view_mods.rb:171:in `form_for'
+    app/views/content_mappings/new.html.erb:3
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/renderable.rb:35:in `send'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/renderable.rb:35:in `render'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/template.rb:182:in `render_template'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/base.rb:247:in `render_without_haml'
+    haml (2.0.9) lib/haml/helpers/action_view_mods.rb:14:in `render'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/base.rb:318:in `_render_with_layout'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/base.rb:244:in `render_without_haml'
+    haml (2.0.9) lib/haml/helpers/action_view_mods.rb:14:in `render'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:1180:in `render_for_file'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:912:in `render_without_benchmark'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/benchmarking.rb:51:in `render'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/benchmarking.rb:51:in `render'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/mime_responds.rb:135:in `send'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/mime_responds.rb:135:in `custom'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/mime_responds.rb:179:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/mime_responds.rb:179:in `respond'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/mime_responds.rb:173:in `each'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/mime_responds.rb:173:in `respond'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/mime_responds.rb:107:in `respond_to'
+    app/controllers/content_mappings_controller.rb:29:in `new'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:1261:in `send'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:1261:in `perform_action_without_filters'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/filters.rb:617:in `call_filters'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rescue.rb:154:in `perform_action_without_flash'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/flash.rb:141:in `perform_action'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:523:in `send'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:523:in `process_without_filters'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/filters.rb:606:in `sass_old_process'
+    haml (2.0.9) lib/sass/plugin/rails.rb:19:in `process'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:391:in `process'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:386:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/routing/route_set.rb:433:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/dispatcher.rb:65:in `dispatch'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/dispatcher.rb:88:in `_call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/dispatcher.rb:59:in `initialize'
+    /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/query_cache.rb:29:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/query_cache.rb:29:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+    /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/query_cache.rb:9:in `cache'
+    /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/query_cache.rb:28:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/params_parser.rb:15:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rewindable_input.rb:25:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/session/cookie_store.rb:93:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/failsafe.rb:11:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rack_ext/lock.rb:15:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rack_ext/lock.rb:15:in `synchronize'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rack_ext/lock.rb:15:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/dispatcher.rb:83:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/rails-2.3.0/lib/rails/rack/static.rb:27:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/rails-2.3.0/lib/rails/rack/log_tailer.rb:17:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/rails-2.3.0/lib/commands/server.rb:100
+
+Rendered rescues/_trace (202.2ms)
+Rendered rescues/_request_and_response (0.5ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ContentMappingsController#new (for 127.0.0.1 at 2009-03-15 22:58:39) [GET]
+  [4;35;1mContentMapping Columns (2.1ms)[0m   [0mSHOW FIELDS FROM `content_mappings`[0m
+Rendering template within layouts/application
+Rendering content_mappings/new
+  [4;36;1mPage Load (0.3ms)[0m   [0;1mSELECT * FROM `pages` [0m
+  [4;35;1mPage Columns (1.8ms)[0m   [0mSHOW FIELDS FROM `pages`[0m
+  [4;36;1mSection Load (2.7ms)[0m   [0;1mSELECT * FROM `sections` [0m
+
+ActionView::TemplateError (undefined method `hidden_tag' for #<ActionView::Helpers::FormBuilder:0x25ef5e0>) on line #12 of app/views/content_mappings/_form.html.erb:
+9:     <%= f.select(:section_id, Section.find(:all).collect {|s| [ s.title, s.id ] }) %>
+10:   </p>
+11:   <p>
+12:     <%= f.hidden_tag :asset_type %>
+13:   </p>
+14:   <p>
+15:     <%= f.label :asset_id %><br />
+
+    app/views/content_mappings/_form.html.erb:12
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/renderable.rb:35:in `send'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/renderable.rb:35:in `render'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/renderable_partial.rb:20:in `render'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/benchmarking.rb:26:in `benchmark'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/benchmarking.rb:26:in `benchmark'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/renderable_partial.rb:19:in `render'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/template.rb:182:in `render_template'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/renderable_partial.rb:44:in `render_partial'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/partials.rb:184:in `render_partial'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/base.rb:249:in `render_without_haml'
+    haml (2.0.9) lib/haml/helpers/action_view_mods.rb:14:in `render'
+    app/views/content_mappings/new.html.erb:4
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/helpers/form_helper.rb:461:in `fields_for'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/helpers/form_helper.rb:253:in `form_for_without_haml'
+    haml (2.0.9) lib/haml/helpers/action_view_mods.rb:171:in `form_for'
+    app/views/content_mappings/new.html.erb:3
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/renderable.rb:35:in `send'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/renderable.rb:35:in `render'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/template.rb:182:in `render_template'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/base.rb:247:in `render_without_haml'
+    haml (2.0.9) lib/haml/helpers/action_view_mods.rb:14:in `render'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/base.rb:318:in `_render_with_layout'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/base.rb:244:in `render_without_haml'
+    haml (2.0.9) lib/haml/helpers/action_view_mods.rb:14:in `render'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:1180:in `render_for_file'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:912:in `render_without_benchmark'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/benchmarking.rb:51:in `render'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/benchmarking.rb:51:in `render'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/mime_responds.rb:135:in `send'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/mime_responds.rb:135:in `custom'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/mime_responds.rb:179:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/mime_responds.rb:179:in `respond'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/mime_responds.rb:173:in `each'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/mime_responds.rb:173:in `respond'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/mime_responds.rb:107:in `respond_to'
+    app/controllers/content_mappings_controller.rb:29:in `new'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:1261:in `send'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:1261:in `perform_action_without_filters'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/filters.rb:617:in `call_filters'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rescue.rb:154:in `perform_action_without_flash'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/flash.rb:141:in `perform_action'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:523:in `send'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:523:in `process_without_filters'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/filters.rb:606:in `sass_old_process'
+    haml (2.0.9) lib/sass/plugin/rails.rb:19:in `process'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:391:in `process'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:386:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/routing/route_set.rb:433:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/dispatcher.rb:65:in `dispatch'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/dispatcher.rb:88:in `_call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/dispatcher.rb:59:in `initialize'
+    /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/query_cache.rb:29:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/query_cache.rb:29:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+    /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/query_cache.rb:9:in `cache'
+    /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/query_cache.rb:28:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/params_parser.rb:15:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rewindable_input.rb:25:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/session/cookie_store.rb:93:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/failsafe.rb:11:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rack_ext/lock.rb:15:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rack_ext/lock.rb:15:in `synchronize'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rack_ext/lock.rb:15:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/dispatcher.rb:83:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/rails-2.3.0/lib/rails/rack/static.rb:27:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/rails-2.3.0/lib/rails/rack/log_tailer.rb:17:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/rails-2.3.0/lib/commands/server.rb:100
+
+Rendered rescues/_trace (222.3ms)
+Rendered rescues/_request_and_response (0.5ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ContentMappingsController#new (for 127.0.0.1 at 2009-03-15 22:58:43) [GET]
+  [4;35;1mContentMapping Columns (2.2ms)[0m   [0mSHOW FIELDS FROM `content_mappings`[0m
+Rendering template within layouts/application
+Rendering content_mappings/new
+  [4;36;1mPage Load (0.3ms)[0m   [0;1mSELECT * FROM `pages` [0m
+  [4;35;1mPage Columns (2.0ms)[0m   [0mSHOW FIELDS FROM `pages`[0m
+  [4;36;1mSection Load (0.3ms)[0m   [0;1mSELECT * FROM `sections` [0m
+  [4;35;1mAsset Load (0.3ms)[0m   [0mSELECT * FROM `assets` [0m
+Rendered content_mappings/_form (73.9ms)
+Completed in 164ms (View: 127, DB: 5) | 200 OK [http://localhost/content_mappings/new]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ContentMappingsController#new (for 127.0.0.1 at 2009-03-15 22:59:42) [GET]
+  [4;36;1mContentMapping Columns (3.0ms)[0m   [0;1mSHOW FIELDS FROM `content_mappings`[0m
+Rendering template within layouts/application
+Rendering content_mappings/new
+  [4;35;1mPage Load (0.3ms)[0m   [0mSELECT * FROM `pages` [0m
+  [4;36;1mPage Columns (1.9ms)[0m   [0;1mSHOW FIELDS FROM `pages`[0m
+  [4;35;1mSection Load (0.3ms)[0m   [0mSELECT * FROM `sections` [0m
+  [4;36;1mAsset Load (0.3ms)[0m   [0;1mSELECT * FROM `assets` [0m
+Rendered content_mappings/_form (61.9ms)
+Completed in 136ms (View: 106, DB: 6) | 200 OK [http://localhost/content_mappings/new]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetsController#index (for 127.0.0.1 at 2009-03-15 23:08:57) [GET]
+Rendering template within layouts/application
+Rendering assets/index
+Completed in 53ms (View: 44, DB: 0) | 200 OK [http://localhost/assets]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetsController#index (for 127.0.0.1 at 2009-03-15 23:10:29) [GET]
+Rendering template within layouts/application
+Rendering assets/index
+
+ActionView::TemplateError (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.each) on line #3 of app/views/assets/index.html.erb:
+1: <h1>Generic Asset Index</h1>
+2: 
+3: <% @assets.each do |asset| %>
+4:   <%= link_to asset.title, asset %> - 
+5:   <%= link_to "Edit", edit_asset_path(asset) %>
+6: <% end.else do %>
+
+    app/views/assets/index.html.erb:3
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/renderable.rb:35:in `send'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/renderable.rb:35:in `render'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/template.rb:182:in `render_template'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/base.rb:247:in `render_without_haml'
+    haml (2.0.9) lib/haml/helpers/action_view_mods.rb:14:in `render'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/base.rb:318:in `_render_with_layout'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/base.rb:244:in `render_without_haml'
+    haml (2.0.9) lib/haml/helpers/action_view_mods.rb:14:in `render'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:1180:in `render_for_file'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:906:in `render_without_benchmark'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/benchmarking.rb:51:in `render'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/benchmarking.rb:51:in `render'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:1256:in `default_render'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:1268:in `perform_action_without_filters'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/filters.rb:617:in `call_filters'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rescue.rb:154:in `perform_action_without_flash'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/flash.rb:141:in `perform_action'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:523:in `send'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:523:in `process_without_filters'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/filters.rb:606:in `sass_old_process'
+    haml (2.0.9) lib/sass/plugin/rails.rb:19:in `process'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:391:in `process'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:386:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/routing/route_set.rb:433:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/dispatcher.rb:65:in `dispatch'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/dispatcher.rb:88:in `_call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/dispatcher.rb:59:in `initialize'
+    /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/query_cache.rb:29:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/query_cache.rb:29:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+    /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/query_cache.rb:9:in `cache'
+    /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/query_cache.rb:28:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/params_parser.rb:15:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rewindable_input.rb:25:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/session/cookie_store.rb:93:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/failsafe.rb:11:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rack_ext/lock.rb:15:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rack_ext/lock.rb:15:in `synchronize'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rack_ext/lock.rb:15:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/dispatcher.rb:83:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/rails-2.3.0/lib/rails/rack/static.rb:27:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/rails-2.3.0/lib/rails/rack/log_tailer.rb:17:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/rails-2.3.0/lib/commands/server.rb:100
+
+Rendered rescues/_trace (82.0ms)
+Rendered rescues/_request_and_response (0.5ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (1.6ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-03-15 23:10:46) [GET]
+
+SyntaxError (/Users/aaron/projects/stockyard/app/controllers/assets_controller.rb:87: syntax error, unexpected kEND, expecting $end):
+  /Users/aaron/.gem/ruby/1.8/gems/activesupport-2.3.0/lib/active_support/dependencies.rb:380:in `load_without_new_constant_marking'
+  /Users/aaron/.gem/ruby/1.8/gems/activesupport-2.3.0/lib/active_support/dependencies.rb:380:in `load_file'
+  /Users/aaron/.gem/ruby/1.8/gems/activesupport-2.3.0/lib/active_support/dependencies.rb:521:in `new_constants_in'
+  /Users/aaron/.gem/ruby/1.8/gems/activesupport-2.3.0/lib/active_support/dependencies.rb:379:in `load_file'
+  /Users/aaron/.gem/ruby/1.8/gems/activesupport-2.3.0/lib/active_support/dependencies.rb:259:in `require_or_load'
+  /Users/aaron/.gem/ruby/1.8/gems/activesupport-2.3.0/lib/active_support/dependencies.rb:425:in `load_missing_constant'
+  /Users/aaron/.gem/ruby/1.8/gems/activesupport-2.3.0/lib/active_support/dependencies.rb:80:in `const_missing'
+  /Users/aaron/.gem/ruby/1.8/gems/activesupport-2.3.0/lib/active_support/dependencies.rb:92:in `const_missing'
+  /Users/aaron/.gem/ruby/1.8/gems/activesupport-2.3.0/lib/active_support/inflector.rb:359:in `constantize'
+  /Users/aaron/.gem/ruby/1.8/gems/activesupport-2.3.0/lib/active_support/inflector.rb:358:in `each'
+  /Users/aaron/.gem/ruby/1.8/gems/activesupport-2.3.0/lib/active_support/inflector.rb:358:in `constantize'
+  /Users/aaron/.gem/ruby/1.8/gems/activesupport-2.3.0/lib/active_support/core_ext/string/inflections.rb:162:in `constantize'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/routing/route_set.rb:439:in `recognize'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/routing/route_set.rb:432:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/dispatcher.rb:65:in `dispatch'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/dispatcher.rb:88:in `_call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/dispatcher.rb:59:in `initialize'
+  /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/query_cache.rb:29:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/query_cache.rb:29:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+  /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/query_cache.rb:9:in `cache'
+  /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/query_cache.rb:28:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/params_parser.rb:15:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rewindable_input.rb:25:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/session/cookie_store.rb:93:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/failsafe.rb:11:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rack_ext/lock.rb:15:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rack_ext/lock.rb:15:in `synchronize'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rack_ext/lock.rb:15:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/dispatcher.rb:83:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/rails-2.3.0/lib/rails/rack/static.rb:27:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/rails-2.3.0/lib/rails/rack/log_tailer.rb:17:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/rails-2.3.0/lib/commands/server.rb:100
+
+Rendered rescues/_trace (63.1ms)
+Rendered rescues/_request_and_response (0.5ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetsController#index (for 127.0.0.1 at 2009-03-15 23:12:08) [GET]
+  [4;35;1mAsset Load (0.3ms)[0m   [0mSELECT * FROM `assets` [0m
+Rendering template within layouts/application
+Rendering assets/index
+Completed in 257ms (View: 228, DB: 0) | 200 OK [http://localhost/assets]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetsController#index (for 127.0.0.1 at 2009-03-15 23:12:35) [GET]
+  [4;36;1mAsset Load (0.3ms)[0m   [0;1mSELECT * FROM `assets` [0m
+Rendering template within layouts/application
+Rendering assets/index
+
+ActionView::TemplateError (undefined local variable or method `new_asset_path' for #<ActionView::Base:0x26e1ca0>) on line #10 of app/views/assets/index.html.erb:
+7:   <p>No Assets</p>
+8: <% end %>
+9: 
+10: <p><%= link_to "New Asset", new_asset_path %></p>
+
+    app/views/assets/index.html.erb:10
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/renderable.rb:35:in `send'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/renderable.rb:35:in `render'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/template.rb:182:in `render_template'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/base.rb:247:in `render_without_haml'
+    haml (2.0.9) lib/haml/helpers/action_view_mods.rb:14:in `render'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/base.rb:318:in `_render_with_layout'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/base.rb:244:in `render_without_haml'
+    haml (2.0.9) lib/haml/helpers/action_view_mods.rb:14:in `render'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:1180:in `render_for_file'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:912:in `render_without_benchmark'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/benchmarking.rb:51:in `render'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/benchmarking.rb:51:in `render'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/mime_responds.rb:135:in `send'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/mime_responds.rb:135:in `custom'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/mime_responds.rb:179:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/mime_responds.rb:179:in `respond'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/mime_responds.rb:173:in `each'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/mime_responds.rb:173:in `respond'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/mime_responds.rb:107:in `respond_to'
+    app/controllers/assets_controller.rb:7:in `index'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:1261:in `send'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:1261:in `perform_action_without_filters'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/filters.rb:617:in `call_filters'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rescue.rb:154:in `perform_action_without_flash'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/flash.rb:141:in `perform_action'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:523:in `send'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:523:in `process_without_filters'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/filters.rb:606:in `sass_old_process'
+    haml (2.0.9) lib/sass/plugin/rails.rb:19:in `process'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:391:in `process'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:386:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/routing/route_set.rb:433:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/dispatcher.rb:65:in `dispatch'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/dispatcher.rb:88:in `_call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/dispatcher.rb:59:in `initialize'
+    /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/query_cache.rb:29:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/query_cache.rb:29:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+    /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/query_cache.rb:9:in `cache'
+    /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/query_cache.rb:28:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/params_parser.rb:15:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rewindable_input.rb:25:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/session/cookie_store.rb:93:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/failsafe.rb:11:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rack_ext/lock.rb:15:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rack_ext/lock.rb:15:in `synchronize'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rack_ext/lock.rb:15:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/dispatcher.rb:83:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/rails-2.3.0/lib/rails/rack/static.rb:27:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/rails-2.3.0/lib/rails/rack/log_tailer.rb:17:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/rails-2.3.0/lib/commands/server.rb:100
+
+Rendered rescues/_trace (93.6ms)
+Rendered rescues/_request_and_response (0.5ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetsController#index (for 127.0.0.1 at 2009-03-15 23:13:55) [GET]
+  [4;35;1mAsset Load (0.4ms)[0m   [0mSELECT * FROM `assets` [0m
+Rendering template within layouts/application
+Rendering assets/index
+Completed in 160ms (View: 133, DB: 1) | 200 OK [http://localhost/assets]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetsController#new (for 127.0.0.1 at 2009-03-15 23:13:59) [GET]
+  [4;36;1mAsset Columns (3.0ms)[0m   [0;1mSHOW FIELDS FROM `assets`[0m
+Rendering template within layouts/application
+Rendering assets/new
+
+ActionView::TemplateError (Called id for nil, which would mistakenly be 4 -- if you really wanted the id of nil, use object_id) on line #3 of app/views/assets/new.html.erb:
+1: <h1>New Text Block</h1>
+2: 
+3: <% form_for(@text_block) do |f| %>
+4:   <%= render :partial => 'form', :locals => {:f => f} %>
+5:   <p>
+6:     <%= f.submit "Create" %>
+
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/record_identifier.rb:76:in `dom_id'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/helpers/record_identification_helper.rb:16:in `dom_id'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/helpers/form_helper.rb:264:in `apply_form_for_options!'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/helpers/form_helper.rb:248:in `form_for_without_haml'
+    haml (2.0.9) lib/haml/helpers/action_view_mods.rb:171:in `form_for'
+    app/views/assets/new.html.erb:3
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/renderable.rb:35:in `send'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/renderable.rb:35:in `render'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/template.rb:182:in `render_template'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/base.rb:247:in `render_without_haml'
+    haml (2.0.9) lib/haml/helpers/action_view_mods.rb:14:in `render'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/base.rb:318:in `_render_with_layout'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/base.rb:244:in `render_without_haml'
+    haml (2.0.9) lib/haml/helpers/action_view_mods.rb:14:in `render'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:1180:in `render_for_file'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:912:in `render_without_benchmark'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/benchmarking.rb:51:in `render'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/benchmarking.rb:51:in `render'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/mime_responds.rb:135:in `send'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/mime_responds.rb:135:in `custom'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/mime_responds.rb:179:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/mime_responds.rb:179:in `respond'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/mime_responds.rb:173:in `each'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/mime_responds.rb:173:in `respond'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/mime_responds.rb:107:in `respond_to'
+    app/controllers/assets_controller.rb:29:in `new'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:1261:in `send'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:1261:in `perform_action_without_filters'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/filters.rb:617:in `call_filters'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rescue.rb:154:in `perform_action_without_flash'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/flash.rb:141:in `perform_action'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:523:in `send'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:523:in `process_without_filters'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/filters.rb:606:in `sass_old_process'
+    haml (2.0.9) lib/sass/plugin/rails.rb:19:in `process'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:391:in `process'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:386:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/routing/route_set.rb:433:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/dispatcher.rb:65:in `dispatch'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/dispatcher.rb:88:in `_call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/dispatcher.rb:59:in `initialize'
+    /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/query_cache.rb:29:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/query_cache.rb:29:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+    /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/query_cache.rb:9:in `cache'
+    /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/query_cache.rb:28:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/params_parser.rb:15:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rewindable_input.rb:25:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/session/cookie_store.rb:93:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/failsafe.rb:11:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rack_ext/lock.rb:15:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rack_ext/lock.rb:15:in `synchronize'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rack_ext/lock.rb:15:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/dispatcher.rb:83:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/rails-2.3.0/lib/rails/rack/static.rb:27:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/rails-2.3.0/lib/rails/rack/log_tailer.rb:17:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/rails-2.3.0/lib/commands/server.rb:100
+
+Rendered rescues/_trace (96.9ms)
+Rendered rescues/_request_and_response (0.5ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (2.0ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetsController#new (for 127.0.0.1 at 2009-03-15 23:14:44) [GET]
+  [4;35;1mAsset Columns (54.2ms)[0m   [0mSHOW FIELDS FROM `assets`[0m
+Rendering template within layouts/application
+Rendering assets/new
+Rendered assets/_form (0.4ms)
+Completed in 164ms (View: 74, DB: 56) | 200 OK [http://localhost/assets/new]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#new (for 127.0.0.1 at 2009-03-15 23:15:20) [GET]
+
+NoMethodError (undefined method `scaffold' for AssetsController:Class):
+  app/controllers/assets_controller.rb:2
+  /Users/aaron/.gem/ruby/1.8/gems/activesupport-2.3.0/lib/active_support/dependencies.rb:380:in `load_without_new_constant_marking'
+  /Users/aaron/.gem/ruby/1.8/gems/activesupport-2.3.0/lib/active_support/dependencies.rb:380:in `load_file'
+  /Users/aaron/.gem/ruby/1.8/gems/activesupport-2.3.0/lib/active_support/dependencies.rb:521:in `new_constants_in'
+  /Users/aaron/.gem/ruby/1.8/gems/activesupport-2.3.0/lib/active_support/dependencies.rb:379:in `load_file'
+  /Users/aaron/.gem/ruby/1.8/gems/activesupport-2.3.0/lib/active_support/dependencies.rb:259:in `require_or_load'
+  /Users/aaron/.gem/ruby/1.8/gems/activesupport-2.3.0/lib/active_support/dependencies.rb:425:in `load_missing_constant'
+  /Users/aaron/.gem/ruby/1.8/gems/activesupport-2.3.0/lib/active_support/dependencies.rb:80:in `const_missing'
+  /Users/aaron/.gem/ruby/1.8/gems/activesupport-2.3.0/lib/active_support/dependencies.rb:92:in `const_missing'
+  /Users/aaron/.gem/ruby/1.8/gems/activesupport-2.3.0/lib/active_support/inflector.rb:359:in `constantize'
+  /Users/aaron/.gem/ruby/1.8/gems/activesupport-2.3.0/lib/active_support/inflector.rb:358:in `each'
+  /Users/aaron/.gem/ruby/1.8/gems/activesupport-2.3.0/lib/active_support/inflector.rb:358:in `constantize'
+  /Users/aaron/.gem/ruby/1.8/gems/activesupport-2.3.0/lib/active_support/core_ext/string/inflections.rb:162:in `constantize'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/routing/route_set.rb:439:in `recognize'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/routing/route_set.rb:432:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/dispatcher.rb:65:in `dispatch'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/dispatcher.rb:88:in `_call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/dispatcher.rb:59:in `initialize'
+  /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/query_cache.rb:29:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/query_cache.rb:29:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+  /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/query_cache.rb:9:in `cache'
+  /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/query_cache.rb:28:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/params_parser.rb:15:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rewindable_input.rb:25:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/session/cookie_store.rb:93:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/failsafe.rb:11:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rack_ext/lock.rb:15:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rack_ext/lock.rb:15:in `synchronize'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rack_ext/lock.rb:15:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/dispatcher.rb:83:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/rails-2.3.0/lib/rails/rack/static.rb:27:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/rails-2.3.0/lib/rails/rack/log_tailer.rb:17:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/rails-2.3.0/lib/commands/server.rb:100
+
+Rendered rescues/_trace (146.8ms)
+Rendered rescues/_request_and_response (0.5ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetsController#new (for 127.0.0.1 at 2009-03-15 23:20:41) [GET]
+  [4;36;1mAsset Columns (2.4ms)[0m   [0;1mSHOW FIELDS FROM `assets`[0m
+Rendering template within layouts/application
+Rendering assets/new
+Rendered assets/_form (0.4ms)
+Completed in 155ms (View: 61, DB: 3) | 200 OK [http://localhost/assets/new]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-03-15 23:20:47) [GET]
+
+ActionController::RoutingError (No route matches "/text_block/new" with {:method=>:get}):
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/routing/recognition_optimisation.rb:66:in `recognize_path'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/routing/route_set.rb:437:in `recognize'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/routing/route_set.rb:432:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/dispatcher.rb:65:in `dispatch'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/dispatcher.rb:88:in `_call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/dispatcher.rb:59:in `initialize'
+  /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/query_cache.rb:29:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/query_cache.rb:29:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+  /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/query_cache.rb:9:in `cache'
+  /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/query_cache.rb:28:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/params_parser.rb:15:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rewindable_input.rb:25:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/session/cookie_store.rb:93:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/failsafe.rb:11:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rack_ext/lock.rb:15:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rack_ext/lock.rb:15:in `synchronize'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rack_ext/lock.rb:15:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/dispatcher.rb:83:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/rails-2.3.0/lib/rails/rack/static.rb:27:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/rails-2.3.0/lib/rails/rack/log_tailer.rb:17:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/rails-2.3.0/lib/commands/server.rb:100
+
+Rendering rescues/layout (not_found)
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing TextBlocksController#new (for 127.0.0.1 at 2009-03-15 23:20:50) [GET]
+  [4;35;1mAsset Columns (2.8ms)[0m   [0mSHOW FIELDS FROM `assets`[0m
+Rendering template within layouts/application
+Rendering text_blocks/new
+
+ActionView::TemplateError (Called id for nil, which would mistakenly be 4 -- if you really wanted the id of nil, use object_id) on line #3 of app/views/text_blocks/new.html.erb:
+1: <h1>New Text Block</h1>
+2: 
+3: <% form_for(@text_block) do |f| %>
+4:   <%= render :partial => 'form', :locals => {:f => f} %>
+5:   <p>
+6:     <%= f.submit "Create" %>
+
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/record_identifier.rb:76:in `dom_id'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/helpers/record_identification_helper.rb:16:in `dom_id'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/helpers/form_helper.rb:264:in `apply_form_for_options!'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/helpers/form_helper.rb:248:in `form_for_without_haml'
+    haml (2.0.9) lib/haml/helpers/action_view_mods.rb:171:in `form_for'
+    app/views/text_blocks/new.html.erb:3
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/renderable.rb:35:in `send'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/renderable.rb:35:in `render'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/template.rb:182:in `render_template'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/base.rb:247:in `render_without_haml'
+    haml (2.0.9) lib/haml/helpers/action_view_mods.rb:14:in `render'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/base.rb:318:in `_render_with_layout'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/base.rb:244:in `render_without_haml'
+    haml (2.0.9) lib/haml/helpers/action_view_mods.rb:14:in `render'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:1180:in `render_for_file'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:912:in `render_without_benchmark'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/benchmarking.rb:51:in `render'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/benchmarking.rb:51:in `render'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/mime_responds.rb:135:in `send'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/mime_responds.rb:135:in `custom'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/mime_responds.rb:179:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/mime_responds.rb:179:in `respond'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/mime_responds.rb:173:in `each'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/mime_responds.rb:173:in `respond'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/mime_responds.rb:107:in `respond_to'
+    app/controllers/assets_controller.rb:29:in `new'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:1261:in `send'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:1261:in `perform_action_without_filters'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/filters.rb:617:in `call_filters'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rescue.rb:154:in `perform_action_without_flash'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/flash.rb:141:in `perform_action'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:523:in `send'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:523:in `process_without_filters'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/filters.rb:606:in `sass_old_process'
+    haml (2.0.9) lib/sass/plugin/rails.rb:19:in `process'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:391:in `process'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:386:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/routing/route_set.rb:433:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/dispatcher.rb:65:in `dispatch'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/dispatcher.rb:88:in `_call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/dispatcher.rb:59:in `initialize'
+    /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/query_cache.rb:29:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/query_cache.rb:29:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+    /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/query_cache.rb:9:in `cache'
+    /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/query_cache.rb:28:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/params_parser.rb:15:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rewindable_input.rb:25:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/session/cookie_store.rb:93:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/failsafe.rb:11:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rack_ext/lock.rb:15:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rack_ext/lock.rb:15:in `synchronize'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rack_ext/lock.rb:15:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/dispatcher.rb:83:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/rails-2.3.0/lib/rails/rack/static.rb:27:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/rails-2.3.0/lib/rails/rack/log_tailer.rb:17:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/rails-2.3.0/lib/commands/server.rb:100
+
+Rendered rescues/_trace (99.1ms)
+Rendered rescues/_request_and_response (0.9ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (2.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (2.3ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing TextBlocksController#new (for 127.0.0.1 at 2009-03-15 23:21:35) [GET]
+  [4;36;1mAsset Columns (2.7ms)[0m   [0;1mSHOW FIELDS FROM `assets`[0m
+
+ActionView::MissingTemplate (Missing template text_blocks/new.erb in view path app/views):
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/template.rb:221:in `find_full_path'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/template.rb:102:in `initialize'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/paths.rb:54:in `new'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/paths.rb:54:in `find_template'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:1319:in `default_template'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:912:in `render_without_benchmark'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/benchmarking.rb:51:in `render'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/benchmarking.rb:51:in `render'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/mime_responds.rb:135:in `send'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/mime_responds.rb:135:in `custom'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/mime_responds.rb:179:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/mime_responds.rb:179:in `respond'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/mime_responds.rb:173:in `each'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/mime_responds.rb:173:in `respond'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/mime_responds.rb:107:in `respond_to'
+  app/controllers/assets_controller.rb:29:in `new'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:1261:in `send'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:1261:in `perform_action_without_filters'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/filters.rb:617:in `call_filters'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rescue.rb:154:in `perform_action_without_flash'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/flash.rb:141:in `perform_action'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:523:in `send'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:523:in `process_without_filters'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/filters.rb:606:in `sass_old_process'
+  haml (2.0.9) lib/sass/plugin/rails.rb:19:in `process'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:391:in `process'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:386:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/routing/route_set.rb:433:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/dispatcher.rb:65:in `dispatch'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/dispatcher.rb:88:in `_call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/dispatcher.rb:59:in `initialize'
+  /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/query_cache.rb:29:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/query_cache.rb:29:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+  /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/query_cache.rb:9:in `cache'
+  /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/query_cache.rb:28:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/params_parser.rb:15:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rewindable_input.rb:25:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/session/cookie_store.rb:93:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/failsafe.rb:11:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rack_ext/lock.rb:15:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rack_ext/lock.rb:15:in `synchronize'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rack_ext/lock.rb:15:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/dispatcher.rb:83:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/rails-2.3.0/lib/rails/rack/static.rb:27:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/rails-2.3.0/lib/rails/rack/log_tailer.rb:17:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/rails-2.3.0/lib/commands/server.rb:100
+
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing TextBlocksController#new (for 127.0.0.1 at 2009-03-15 23:31:18) [GET]
+  [4;36;1mAsset Columns (3.0ms)[0m   [0;1mSHOW FIELDS FROM `assets`[0m
+
+NoMethodError (undefined method `template_exists?' for #<TextBlocksController:0x2306888>):
+  config/initializers/stockyard.rb:34:in `default_template_name'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:1319:in `default_template'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/layout.rb:234:in `candidate_for_layout?'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/layout.rb:257:in `pick_layout'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:885:in `render_without_benchmark'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/benchmarking.rb:51:in `render'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/benchmarking.rb:51:in `render'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/mime_responds.rb:135:in `send'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/mime_responds.rb:135:in `custom'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/mime_responds.rb:179:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/mime_responds.rb:179:in `respond'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/mime_responds.rb:173:in `each'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/mime_responds.rb:173:in `respond'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/mime_responds.rb:107:in `respond_to'
+  app/controllers/assets_controller.rb:29:in `new'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:1261:in `send'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:1261:in `perform_action_without_filters'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/filters.rb:617:in `call_filters'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rescue.rb:154:in `perform_action_without_flash'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/flash.rb:141:in `perform_action'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:523:in `send'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:523:in `process_without_filters'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/filters.rb:606:in `sass_old_process'
+  haml (2.0.9) lib/sass/plugin/rails.rb:19:in `process'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:391:in `process'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:386:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/routing/route_set.rb:433:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/dispatcher.rb:65:in `dispatch'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/dispatcher.rb:88:in `_call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/dispatcher.rb:59:in `initialize'
+  /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/query_cache.rb:29:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/query_cache.rb:29:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+  /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/query_cache.rb:9:in `cache'
+  /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/query_cache.rb:28:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/params_parser.rb:15:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rewindable_input.rb:25:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/session/cookie_store.rb:93:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/failsafe.rb:11:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rack_ext/lock.rb:15:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rack_ext/lock.rb:15:in `synchronize'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rack_ext/lock.rb:15:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/dispatcher.rb:83:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/rails-2.3.0/lib/rails/rack/static.rb:27:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/rails-2.3.0/lib/rails/rack/log_tailer.rb:17:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/rails-2.3.0/lib/commands/server.rb:100
+
+Rendered rescues/_trace (85.5ms)
+Rendered rescues/_request_and_response (0.9ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing TextBlocksController#new (for 127.0.0.1 at 2009-03-15 23:32:22) [GET]
+  [4;36;1mAsset Columns (3.2ms)[0m   [0;1mSHOW FIELDS FROM `assets`[0m
+
+NoMethodError (undefined method `template_exists?' for #<TextBlocksController:0x2306874>):
+  config/initializers/stockyard.rb:34:in `default_template_name'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:1319:in `default_template'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/layout.rb:234:in `candidate_for_layout?'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/layout.rb:257:in `pick_layout'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:885:in `render_without_benchmark'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/benchmarking.rb:51:in `render'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/benchmarking.rb:51:in `render'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/mime_responds.rb:135:in `send'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/mime_responds.rb:135:in `custom'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/mime_responds.rb:179:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/mime_responds.rb:179:in `respond'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/mime_responds.rb:173:in `each'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/mime_responds.rb:173:in `respond'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/mime_responds.rb:107:in `respond_to'
+  app/controllers/assets_controller.rb:29:in `new'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:1261:in `send'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:1261:in `perform_action_without_filters'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/filters.rb:617:in `call_filters'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rescue.rb:154:in `perform_action_without_flash'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/flash.rb:141:in `perform_action'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:523:in `send'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:523:in `process_without_filters'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/filters.rb:606:in `sass_old_process'
+  haml (2.0.9) lib/sass/plugin/rails.rb:19:in `process'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:391:in `process'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:386:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/routing/route_set.rb:433:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/dispatcher.rb:65:in `dispatch'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/dispatcher.rb:88:in `_call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/dispatcher.rb:59:in `initialize'
+  /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/query_cache.rb:29:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/query_cache.rb:29:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+  /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/query_cache.rb:9:in `cache'
+  /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/query_cache.rb:28:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/params_parser.rb:15:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rewindable_input.rb:25:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/session/cookie_store.rb:93:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/failsafe.rb:11:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rack_ext/lock.rb:15:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rack_ext/lock.rb:15:in `synchronize'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rack_ext/lock.rb:15:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/dispatcher.rb:83:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/rails-2.3.0/lib/rails/rack/static.rb:27:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/rails-2.3.0/lib/rails/rack/log_tailer.rb:17:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/rails-2.3.0/lib/commands/server.rb:100
+
+Rendered rescues/_trace (84.9ms)
+Rendered rescues/_request_and_response (0.9ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing TextBlocksController#new (for 127.0.0.1 at 2009-03-15 23:33:19) [GET]
+  [4;35;1mAsset Columns (1.9ms)[0m   [0mSHOW FIELDS FROM `assets`[0m
+
+NoMethodError (undefined method `template_exists?' for #<TextBlocksController:0x25cede0>):
+  config/initializers/stockyard.rb:34:in `default_template_name'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:1319:in `default_template'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/layout.rb:234:in `candidate_for_layout?'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/layout.rb:257:in `pick_layout'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:885:in `render_without_benchmark'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/benchmarking.rb:51:in `render'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/benchmarking.rb:51:in `render'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/mime_responds.rb:135:in `send'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/mime_responds.rb:135:in `custom'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/mime_responds.rb:179:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/mime_responds.rb:179:in `respond'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/mime_responds.rb:173:in `each'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/mime_responds.rb:173:in `respond'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/mime_responds.rb:107:in `respond_to'
+  app/controllers/assets_controller.rb:29:in `new'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:1261:in `send'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:1261:in `perform_action_without_filters'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/filters.rb:617:in `call_filters'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rescue.rb:154:in `perform_action_without_flash'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/flash.rb:141:in `perform_action'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:523:in `send'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:523:in `process_without_filters'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/filters.rb:606:in `sass_old_process'
+  haml (2.0.9) lib/sass/plugin/rails.rb:19:in `process'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:391:in `process'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:386:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/routing/route_set.rb:433:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/dispatcher.rb:65:in `dispatch'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/dispatcher.rb:88:in `_call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/dispatcher.rb:59:in `initialize'
+  /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/query_cache.rb:29:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/query_cache.rb:29:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+  /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/query_cache.rb:9:in `cache'
+  /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/query_cache.rb:28:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/params_parser.rb:15:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rewindable_input.rb:25:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/session/cookie_store.rb:93:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/failsafe.rb:11:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rack_ext/lock.rb:15:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rack_ext/lock.rb:15:in `synchronize'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rack_ext/lock.rb:15:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/dispatcher.rb:83:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/rails-2.3.0/lib/rails/rack/static.rb:27:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/rails-2.3.0/lib/rails/rack/log_tailer.rb:17:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/rails-2.3.0/lib/commands/server.rb:100
+
+Rendered rescues/_trace (86.9ms)
+Rendered rescues/_request_and_response (0.5ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing TextBlocksController#new (for 127.0.0.1 at 2009-03-15 23:33:29) [GET]
+  [4;36;1mAsset Columns (2.5ms)[0m   [0;1mSHOW FIELDS FROM `assets`[0m
+
+ActionView::MissingTemplate (Missing template text_blocks/new.erb in view path app/views):
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/template.rb:221:in `find_full_path'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/template.rb:102:in `initialize'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/paths.rb:54:in `new'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/paths.rb:54:in `find_template'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:1319:in `default_template'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:912:in `render_without_benchmark'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/benchmarking.rb:51:in `render'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/benchmarking.rb:51:in `render'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/mime_responds.rb:135:in `send'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/mime_responds.rb:135:in `custom'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/mime_responds.rb:179:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/mime_responds.rb:179:in `respond'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/mime_responds.rb:173:in `each'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/mime_responds.rb:173:in `respond'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/mime_responds.rb:107:in `respond_to'
+  app/controllers/assets_controller.rb:29:in `new'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:1261:in `send'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:1261:in `perform_action_without_filters'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/filters.rb:617:in `call_filters'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rescue.rb:154:in `perform_action_without_flash'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/flash.rb:141:in `perform_action'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:523:in `send'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:523:in `process_without_filters'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/filters.rb:606:in `sass_old_process'
+  haml (2.0.9) lib/sass/plugin/rails.rb:19:in `process'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:391:in `process'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:386:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/routing/route_set.rb:433:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/dispatcher.rb:65:in `dispatch'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/dispatcher.rb:88:in `_call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/dispatcher.rb:59:in `initialize'
+  /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/query_cache.rb:29:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/query_cache.rb:29:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+  /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/query_cache.rb:9:in `cache'
+  /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/query_cache.rb:28:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/params_parser.rb:15:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rewindable_input.rb:25:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/session/cookie_store.rb:93:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/failsafe.rb:11:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rack_ext/lock.rb:15:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rack_ext/lock.rb:15:in `synchronize'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rack_ext/lock.rb:15:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/dispatcher.rb:83:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/rails-2.3.0/lib/rails/rack/static.rb:27:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/rails-2.3.0/lib/rails/rack/log_tailer.rb:17:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/rails-2.3.0/lib/commands/server.rb:100
+
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing TextBlocksController#new (for 127.0.0.1 at 2009-03-15 23:39:44) [GET]
+  [4;36;1mAsset Columns (3.0ms)[0m   [0;1mSHOW FIELDS FROM `assets`[0m
+Rendering template within layouts/application
+Rendering text_blocks/new
+
+ActionView::TemplateError (Called id for nil, which would mistakenly be 4 -- if you really wanted the id of nil, use object_id) on line #3 of app/views/text_blocks/new.html.erb:
+1: <h1>New Text Block</h1>
+2: 
+3: <% semantic_form_for @text_block do |form| %>
+4:    <%= form.inputs %>
+5:    <%= form.buttons %>
+6:  <% end %>
+
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/record_identifier.rb:76:in `dom_id'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/helpers/record_identification_helper.rb:16:in `dom_id'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/helpers/form_helper.rb:264:in `apply_form_for_options!'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/helpers/form_helper.rb:248:in `form_for_without_haml'
+    haml (2.0.9) lib/haml/helpers/action_view_mods.rb:171:in `form_for'
+    /usr/local/lib/ruby/gems/1.8/gems/justinfrench-formtastic-0.1.1/rails/./lib/formtastic.rb:916:in `semantic_form_for'
+    app/views/text_blocks/new.html.erb:3
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/renderable.rb:35:in `send'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/renderable.rb:35:in `render'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/template.rb:182:in `render_template'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/base.rb:247:in `render_without_haml'
+    haml (2.0.9) lib/haml/helpers/action_view_mods.rb:14:in `render'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/base.rb:318:in `_render_with_layout'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/base.rb:244:in `render_without_haml'
+    haml (2.0.9) lib/haml/helpers/action_view_mods.rb:14:in `render'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:1180:in `render_for_file'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:912:in `render_without_benchmark'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/benchmarking.rb:51:in `render'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/benchmarking.rb:51:in `render'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/mime_responds.rb:135:in `send'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/mime_responds.rb:135:in `custom'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/mime_responds.rb:179:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/mime_responds.rb:179:in `respond'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/mime_responds.rb:173:in `each'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/mime_responds.rb:173:in `respond'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/mime_responds.rb:107:in `respond_to'
+    app/controllers/assets_controller.rb:29:in `new'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:1261:in `send'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:1261:in `perform_action_without_filters'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/filters.rb:617:in `call_filters'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rescue.rb:154:in `perform_action_without_flash'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/flash.rb:141:in `perform_action'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:523:in `send'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:523:in `process_without_filters'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/filters.rb:606:in `sass_old_process'
+    haml (2.0.9) lib/sass/plugin/rails.rb:19:in `process'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:391:in `process'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:386:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/routing/route_set.rb:433:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/dispatcher.rb:65:in `dispatch'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/dispatcher.rb:88:in `_call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/dispatcher.rb:59:in `initialize'
+    /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/query_cache.rb:29:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/query_cache.rb:29:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+    /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/query_cache.rb:9:in `cache'
+    /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/query_cache.rb:28:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/params_parser.rb:15:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rewindable_input.rb:25:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/session/cookie_store.rb:93:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/failsafe.rb:11:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rack_ext/lock.rb:15:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rack_ext/lock.rb:15:in `synchronize'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rack_ext/lock.rb:15:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/dispatcher.rb:83:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/rails-2.3.0/lib/rails/rack/static.rb:27:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/rails-2.3.0/lib/rails/rack/log_tailer.rb:17:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/rails-2.3.0/lib/commands/server.rb:100
+
+Rendered rescues/_trace (102.4ms)
+Rendered rescues/_request_and_response (1.1ms)
+Rendering rescues/layout (internal_server_error)
+  [4;35;1mSQL (3.4ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (2.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing TextBlocksController#new (for 127.0.0.1 at 2009-03-15 23:40:11) [GET]
+  [4;35;1mTextBlock Columns (2.1ms)[0m   [0mSHOW FIELDS FROM `text_blocks`[0m
+Rendering template within layouts/application
+Rendering text_blocks/new
+  [4;36;1mContentMapping Load (0.3ms)[0m   [0;1mSELECT * FROM `content_mappings` [0m
+  [4;35;1mContentMapping Load (0.3ms)[0m   [0mSELECT `content_mappings`.id FROM `content_mappings` WHERE (`content_mappings`.asset_id = NULL) [0m
+  [4;36;1mPage Load (0.3ms)[0m   [0;1mSELECT * FROM `pages` [0m
+  [4;35;1mPage Columns (2.2ms)[0m   [0mSHOW FIELDS FROM `pages`[0m
+  [4;36;1mPage Load (0.4ms)[0m   [0;1mSELECT `pages`.id FROM `pages` INNER JOIN `content_mappings` ON `pages`.id = `content_mappings`.page_id WHERE ((`content_mappings`.asset_id = NULL)) [0m
+  [4;35;1mSection Load (0.3ms)[0m   [0mSELECT * FROM `sections` [0m
+  [4;36;1mSection Load (0.3ms)[0m   [0;1mSELECT `sections`.id FROM `sections` INNER JOIN `content_mappings` ON `sections`.id = `content_mappings`.section_id WHERE ((`content_mappings`.asset_id = NULL)) [0m
+Completed in 345ms (View: 301, DB: 12) | 200 OK [http://localhost/text_blocks/new]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing TextBlocksController#new (for 127.0.0.1 at 2009-03-15 23:41:11) [GET]
+  [4;35;1mTextBlock Columns (3.0ms)[0m   [0mSHOW FIELDS FROM `text_blocks`[0m
+Rendering template within layouts/application
+Rendering text_blocks/new
+Completed in 104ms (View: 65, DB: 3) | 200 OK [http://localhost/text_blocks/new]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing TextBlocksController#new (for 127.0.0.1 at 2009-03-15 23:42:17) [GET]
+  [4;36;1mTextBlock Columns (3.4ms)[0m   [0;1mSHOW FIELDS FROM `text_blocks`[0m
+Rendering template within layouts/application
+Rendering text_blocks/new
+Completed in 111ms (View: 72, DB: 4) | 200 OK [http://localhost/text_blocks/new]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing TextBlocksController#new (for 127.0.0.1 at 2009-03-15 23:42:20) [GET]
+  [4;35;1mTextBlock Columns (2.7ms)[0m   [0mSHOW FIELDS FROM `text_blocks`[0m
+Rendering template within layouts/application
+Rendering text_blocks/new
+Completed in 105ms (View: 67, DB: 3) | 200 OK [http://localhost/text_blocks/new]
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing TextBlocksController#new (for 127.0.0.1 at 2009-03-15 23:42:31) [GET]
+  [4;36;1mTextBlock Columns (3.1ms)[0m   [0;1mSHOW FIELDS FROM `text_blocks`[0m
+Rendering template within layouts/application
+Rendering text_blocks/new
+Completed in 109ms (View: 70, DB: 4) | 200 OK [http://localhost/text_blocks/new]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing TextBlocksController#new (for 127.0.0.1 at 2009-03-15 23:44:28) [GET]
+  [4;35;1mTextBlock Columns (3.0ms)[0m   [0mSHOW FIELDS FROM `text_blocks`[0m
+Rendering template within layouts/application
+Rendering text_blocks/new
+Completed in 106ms (View: 67, DB: 3) | 200 OK [http://localhost/text_blocks/new]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing TextBlocksController#new (for 127.0.0.1 at 2009-03-15 23:44:31) [GET]
+  [4;36;1mTextBlock Columns (2.8ms)[0m   [0;1mSHOW FIELDS FROM `text_blocks`[0m
+Rendering template within layouts/application
+Rendering text_blocks/new
+Completed in 105ms (View: 67, DB: 3) | 200 OK [http://localhost/text_blocks/new]
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing TextBlocksController#new (for 127.0.0.1 at 2009-03-15 23:44:42) [GET]
+  [4;36;1mTextBlock Columns (2.9ms)[0m   [0;1mSHOW FIELDS FROM `text_blocks`[0m
+Rendering template within layouts/application
+Rendering text_blocks/new
+Completed in 105ms (View: 67, DB: 3) | 200 OK [http://localhost/text_blocks/new]
+  [4;35;1mSQL (2.9ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing TextBlocksController#new (for 127.0.0.1 at 2009-03-15 23:46:03) [GET]
+  [4;35;1mTextBlock Columns (2.8ms)[0m   [0mSHOW FIELDS FROM `text_blocks`[0m
+Rendering template within layouts/application
+Rendering text_blocks/new
+Completed in 103ms (View: 64, DB: 6) | 200 OK [http://localhost/text_blocks/new]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing TextBlocksController#new (for 127.0.0.1 at 2009-03-15 23:50:03) [GET]
+  [4;36;1mTextBlock Columns (2.6ms)[0m   [0;1mSHOW FIELDS FROM `text_blocks`[0m
+Rendering template within layouts/application
+Rendering text_blocks/new
+Completed in 111ms (View: 69, DB: 3) | 200 OK [http://localhost/text_blocks/new]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SectionsController#new (for 127.0.0.1 at 2009-03-15 23:51:29) [GET]
+  [4;35;1mSection Columns (2.2ms)[0m   [0mSHOW FIELDS FROM `sections`[0m
+Rendering template within layouts/application
+Rendering sections/new
+Rendered sections/_form (5.1ms)
+Completed in 107ms (View: 80, DB: 2) | 200 OK [http://localhost/sections/new]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SectionsController#new (for 127.0.0.1 at 2009-03-15 23:52:32) [GET]
+  [4;36;1mSection Columns (2.0ms)[0m   [0;1mSHOW FIELDS FROM `sections`[0m
+Rendering template within layouts/application
+Rendering sections/new
+  [4;35;1mContentMapping Load (0.3ms)[0m   [0mSELECT * FROM `content_mappings` [0m
+  [4;36;1mContentMapping Load (0.3ms)[0m   [0;1mSELECT `content_mappings`.id FROM `content_mappings` WHERE (`content_mappings`.section_id = NULL) [0m
+  [4;35;1mPageTemplate Load (0.3ms)[0m   [0mSELECT * FROM `page_templates` [0m
+
+ActionView::TemplateError (undefined method `page_template_id' for #<Section:0x2858ed0>) on line #5 of app/views/sections/new.html.erb:
+2: 
+3: 
+4: <% semantic_form_for @section do |form| %>
+5:    <%= form.inputs %>
+6:    <%= form.buttons %>
+7:  <% end %>
+8: 
+
+    /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/attribute_methods.rb:260:in `method_missing'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/helpers/form_helper.rb:794:in `send'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/helpers/form_helper.rb:794:in `value'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/helpers/form_helper.rb:785:in `value'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/helpers/form_options_helper.rb:399:in `to_select_tag'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/helpers/form_options_helper.rb:99:in `select'
+    /usr/local/lib/ruby/gems/1.8/gems/justinfrench-formtastic-0.1.1/rails/./lib/formtastic.rb:387:in `select_input'
+    /usr/local/lib/ruby/gems/1.8/gems/justinfrench-formtastic-0.1.1/rails/./lib/formtastic.rb:83:in `send'
+    /usr/local/lib/ruby/gems/1.8/gems/justinfrench-formtastic-0.1.1/rails/./lib/formtastic.rb:83:in `input'
+    /usr/local/lib/ruby/gems/1.8/gems/justinfrench-formtastic-0.1.1/rails/./lib/formtastic.rb:81:in `map'
+    /usr/local/lib/ruby/gems/1.8/gems/justinfrench-formtastic-0.1.1/rails/./lib/formtastic.rb:81:in `input'
+    /usr/local/lib/ruby/gems/1.8/gems/justinfrench-formtastic-0.1.1/rails/./lib/formtastic.rb:191:in `inputs'
+    /usr/local/lib/ruby/gems/1.8/gems/justinfrench-formtastic-0.1.1/rails/./lib/formtastic.rb:191:in `map'
+    /usr/local/lib/ruby/gems/1.8/gems/justinfrench-formtastic-0.1.1/rails/./lib/formtastic.rb:191:in `inputs'
+    app/views/sections/new.html.erb:5
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/helpers/form_helper.rb:461:in `fields_for'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/helpers/form_helper.rb:253:in `form_for_without_haml'
+    haml (2.0.9) lib/haml/helpers/action_view_mods.rb:171:in `form_for'
+    /usr/local/lib/ruby/gems/1.8/gems/justinfrench-formtastic-0.1.1/rails/./lib/formtastic.rb:916:in `semantic_form_for'
+    app/views/sections/new.html.erb:4
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/renderable.rb:35:in `send'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/renderable.rb:35:in `render'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/template.rb:182:in `render_template'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/base.rb:247:in `render_without_haml'
+    haml (2.0.9) lib/haml/helpers/action_view_mods.rb:14:in `render'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/base.rb:318:in `_render_with_layout'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/base.rb:244:in `render_without_haml'
+    haml (2.0.9) lib/haml/helpers/action_view_mods.rb:14:in `render'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:1180:in `render_for_file'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:912:in `render_without_benchmark'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/benchmarking.rb:51:in `render'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/benchmarking.rb:51:in `render'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/mime_responds.rb:135:in `send'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/mime_responds.rb:135:in `custom'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/mime_responds.rb:179:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/mime_responds.rb:179:in `respond'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/mime_responds.rb:173:in `each'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/mime_responds.rb:173:in `respond'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/mime_responds.rb:107:in `respond_to'
+    app/controllers/sections_controller.rb:29:in `new'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:1261:in `send'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:1261:in `perform_action_without_filters'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/filters.rb:617:in `call_filters'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rescue.rb:154:in `perform_action_without_flash'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/flash.rb:141:in `perform_action'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:523:in `send'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:523:in `process_without_filters'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/filters.rb:606:in `sass_old_process'
+    haml (2.0.9) lib/sass/plugin/rails.rb:19:in `process'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:391:in `process'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:386:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/routing/route_set.rb:433:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/dispatcher.rb:65:in `dispatch'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/dispatcher.rb:88:in `_call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/dispatcher.rb:59:in `initialize'
+    /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/query_cache.rb:29:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/query_cache.rb:29:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+    /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/query_cache.rb:9:in `cache'
+    /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/query_cache.rb:28:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/params_parser.rb:15:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rewindable_input.rb:25:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/session/cookie_store.rb:93:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/failsafe.rb:11:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rack_ext/lock.rb:15:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rack_ext/lock.rb:15:in `synchronize'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rack_ext/lock.rb:15:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/dispatcher.rb:83:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/rails-2.3.0/lib/rails/rack/static.rb:27:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/rails-2.3.0/lib/rails/rack/log_tailer.rb:17:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/rails-2.3.0/lib/commands/server.rb:100
+
+Rendered rescues/_trace (122.0ms)
+Rendered rescues/_request_and_response (0.9ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SectionsController#new (for 127.0.0.1 at 2009-03-15 23:53:20) [GET]
+  [4;36;1mSection Columns (21.6ms)[0m   [0;1mSHOW FIELDS FROM `sections`[0m
+Rendering template within layouts/application
+Rendering sections/new
+  [4;35;1mContentMapping Load (0.3ms)[0m   [0mSELECT * FROM `content_mappings` [0m
+  [4;36;1mContentMapping Load (15.0ms)[0m   [0;1mSELECT `content_mappings`.id FROM `content_mappings` WHERE (`content_mappings`.section_id = NULL) [0m
+Completed in 212ms (View: 145, DB: 37) | 200 OK [http://localhost/sections/new]
+  [4;35;1mSQL (0.2ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SectionsController#new (for 127.0.0.1 at 2009-03-15 23:55:24) [GET]
+  [4;35;1mSection Columns (2.1ms)[0m   [0mSHOW FIELDS FROM `sections`[0m
+Rendering template within layouts/application
+Rendering sections/new
+Rendered sections/_form (8.1ms)
+Completed in 115ms (View: 85, DB: 2) | 200 OK [http://localhost/sections/new]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing SectionsController#new (for 127.0.0.1 at 2009-03-15 23:56:35) [GET]
+  [4;36;1mSection Columns (2.0ms)[0m   [0;1mSHOW FIELDS FROM `sections`[0m
+Rendering template within layouts/application
+Rendering sections/new
+Rendered sections/_form (7.8ms)
+Completed in 108ms (View: 81, DB: 2) | 200 OK [http://localhost/sections/new]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PagesController#new (for 127.0.0.1 at 2009-03-15 23:56:38) [GET]
+  [4;35;1mPage Columns (1.8ms)[0m   [0mSHOW FIELDS FROM `pages`[0m
+Rendering template within layouts/application
+Rendering pages/new
+  [4;36;1mContentMapping Load (0.2ms)[0m   [0;1mSELECT * FROM `content_mappings` [0m
+  [4;35;1mContentMapping Load (0.2ms)[0m   [0mSELECT `content_mappings`.id FROM `content_mappings` WHERE (`content_mappings`.page_id = NULL) [0m
+  [4;36;1mPage Load (0.2ms)[0m   [0;1mSELECT * FROM `pages` [0m
+  [4;35;1mPage Load (0.2ms)[0m   [0mSELECT `pages`.id FROM `pages` WHERE (`pages`.parent_id = NULL) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `pages` [0m
+  [4;35;1mPageTemplate Load (0.2ms)[0m   [0mSELECT * FROM `page_templates` [0m
+  [4;36;1mSection Load (0.2ms)[0m   [0;1mSELECT * FROM `sections` [0m
+  [4;35;1mSection Load (0.2ms)[0m   [0mSELECT `sections`.id FROM `sections` INNER JOIN `content_mappings` ON `sections`.id = `content_mappings`.section_id WHERE ((`content_mappings`.page_id = NULL)) [0m
+Rendered pages/_form (105.4ms)
+Completed in 206ms (View: 172, DB: 3) | 200 OK [http://localhost/pages/new]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PagesController#new (for 127.0.0.1 at 2009-03-15 23:57:00) [GET]
+  [4;36;1mPage Columns (6.9ms)[0m   [0;1mSHOW FIELDS FROM `pages`[0m
+Rendering template within layouts/application
+Rendering pages/new
+Rendered pages/_form (14.4ms)
+Completed in 189ms (View: 124, DB: 7) | 200 OK [http://localhost/pages/new]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PagesController#new (for 127.0.0.1 at 2009-03-15 23:57:14) [GET]
+  [4;35;1mPage Columns (3.7ms)[0m   [0mSHOW FIELDS FROM `pages`[0m
+Rendering template within layouts/application
+Rendering pages/new
+DEPRECATION WARNING: The _id way of doing things is deprecated. Please use the association method (parent). (called from map at /usr/local/lib/ruby/gems/1.8/gems/justinfrench-formtastic-0.1.1/rails/../lib/formtastic.rb:81)
+
+ActionView::TemplateError (uninitialized constant Parent) on line #3 of app/views/pages/_form.html.erb:
+1: 
+2: <% semantic_form_for @page do |form| %>
+3:   <%= form.inputs :parent_id, :title, :file_name, :permalink %>
+4:   <%= form.buttons %>
+5: <% end %>
+
+    /Users/aaron/.gem/ruby/1.8/gems/activesupport-2.3.0/lib/active_support/dependencies.rb:443:in `load_missing_constant'
+    /Users/aaron/.gem/ruby/1.8/gems/activesupport-2.3.0/lib/active_support/dependencies.rb:80:in `const_missing'
+    /Users/aaron/.gem/ruby/1.8/gems/activesupport-2.3.0/lib/active_support/dependencies.rb:92:in `const_missing'
+    /Users/aaron/.gem/ruby/1.8/gems/activesupport-2.3.0/lib/active_support/inflector.rb:359:in `constantize'
+    /Users/aaron/.gem/ruby/1.8/gems/activesupport-2.3.0/lib/active_support/inflector.rb:358:in `each'
+    /Users/aaron/.gem/ruby/1.8/gems/activesupport-2.3.0/lib/active_support/inflector.rb:358:in `constantize'
+    /Users/aaron/.gem/ruby/1.8/gems/activesupport-2.3.0/lib/active_support/core_ext/string/inflections.rb:162:in `constantize'
+    /usr/local/lib/ruby/gems/1.8/gems/justinfrench-formtastic-0.1.1/rails/./lib/formtastic.rb:774:in `find_parent_objects_for_column'
+    /usr/local/lib/ruby/gems/1.8/gems/justinfrench-formtastic-0.1.1/rails/./lib/formtastic.rb:374:in `select_input'
+    /usr/local/lib/ruby/gems/1.8/gems/justinfrench-formtastic-0.1.1/rails/./lib/formtastic.rb:83:in `send'
+    /usr/local/lib/ruby/gems/1.8/gems/justinfrench-formtastic-0.1.1/rails/./lib/formtastic.rb:83:in `input'
+    /usr/local/lib/ruby/gems/1.8/gems/justinfrench-formtastic-0.1.1/rails/./lib/formtastic.rb:81:in `map'
+    /usr/local/lib/ruby/gems/1.8/gems/justinfrench-formtastic-0.1.1/rails/./lib/formtastic.rb:81:in `input'
+    /usr/local/lib/ruby/gems/1.8/gems/justinfrench-formtastic-0.1.1/rails/./lib/formtastic.rb:191:in `inputs'
+    /usr/local/lib/ruby/gems/1.8/gems/justinfrench-formtastic-0.1.1/rails/./lib/formtastic.rb:191:in `map'
+    /usr/local/lib/ruby/gems/1.8/gems/justinfrench-formtastic-0.1.1/rails/./lib/formtastic.rb:191:in `inputs'
+    app/views/pages/_form.html.erb:3
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/helpers/form_helper.rb:461:in `fields_for'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/helpers/form_helper.rb:253:in `form_for_without_haml'
+    haml (2.0.9) lib/haml/helpers/action_view_mods.rb:171:in `form_for'
+    /usr/local/lib/ruby/gems/1.8/gems/justinfrench-formtastic-0.1.1/rails/./lib/formtastic.rb:916:in `semantic_form_for'
+    app/views/pages/_form.html.erb:2
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/renderable.rb:35:in `send'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/renderable.rb:35:in `render'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/renderable_partial.rb:20:in `render'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/benchmarking.rb:26:in `benchmark'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/benchmarking.rb:26:in `benchmark'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/renderable_partial.rb:19:in `render'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/template.rb:182:in `render_template'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/renderable_partial.rb:44:in `render_partial'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/partials.rb:184:in `render_partial'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/base.rb:249:in `render_without_haml'
+    haml (2.0.9) lib/haml/helpers/action_view_mods.rb:14:in `render'
+    app/views/pages/new.html.erb:3
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/renderable.rb:35:in `send'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/renderable.rb:35:in `render'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/template.rb:182:in `render_template'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/base.rb:247:in `render_without_haml'
+    haml (2.0.9) lib/haml/helpers/action_view_mods.rb:14:in `render'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/base.rb:318:in `_render_with_layout'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_view/base.rb:244:in `render_without_haml'
+    haml (2.0.9) lib/haml/helpers/action_view_mods.rb:14:in `render'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:1180:in `render_for_file'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:912:in `render_without_benchmark'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/benchmarking.rb:51:in `render'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/benchmarking.rb:51:in `render'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/mime_responds.rb:135:in `send'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/mime_responds.rb:135:in `custom'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/mime_responds.rb:179:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/mime_responds.rb:179:in `respond'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/mime_responds.rb:173:in `each'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/mime_responds.rb:173:in `respond'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/mime_responds.rb:107:in `respond_to'
+    app/controllers/pages_controller.rb:32:in `new'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:1261:in `send'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:1261:in `perform_action_without_filters'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/filters.rb:617:in `call_filters'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rescue.rb:154:in `perform_action_without_flash'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/flash.rb:141:in `perform_action'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:523:in `send'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:523:in `process_without_filters'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/filters.rb:606:in `sass_old_process'
+    haml (2.0.9) lib/sass/plugin/rails.rb:19:in `process'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:391:in `process'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:386:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/routing/route_set.rb:433:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/dispatcher.rb:65:in `dispatch'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/dispatcher.rb:88:in `_call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/dispatcher.rb:59:in `initialize'
+    /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/query_cache.rb:29:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/query_cache.rb:29:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+    /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/query_cache.rb:9:in `cache'
+    /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/query_cache.rb:28:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/params_parser.rb:15:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rewindable_input.rb:25:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/session/cookie_store.rb:93:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/failsafe.rb:11:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rack_ext/lock.rb:15:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rack_ext/lock.rb:15:in `synchronize'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rack_ext/lock.rb:15:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/dispatcher.rb:83:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/rails-2.3.0/lib/rails/rack/static.rb:27:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/rails-2.3.0/lib/rails/rack/log_tailer.rb:17:in `call'
+    /Users/aaron/.gem/ruby/1.8/gems/rails-2.3.0/lib/commands/server.rb:100
+
+Rendered rescues/_trace (137.1ms)
+Rendered rescues/_request_and_response (0.5ms)
+Rendering rescues/layout (internal_server_error)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PagesController#new (for 127.0.0.1 at 2009-03-15 23:57:24) [GET]
+  [4;36;1mPage Columns (4.0ms)[0m   [0;1mSHOW FIELDS FROM `pages`[0m
+Rendering template within layouts/application
+Rendering pages/new
+  [4;35;1mPage Load (0.3ms)[0m   [0mSELECT * FROM `pages` [0m
+Rendered pages/_form (14.7ms)
+Completed in 124ms (View: 86, DB: 5) | 200 OK [http://localhost/pages/new]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PagesController#index (for 127.0.0.1 at 2009-03-15 23:58:04) [GET]
+  [4;36;1mPage Load (0.3ms)[0m   [0;1mSELECT * FROM `pages` [0m
+Rendering template within layouts/application
+Rendering pages/index
+  [4;35;1mPage Columns (3.3ms)[0m   [0mSHOW FIELDS FROM `pages`[0m
+Completed in 91ms (View: 60, DB: 4) | 200 OK [http://localhost/pages/]
+  [4;36;1mSQL (19.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PagesController#index (for 127.0.0.1 at 2009-03-16 00:00:15) [GET]
+  [4;36;1mPage Load (47.6ms)[0m   [0;1mSELECT * FROM `pages` [0m
+Rendering template within layouts/application
+Rendering pages/index
+  [4;35;1mPage Columns (65.4ms)[0m   [0mSHOW FIELDS FROM `pages`[0m
+Completed in 218ms (View: 63, DB: 132) | 200 OK [http://localhost/pages/]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing PagesController#1 (for 127.0.0.1 at 2009-03-16 00:00:56) [GET]
+  Parameters: {"id"=>"assets"}
+
+ActionController::UnknownAction (No action responded to 1. Actions: create, destroy, edit, index, new, show, and update):
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/filters.rb:617:in `call_filters'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rescue.rb:154:in `perform_action_without_flash'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/flash.rb:141:in `perform_action'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:523:in `send'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:523:in `process_without_filters'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/filters.rb:606:in `sass_old_process'
+  haml (2.0.9) lib/sass/plugin/rails.rb:19:in `process'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:391:in `process'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/base.rb:386:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/routing/route_set.rb:433:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/dispatcher.rb:65:in `dispatch'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/dispatcher.rb:88:in `_call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/dispatcher.rb:59:in `initialize'
+  /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/query_cache.rb:29:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/query_cache.rb:29:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+  /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/query_cache.rb:9:in `cache'
+  /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/query_cache.rb:28:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/params_parser.rb:15:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rewindable_input.rb:25:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/session/cookie_store.rb:93:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/failsafe.rb:11:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rack_ext/lock.rb:15:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rack_ext/lock.rb:15:in `synchronize'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rack_ext/lock.rb:15:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/dispatcher.rb:83:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/rails-2.3.0/lib/rails/rack/static.rb:27:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/rails-2.3.0/lib/rails/rack/log_tailer.rb:17:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/rails-2.3.0/lib/commands/server.rb:100
+
+Rendering rescues/layout (not_found)
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetsController#index (for 127.0.0.1 at 2009-03-16 00:01:53) [GET]
+  Parameters: {"page_id"=>"1"}
+  [4;36;1mAsset Load (0.5ms)[0m   [0;1mSELECT * FROM `assets` [0m
+Rendering template within layouts/application
+Rendering assets/index
+Completed in 69ms (View: 42, DB: 1) | 200 OK [http://localhost/pages/1/assets]
+  [4;35;1mSQL (0.1ms)[0m   [0mSET NAMES 'utf8'[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing AssetsController#new (for 127.0.0.1 at 2009-03-16 00:03:03) [GET]
+  Parameters: {"page_id"=>"1"}
+  [4;35;1mAsset Columns (3.1ms)[0m   [0mSHOW FIELDS FROM `assets`[0m
+Rendering template within layouts/application
+Rendering assets/new
+Rendered assets/_form (0.4ms)
+Completed in 91ms (View: 60, DB: 3) | 200 OK [http://localhost/pages/1/assets/new]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+
+
+Processing ApplicationController#index (for 127.0.0.1 at 2009-03-16 00:03:13) [GET]
+
+ActionController::RoutingError (No route matches "/pages/1/text_blocks/new" with {:method=>:get}):
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/routing/recognition_optimisation.rb:66:in `recognize_path'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/routing/route_set.rb:437:in `recognize'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/routing/route_set.rb:432:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/dispatcher.rb:65:in `dispatch'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/dispatcher.rb:88:in `_call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/dispatcher.rb:59:in `initialize'
+  /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/query_cache.rb:29:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/query_cache.rb:29:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+  /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/query_cache.rb:9:in `cache'
+  /Users/aaron/.gem/ruby/1.8/gems/activerecord-2.3.0/lib/active_record/query_cache.rb:28:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/params_parser.rb:15:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rewindable_input.rb:25:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/session/cookie_store.rb:93:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/failsafe.rb:11:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rack_ext/lock.rb:15:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rack_ext/lock.rb:15:in `synchronize'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/rack_ext/lock.rb:15:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/actionpack-2.3.0/lib/action_controller/dispatcher.rb:83:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/rails-2.3.0/lib/rails/rack/static.rb:27:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/rails-2.3.0/lib/rails/rack/log_tailer.rb:17:in `call'
+  /Users/aaron/.gem/ruby/1.8/gems/rails-2.3.0/lib/commands/server.rb:100
+
+Rendering rescues/layout (not_found)

@@ -1,0 +1,17 @@
+  <%= f.error_messages %>
+
+  <p>
+    <%= f.label :page_id %><br />
+    <%= f.select(:page_id, Page.find(:all).collect {|p| [ p.title, p.id ] })  %>
+  </p>
+  <p>
+    <%= f.label :section_id %><br />
+    <%= f.select(:section_id, Section.find(:all).collect {|s| [ s.title, s.id ] }) %>
+  </p>
+  <p>
+    <%= f.hidden_field :asset_type %>
+  </p>
+  <p>
+    <%= f.label :asset_id %><br />
+    <%= f.select(:asset_id, Asset.find(:all).collect {|a| [a.title, a.id]}) %>
+  </p>
