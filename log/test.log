@@ -27389,3 +27389,683 @@ Completed in 5ms (DB: 1) | 302 Found [http://test.host/sections/1?]
   [4;36;1mContentMapping Load (0.9ms)[0m   [0;1mSELECT * FROM `content_mappings` WHERE (`content_mappings`.section_id = 2) [0m
   [4;35;1mTextBlock Load (0.2ms)[0m   [0mSELECT * FROM `text_blocks` WHERE (`text_blocks`.`id` = 1) [0m
   [4;36;1mSQL (0.2ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mPage Load (0.4ms)[0m   [0mSELECT * FROM `pages` WHERE (`pages`.`id` = 1) [0m
+  [4;36;1mSection Load (0.4ms)[0m   [0;1mSELECT DISTINCT `sections`.* FROM `sections` INNER JOIN `content_mappings` ON `sections`.id = `content_mappings`.section_id WHERE ((`content_mappings`.page_id = 1)) [0m
+  [4;35;1mContentMapping Load (0.2ms)[0m   [0mSELECT * FROM `content_mappings` WHERE (`content_mappings`.section_id = 1) [0m
+  [4;36;1mTextBlock Load (0.2ms)[0m   [0;1mSELECT * FROM `text_blocks` WHERE (`text_blocks`.`id` = 3) [0m
+  [4;35;1mTextBlock Load (0.2ms)[0m   [0mSELECT * FROM `text_blocks` WHERE (`text_blocks`.`id` = 4) [0m
+  [4;36;1mTextBlock Load (0.2ms)[0m   [0;1mSELECT * FROM `text_blocks` WHERE (`text_blocks`.`id` = 1) [0m
+  [4;35;1mTextBlock Load (0.2ms)[0m   [0mSELECT * FROM `text_blocks` WHERE (`text_blocks`.`id` = 2) [0m
+  [4;36;1mContentMapping Load (0.2ms)[0m   [0;1mSELECT * FROM `content_mappings` WHERE (`content_mappings`.section_id = 2) [0m
+  [4;35;1mTextBlock Load (0.1ms)[0m   [0mSELECT * FROM `text_blocks` WHERE (`text_blocks`.`id` = 1) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mPage Load (0.2ms)[0m   [0mSELECT * FROM `pages` WHERE (`pages`.`id` = 1) [0m
+  [4;36;1mSection Load (0.5ms)[0m   [0;1mSELECT DISTINCT `sections`.* FROM `sections` INNER JOIN `content_mappings` ON `sections`.id = `content_mappings`.section_id WHERE ((`content_mappings`.page_id = 1)) [0m
+  [4;35;1mContentMapping Load (0.3ms)[0m   [0mSELECT * FROM `content_mappings` WHERE (`content_mappings`.section_id = 1) [0m
+  [4;36;1mTextBlock Load (0.2ms)[0m   [0;1mSELECT * FROM `text_blocks` WHERE (`text_blocks`.`id` = 3) [0m
+  [4;35;1mTextBlock Load (0.2ms)[0m   [0mSELECT * FROM `text_blocks` WHERE (`text_blocks`.`id` = 4) [0m
+  [4;36;1mTextBlock Load (0.4ms)[0m   [0;1mSELECT * FROM `text_blocks` WHERE (`text_blocks`.`id` = 1) [0m
+  [4;35;1mTextBlock Load (0.2ms)[0m   [0mSELECT * FROM `text_blocks` WHERE (`text_blocks`.`id` = 2) [0m
+  [4;36;1mContentMapping Load (0.2ms)[0m   [0;1mSELECT * FROM `content_mappings` WHERE (`content_mappings`.section_id = 2) [0m
+  [4;35;1mTextBlock Load (0.2ms)[0m   [0mSELECT * FROM `text_blocks` WHERE (`text_blocks`.`id` = 1) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mPage Load (0.3ms)[0m   [0mSELECT * FROM `pages` WHERE (`pages`.`id` = 1) [0m
+  [4;36;1mSection Load (0.5ms)[0m   [0;1mSELECT DISTINCT `sections`.* FROM `sections` INNER JOIN `content_mappings` ON `sections`.id = `content_mappings`.section_id WHERE ((`content_mappings`.page_id = 1)) [0m
+  [4;35;1mContentMapping Load (0.2ms)[0m   [0mSELECT * FROM `content_mappings` WHERE (`content_mappings`.section_id = 1) [0m
+  [4;36;1mTextBlock Load (0.2ms)[0m   [0;1mSELECT * FROM `text_blocks` WHERE (`text_blocks`.`id` = 3) [0m
+  [4;35;1mTextBlock Load (0.2ms)[0m   [0mSELECT * FROM `text_blocks` WHERE (`text_blocks`.`id` = 4) [0m
+  [4;36;1mTextBlock Load (0.2ms)[0m   [0;1mSELECT * FROM `text_blocks` WHERE (`text_blocks`.`id` = 1) [0m
+  [4;35;1mTextBlock Load (0.2ms)[0m   [0mSELECT * FROM `text_blocks` WHERE (`text_blocks`.`id` = 2) [0m
+  [4;36;1mContentMapping Load (0.2ms)[0m   [0;1mSELECT * FROM `content_mappings` WHERE (`content_mappings`.section_id = 2) [0m
+  [4;35;1mTextBlock Load (0.2ms)[0m   [0mSELECT * FROM `text_blocks` WHERE (`text_blocks`.`id` = 1) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mPage Load (0.3ms)[0m   [0mSELECT * FROM `pages` WHERE (`pages`.`id` = 1) [0m
+  [4;36;1mSection Load (0.5ms)[0m   [0;1mSELECT DISTINCT `sections`.* FROM `sections` INNER JOIN `content_mappings` ON `sections`.id = `content_mappings`.section_id WHERE ((`content_mappings`.page_id = 1)) [0m
+  [4;35;1mContentMapping Load (0.3ms)[0m   [0mSELECT * FROM `content_mappings` WHERE (`content_mappings`.section_id = 1) [0m
+  [4;36;1mTextBlock Load (0.2ms)[0m   [0;1mSELECT * FROM `text_blocks` WHERE (`text_blocks`.`id` = 3) [0m
+  [4;35;1mTextBlock Load (0.2ms)[0m   [0mSELECT * FROM `text_blocks` WHERE (`text_blocks`.`id` = 4) [0m
+  [4;36;1mTextBlock Load (0.2ms)[0m   [0;1mSELECT * FROM `text_blocks` WHERE (`text_blocks`.`id` = 1) [0m
+  [4;35;1mTextBlock Load (0.2ms)[0m   [0mSELECT * FROM `text_blocks` WHERE (`text_blocks`.`id` = 2) [0m
+  [4;36;1mContentMapping Load (0.2ms)[0m   [0;1mSELECT * FROM `content_mappings` WHERE (`content_mappings`.section_id = 2) [0m
+  [4;35;1mTextBlock Load (0.2ms)[0m   [0mSELECT * FROM `text_blocks` WHERE (`text_blocks`.`id` = 1) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mPage Columns (3.8ms)[0m   [0;1mSHOW FIELDS FROM `pages`[0m
+  [4;35;1mPage Load (0.3ms)[0m   [0mSELECT * FROM `pages` WHERE (`pages`.`id` = 1) [0m
+  [4;36;1mPage Load (0.3ms)[0m   [0;1mSELECT * FROM `pages` WHERE (`pages`.`id` = 1) [0m
+  [4;35;1mSection Load (0.5ms)[0m   [0mSELECT DISTINCT `sections`.* FROM `sections` INNER JOIN `content_mappings` ON `sections`.id = `content_mappings`.section_id WHERE ((`content_mappings`.page_id = 1)) [0m
+  [4;36;1mSection Columns (1.9ms)[0m   [0;1mSHOW FIELDS FROM `sections`[0m
+  [4;35;1mContentMapping Load (0.3ms)[0m   [0mSELECT * FROM `content_mappings` WHERE (`content_mappings`.section_id = 1) [0m
+  [4;36;1mContentMapping Columns (2.2ms)[0m   [0;1mSHOW FIELDS FROM `content_mappings`[0m
+  [4;35;1mTextBlock Columns (2.3ms)[0m   [0mSHOW FIELDS FROM `text_blocks`[0m
+  [4;36;1mTextBlock Load (0.3ms)[0m   [0;1mSELECT * FROM `text_blocks` WHERE (`text_blocks`.`id` = 3) [0m
+  [4;35;1mTextBlock Load (0.3ms)[0m   [0mSELECT * FROM `text_blocks` WHERE (`text_blocks`.`id` = 4) [0m
+  [4;36;1mTextBlock Load (0.2ms)[0m   [0;1mSELECT * FROM `text_blocks` WHERE (`text_blocks`.`id` = 1) [0m
+  [4;35;1mTextBlock Load (0.2ms)[0m   [0mSELECT * FROM `text_blocks` WHERE (`text_blocks`.`id` = 2) [0m
+  [4;36;1mContentMapping Load (0.2ms)[0m   [0;1mSELECT * FROM `content_mappings` WHERE (`content_mappings`.section_id = 2) [0m
+  [4;35;1mTextBlock Load (0.2ms)[0m   [0mSELECT * FROM `text_blocks` WHERE (`text_blocks`.`id` = 1) [0m
+  [4;36;1mPage Load (0.4ms)[0m   [0;1mSELECT * FROM `pages` WHERE (`pages`.`id` = 1) [0m
+  [4;35;1mSection Load (0.5ms)[0m   [0mSELECT DISTINCT `sections`.* FROM `sections` INNER JOIN `content_mappings` ON `sections`.id = `content_mappings`.section_id WHERE ((`content_mappings`.page_id = 1)) [0m
+  [4;36;1mContentMapping Load (0.2ms)[0m   [0;1mSELECT * FROM `content_mappings` WHERE (`content_mappings`.section_id = 1) [0m
+  [4;35;1mTextBlock Load (0.2ms)[0m   [0mSELECT * FROM `text_blocks` WHERE (`text_blocks`.`id` = 3) [0m
+  [4;36;1mTextBlock Load (0.2ms)[0m   [0;1mSELECT * FROM `text_blocks` WHERE (`text_blocks`.`id` = 4) [0m
+  [4;35;1mTextBlock Load (0.2ms)[0m   [0mSELECT * FROM `text_blocks` WHERE (`text_blocks`.`id` = 1) [0m
+  [4;36;1mTextBlock Load (0.2ms)[0m   [0;1mSELECT * FROM `text_blocks` WHERE (`text_blocks`.`id` = 2) [0m
+  [4;35;1mContentMapping Load (0.2ms)[0m   [0mSELECT * FROM `content_mappings` WHERE (`content_mappings`.section_id = 2) [0m
+  [4;36;1mTextBlock Load (0.2ms)[0m   [0;1mSELECT * FROM `text_blocks` WHERE (`text_blocks`.`id` = 1) [0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mPage Load (0.3ms)[0m   [0mSELECT * FROM `pages` WHERE (`pages`.`id` = 1) [0m
+  [4;36;1mSection Load (0.4ms)[0m   [0;1mSELECT DISTINCT `sections`.* FROM `sections` INNER JOIN `content_mappings` ON `sections`.id = `content_mappings`.section_id WHERE ((`content_mappings`.page_id = 1)) [0m
+  [4;35;1mContentMapping Load (0.2ms)[0m   [0mSELECT * FROM `content_mappings` WHERE (`content_mappings`.section_id = 1) [0m
+  [4;36;1mTextBlock Load (0.2ms)[0m   [0;1mSELECT * FROM `text_blocks` WHERE (`text_blocks`.`id` = 3) [0m
+  [4;35;1mTextBlock Load (0.1ms)[0m   [0mSELECT * FROM `text_blocks` WHERE (`text_blocks`.`id` = 4) [0m
+  [4;36;1mTextBlock Load (0.2ms)[0m   [0;1mSELECT * FROM `text_blocks` WHERE (`text_blocks`.`id` = 1) [0m
+  [4;35;1mTextBlock Load (0.2ms)[0m   [0mSELECT * FROM `text_blocks` WHERE (`text_blocks`.`id` = 2) [0m
+  [4;36;1mContentMapping Load (0.2ms)[0m   [0;1mSELECT * FROM `content_mappings` WHERE (`content_mappings`.section_id = 2) [0m
+  [4;35;1mTextBlock Load (0.2ms)[0m   [0mSELECT * FROM `text_blocks` WHERE (`text_blocks`.`id` = 1) [0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mPage Load (0.3ms)[0m   [0mSELECT * FROM `pages` WHERE (`pages`.`id` = 1) [0m
+  [4;36;1mSection Load (0.5ms)[0m   [0;1mSELECT DISTINCT `sections`.* FROM `sections` INNER JOIN `content_mappings` ON `sections`.id = `content_mappings`.section_id WHERE ((`content_mappings`.page_id = 1)) [0m
+  [4;35;1mContentMapping Load (0.2ms)[0m   [0mSELECT * FROM `content_mappings` WHERE (`content_mappings`.section_id = 1) [0m
+  [4;36;1mTextBlock Load (0.2ms)[0m   [0;1mSELECT * FROM `text_blocks` WHERE (`text_blocks`.`id` = 3) [0m
+  [4;35;1mTextBlock Load (0.2ms)[0m   [0mSELECT * FROM `text_blocks` WHERE (`text_blocks`.`id` = 4) [0m
+  [4;36;1mTextBlock Load (0.2ms)[0m   [0;1mSELECT * FROM `text_blocks` WHERE (`text_blocks`.`id` = 1) [0m
+  [4;35;1mTextBlock Load (0.2ms)[0m   [0mSELECT * FROM `text_blocks` WHERE (`text_blocks`.`id` = 2) [0m
+  [4;36;1mContentMapping Load (0.2ms)[0m   [0;1mSELECT * FROM `content_mappings` WHERE (`content_mappings`.section_id = 2) [0m
+  [4;35;1mTextBlock Load (0.2ms)[0m   [0mSELECT * FROM `text_blocks` WHERE (`text_blocks`.`id` = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSET NAMES 'utf8'[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSET SQL_AUTO_IS_NULL=0[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mAsset Columns (1.7ms)[0m   [0mSHOW FIELDS FROM `assets`[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM `content_mappings` [0m
+
+
+Processing ContentMappingsController#create (for 0.0.0.0 at 2009-03-16 00:07:35) [POST]
+  Parameters: {"content_mapping"=>{}}
+  [4;35;1mSQL (0.2ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mContentMapping Create (0.2ms)[0m   [0;1mINSERT INTO `content_mappings` (`asset_type`, `created_at`, `section_id`, `updated_at`, `page_id`, `asset_id`) VALUES(NULL, '2009-03-16 06:07:35', NULL, '2009-03-16 06:07:35', NULL, NULL)[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+Redirected to #<ContentMapping:0x22ed02c>
+Completed in 21ms (DB: 29) | 302 Found [http://test.host/content_mappings?]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM `content_mappings` [0m
+  [4;35;1mSQL (0.7ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM `content_mappings` [0m
+  [4;36;1mContentMapping Load (0.2ms)[0m   [0;1mSELECT * FROM `content_mappings` WHERE (`content_mappings`.`id` = 953125641) [0m
+
+
+Processing ContentMappingsController#destroy (for 0.0.0.0 at 2009-03-16 00:07:35) [DELETE]
+  Parameters: {"id"=>"953125641"}
+  [4;35;1mContentMapping Load (0.2ms)[0m   [0mSELECT * FROM `content_mappings` WHERE (`content_mappings`.`id` = 953125641) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mContentMapping Destroy (0.2ms)[0m   [0mDELETE FROM `content_mappings` WHERE `id` = 953125641[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/content_mappings
+Completed in 4ms (DB: 2) | 302 Found [http://test.host/content_mappings/953125641]
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM `content_mappings` [0m
+  [4;36;1mSQL (0.7ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mContentMapping Load (0.3ms)[0m   [0;1mSELECT * FROM `content_mappings` WHERE (`content_mappings`.`id` = 953125641) [0m
+
+
+Processing ContentMappingsController#edit (for 0.0.0.0 at 2009-03-16 00:07:35) [GET]
+  Parameters: {"id"=>"953125641"}
+  [4;35;1mContentMapping Load (0.2ms)[0m   [0mSELECT * FROM `content_mappings` WHERE (`content_mappings`.`id` = 953125641) [0m
+Rendering template within layouts/application
+Rendering content_mappings/edit
+  [4;36;1mPage Load (0.2ms)[0m   [0;1mSELECT * FROM `pages` [0m
+  [4;35;1mSection Load (0.2ms)[0m   [0mSELECT * FROM `sections` [0m
+  [4;36;1mAsset Load (0.2ms)[0m   [0;1mSELECT * FROM `assets` [0m
+Rendered content_mappings/_form (8.9ms)
+Completed in 16ms (View: 14, DB: 2) | 200 OK [http://test.host/content_mappings/953125641/edit]
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+
+
+Processing ContentMappingsController#index (for 0.0.0.0 at 2009-03-16 00:07:36) [GET]
+  [4;35;1mContentMapping Load (0.2ms)[0m   [0mSELECT * FROM `content_mappings` [0m
+Rendering template within layouts/application
+Rendering content_mappings/index
+Completed in 14ms (View: 12, DB: 0) | 200 OK [http://test.host/content_mappings]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+
+
+Processing ContentMappingsController#new (for 0.0.0.0 at 2009-03-16 00:07:36) [GET]
+Rendering template within layouts/application
+Rendering content_mappings/new
+  [4;36;1mPage Load (0.3ms)[0m   [0;1mSELECT * FROM `pages` [0m
+  [4;35;1mSection Load (0.2ms)[0m   [0mSELECT * FROM `sections` [0m
+  [4;36;1mAsset Load (0.1ms)[0m   [0;1mSELECT * FROM `assets` [0m
+Rendered content_mappings/_form (5.6ms)
+Completed in 10ms (View: 8, DB: 1) | 200 OK [http://test.host/content_mappings/new]
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mContentMapping Load (0.2ms)[0m   [0mSELECT * FROM `content_mappings` WHERE (`content_mappings`.`id` = 953125641) [0m
+
+
+Processing ContentMappingsController#show (for 0.0.0.0 at 2009-03-16 00:07:36) [GET]
+  Parameters: {"id"=>"953125641"}
+  [4;36;1mContentMapping Load (0.3ms)[0m   [0;1mSELECT * FROM `content_mappings` WHERE (`content_mappings`.`id` = 953125641) [0m
+Rendering template within layouts/application
+Rendering content_mappings/show
+Completed in 4ms (View: 3, DB: 1) | 200 OK [http://test.host/content_mappings/953125641]
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mContentMapping Load (0.2ms)[0m   [0mSELECT * FROM `content_mappings` WHERE (`content_mappings`.`id` = 953125641) [0m
+
+
+Processing ContentMappingsController#update (for 0.0.0.0 at 2009-03-16 00:07:36) [PUT]
+  Parameters: {"id"=>"953125641", "content_mapping"=>{}}
+  [4;36;1mContentMapping Load (0.2ms)[0m   [0;1mSELECT * FROM `content_mappings` WHERE (`content_mappings`.`id` = 953125641) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to #<ContentMapping:0x228ca9c>
+Completed in 5ms (DB: 1) | 302 Found [http://test.host/content_mappings/953125641?]
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM `page_templates` [0m
+
+
+Processing PageTemplatesController#create (for 0.0.0.0 at 2009-03-16 00:07:36) [POST]
+  Parameters: {"page_template"=>{}}
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mPageTemplate Create (0.2ms)[0m   [0mINSERT INTO `page_templates` (`created_at`, `title`, `body`, `updated_at`, `file_name`) VALUES('2009-03-16 06:07:36', NULL, NULL, '2009-03-16 06:07:36', NULL)[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to #<PageTemplate:0x2281c50>
+Completed in 18ms (DB: 1) | 302 Found [http://test.host/page_templates?]
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM `page_templates` [0m
+  [4;36;1mSQL (1.4ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM `page_templates` [0m
+  [4;35;1mPageTemplate Load (0.3ms)[0m   [0mSELECT * FROM `page_templates` WHERE (`page_templates`.`id` = 953125641) [0m
+
+
+Processing PageTemplatesController#destroy (for 0.0.0.0 at 2009-03-16 00:07:36) [DELETE]
+  Parameters: {"id"=>"953125641"}
+  [4;36;1mPageTemplate Load (0.2ms)[0m   [0;1mSELECT * FROM `page_templates` WHERE (`page_templates`.`id` = 953125641) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mPageTemplate Destroy (0.2ms)[0m   [0;1mDELETE FROM `page_templates` WHERE `id` = 953125641[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/page_templates
+Completed in 3ms (DB: 3) | 302 Found [http://test.host/page_templates/953125641]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM `page_templates` [0m
+  [4;35;1mSQL (1.4ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mPageTemplate Load (0.4ms)[0m   [0mSELECT * FROM `page_templates` WHERE (`page_templates`.`id` = 953125641) [0m
+
+
+Processing PageTemplatesController#edit (for 0.0.0.0 at 2009-03-16 00:07:36) [GET]
+  Parameters: {"id"=>"953125641"}
+  [4;36;1mPageTemplate Load (0.2ms)[0m   [0;1mSELECT * FROM `page_templates` WHERE (`page_templates`.`id` = 953125641) [0m
+Rendering template within layouts/application
+Rendering page_templates/edit
+Completed in 8ms (View: 7, DB: 2) | 200 OK [http://test.host/page_templates/953125641/edit]
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+
+
+Processing PageTemplatesController#index (for 0.0.0.0 at 2009-03-16 00:07:36) [GET]
+  [4;35;1mPageTemplate Load (0.3ms)[0m   [0mSELECT * FROM `page_templates` [0m
+Rendering template within layouts/application
+Rendering page_templates/index
+Completed in 8ms (View: 6, DB: 1) | 200 OK [http://test.host/page_templates]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+
+
+Processing PageTemplatesController#new (for 0.0.0.0 at 2009-03-16 00:07:36) [GET]
+Rendering template within layouts/application
+Rendering page_templates/new
+Completed in 6ms (View: 5, DB: 0) | 200 OK [http://test.host/page_templates/new]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mPageTemplate Load (0.3ms)[0m   [0;1mSELECT * FROM `page_templates` WHERE (`page_templates`.`id` = 953125641) [0m
+
+
+Processing PageTemplatesController#show (for 0.0.0.0 at 2009-03-16 00:07:36) [GET]
+  Parameters: {"id"=>"953125641"}
+  [4;35;1mPageTemplate Load (0.2ms)[0m   [0mSELECT * FROM `page_templates` WHERE (`page_templates`.`id` = 953125641) [0m
+Rendering template within layouts/application
+Rendering page_templates/show
+Completed in 4ms (View: 2, DB: 1) | 200 OK [http://test.host/page_templates/953125641]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mPageTemplate Load (0.2ms)[0m   [0;1mSELECT * FROM `page_templates` WHERE (`page_templates`.`id` = 953125641) [0m
+
+
+Processing PageTemplatesController#update (for 0.0.0.0 at 2009-03-16 00:07:36) [PUT]
+  Parameters: {"page_template"=>{}, "id"=>"953125641"}
+  [4;35;1mPageTemplate Load (0.2ms)[0m   [0mSELECT * FROM `page_templates` WHERE (`page_templates`.`id` = 953125641) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+Redirected to #<PageTemplate:0x223a2c4>
+Completed in 5ms (DB: 1) | 302 Found [http://test.host/page_templates/953125641?]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mPage Load (0.2ms)[0m   [0;1mSELECT * FROM `pages` WHERE (`pages`.`id` = 1) [0m
+  [4;35;1mSQL (0.4ms)[0m   [0mSELECT count(DISTINCT `sections`.id) AS count_sections_id FROM `sections` INNER JOIN `content_mappings` ON `sections`.id = `content_mappings`.section_id WHERE ((`content_mappings`.page_id = 1)) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mPage Load (0.2ms)[0m   [0;1mSELECT * FROM `pages` WHERE (`pages`.`id` = 1) [0m
+  [4;35;1mSection Load (0.3ms)[0m   [0mSELECT DISTINCT `sections`.* FROM `sections` INNER JOIN `content_mappings` ON `sections`.id = `content_mappings`.section_id WHERE ((`content_mappings`.page_id = 1)) [0m
+  [4;36;1mContentMapping Load (0.2ms)[0m   [0;1mSELECT * FROM `content_mappings` WHERE (`content_mappings`.section_id = 1) [0m
+  [4;35;1mTextBlock Load (0.2ms)[0m   [0mSELECT * FROM `text_blocks` WHERE (`text_blocks`.`id` = 3) [0m
+  [4;36;1mTextBlock Load (0.2ms)[0m   [0;1mSELECT * FROM `text_blocks` WHERE (`text_blocks`.`id` = 4) [0m
+  [4;35;1mTextBlock Load (0.2ms)[0m   [0mSELECT * FROM `text_blocks` WHERE (`text_blocks`.`id` = 1) [0m
+  [4;36;1mTextBlock Load (0.1ms)[0m   [0;1mSELECT * FROM `text_blocks` WHERE (`text_blocks`.`id` = 2) [0m
+  [4;35;1mContentMapping Load (0.2ms)[0m   [0mSELECT * FROM `content_mappings` WHERE (`content_mappings`.section_id = 2) [0m
+  [4;36;1mTextBlock Load (0.2ms)[0m   [0;1mSELECT * FROM `text_blocks` WHERE (`text_blocks`.`id` = 1) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mPage Exists (0.2ms)[0m   [0;1mSELECT `pages`.id FROM `pages` WHERE (permalink = 'my-page') LIMIT 1[0m
+  [4;35;1mPage Create (1.3ms)[0m   [0mINSERT INTO `pages` (`position`, `permalink`, `created_at`, `title`, `updated_at`, `lft`, `file_name`, `parent_id`, `rgt`, `page_template_id`) VALUES(NULL, 'my-page', '2009-03-16 06:07:36', 'My Page', '2009-03-16 06:07:36', NULL, NULL, NULL, NULL, NULL)[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+  [4;35;1mSQL (0.7ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mPage Load (0.2ms)[0m   [0mSELECT * FROM `pages` WHERE (`pages`.`id` = 1) [0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1mSELECT count(*) AS count_all FROM `pages` WHERE (`pages`.parent_id = 1) [0m
+  [4;35;1mPage Load (0.3ms)[0m   [0mSELECT * FROM `pages` WHERE (1 = 1 and parent_id = 1) ORDER BY lft[0m
+  [4;36;1mPage Load (2.2ms)[0m   [0;1mSELECT * FROM `pages` WHERE (1 = 1 and parent_id = 1) ORDER BY lft[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.4ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mPage Exists (0.3ms)[0m   [0mSELECT `pages`.id FROM `pages` WHERE (permalink = '') LIMIT 1[0m
+  [4;36;1mPage Exists (0.2ms)[0m   [0;1mSELECT `pages`.id FROM `pages` WHERE (permalink = 'hello-there') LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.6ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM `pages` [0m
+
+
+Processing PagesController#create (for 0.0.0.0 at 2009-03-16 00:07:36) [POST]
+  Parameters: {"page"=>{"title"=>"hello"}}
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mPage Exists (0.3ms)[0m   [0mSELECT `pages`.id FROM `pages` WHERE (permalink = 'hello') LIMIT 1[0m
+  [4;36;1mPage Create (0.2ms)[0m   [0;1mINSERT INTO `pages` (`position`, `permalink`, `created_at`, `title`, `updated_at`, `lft`, `file_name`, `parent_id`, `rgt`, `page_template_id`) VALUES(NULL, 'hello', '2009-03-16 06:07:36', 'hello', '2009-03-16 06:07:36', NULL, NULL, NULL, NULL, NULL)[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+Redirected to #<Page:0x22090e8>
+Completed in 19ms (DB: 12) | 302 Found [http://test.host/pages?page%5Btitle%5D=hello]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM `pages` [0m
+  [4;35;1mSQL (0.9ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mPage Load (0.2ms)[0m   [0mSELECT * FROM `pages` WHERE (`pages`.`id` = 1) [0m
+
+
+Processing PagesController#edit (for 0.0.0.0 at 2009-03-16 00:07:36) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mPage Load (0.2ms)[0m   [0;1mSELECT * FROM `pages` WHERE (`pages`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering pages/edit
+  [4;35;1mPage Load (0.2ms)[0m   [0mSELECT * FROM `pages` [0m
+Rendered pages/_form (11.1ms)
+Completed in 16ms (View: 14, DB: 2) | 200 OK [http://test.host/pages/1/edit]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+
+
+Processing PagesController#index (for 0.0.0.0 at 2009-03-16 00:07:36) [GET]
+  [4;36;1mPage Load (0.3ms)[0m   [0;1mSELECT * FROM `pages` [0m
+Rendering template within layouts/application
+Rendering pages/index
+Completed in 10ms (View: 8, DB: 1) | 200 OK [http://test.host/pages]
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+
+
+Processing PagesController#new (for 0.0.0.0 at 2009-03-16 00:07:36) [GET]
+Rendering template within layouts/application
+Rendering pages/new
+  [4;35;1mPage Load (0.3ms)[0m   [0mSELECT * FROM `pages` [0m
+Rendered pages/_form (10.1ms)
+Completed in 13ms (View: 12, DB: 1) | 200 OK [http://test.host/pages/new]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mPage Load (0.2ms)[0m   [0;1mSELECT * FROM `pages` WHERE (`pages`.`id` = 1) [0m
+
+
+Processing PagesController#show (for 0.0.0.0 at 2009-03-16 00:07:36) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mPage Load (0.2ms)[0m   [0mSELECT * FROM `pages` WHERE (`pages`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering pages/show
+  [4;36;1mSection Load (0.4ms)[0m   [0;1mSELECT DISTINCT `sections`.* FROM `sections` INNER JOIN `content_mappings` ON `sections`.id = `content_mappings`.section_id WHERE ((`content_mappings`.page_id = 1)) [0m
+  [4;35;1mContentMapping Load (0.2ms)[0m   [0mSELECT * FROM `content_mappings` WHERE (`content_mappings`.section_id = 1) [0m
+  [4;36;1mTextBlock Load (0.2ms)[0m   [0;1mSELECT * FROM `text_blocks` WHERE (`text_blocks`.`id` = 3) [0m
+  [4;35;1mTextBlock Load (0.2ms)[0m   [0mSELECT * FROM `text_blocks` WHERE (`text_blocks`.`id` = 4) [0m
+  [4;36;1mTextBlock Load (0.4ms)[0m   [0;1mSELECT * FROM `text_blocks` WHERE (`text_blocks`.`id` = 1) [0m
+  [4;35;1mTextBlock Load (0.2ms)[0m   [0mSELECT * FROM `text_blocks` WHERE (`text_blocks`.`id` = 2) [0m
+Rendered text_blocks/_text_block (1.3ms)
+Rendered text_blocks/_text_block (0.8ms)
+Rendered text_blocks/_text_block (0.9ms)
+Rendered text_blocks/_text_block (0.8ms)
+  [4;36;1mContentMapping Load (0.3ms)[0m   [0;1mSELECT * FROM `content_mappings` WHERE (`content_mappings`.section_id = 2) [0m
+  [4;35;1mTextBlock Load (0.2ms)[0m   [0mSELECT * FROM `text_blocks` WHERE (`text_blocks`.`id` = 1) [0m
+Rendered text_blocks/_text_block (0.9ms)
+Completed in 91ms (View: 87, DB: 3) | 200 OK [http://test.host/pages/1]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mPage Load (0.3ms)[0m   [0;1mSELECT * FROM `pages` WHERE (`pages`.`id` = 1) [0m
+
+
+Processing PagesController#update (for 0.0.0.0 at 2009-03-16 00:07:36) [PUT]
+  Parameters: {"id"=>"1", "page"=>{"title"=>"changed"}}
+  [4;35;1mPage Load (0.3ms)[0m   [0mSELECT * FROM `pages` WHERE (`pages`.`id` = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mPage Exists (0.3ms)[0m   [0mSELECT `pages`.id FROM `pages` WHERE (permalink = '' and id != 1) LIMIT 1[0m
+  [4;36;1mPage Update (0.3ms)[0m   [0;1mUPDATE `pages` SET `updated_at` = '2009-03-16 06:07:36', `title` = 'changed', `permalink` = '' WHERE `id` = 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+Redirected to #<Page:0x2553ca8>
+Completed in 9ms (DB: 2) | 302 Found [http://test.host/pages/1?page%5Btitle%5D=changed]
+  [4;36;1mSQL (1.4ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+
+
+Processing PagesController#show (for 127.0.0.1 at 2009-03-16 00:07:36) [GET]
+  Parameters: {"id"=>1}
+  [4;36;1mPage Load (0.3ms)[0m   [0;1mSELECT * FROM `pages` WHERE (`pages`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering pages/show
+  [4;35;1mSection Load (0.5ms)[0m   [0mSELECT DISTINCT `sections`.* FROM `sections` INNER JOIN `content_mappings` ON `sections`.id = `content_mappings`.section_id WHERE ((`content_mappings`.page_id = 1)) [0m
+  [4;36;1mContentMapping Load (0.2ms)[0m   [0;1mSELECT * FROM `content_mappings` WHERE (`content_mappings`.section_id = 1) [0m
+  [4;35;1mTextBlock Load (0.2ms)[0m   [0mSELECT * FROM `text_blocks` WHERE (`text_blocks`.`id` = 3) [0m
+  [4;36;1mTextBlock Load (0.2ms)[0m   [0;1mSELECT * FROM `text_blocks` WHERE (`text_blocks`.`id` = 4) [0m
+  [4;35;1mTextBlock Load (0.2ms)[0m   [0mSELECT * FROM `text_blocks` WHERE (`text_blocks`.`id` = 1) [0m
+  [4;36;1mTextBlock Load (0.2ms)[0m   [0;1mSELECT * FROM `text_blocks` WHERE (`text_blocks`.`id` = 2) [0m
+Rendered text_blocks/_text_block (1.0ms)
+Rendered text_blocks/_text_block (0.9ms)
+Rendered text_blocks/_text_block (0.9ms)
+Rendered text_blocks/_text_block (0.9ms)
+  [4;35;1mContentMapping Load (0.2ms)[0m   [0mSELECT * FROM `content_mappings` WHERE (`content_mappings`.section_id = 2) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `text_blocks` WHERE (`text_blocks`.`id` = 1) [0m
+Rendered text_blocks/_text_block (0.9ms)
+Completed in 29ms (View: 25, DB: 4) | 200 OK [http://www.example.com/]
+  [4;35;1mPage Load (0.3ms)[0m   [0mSELECT * FROM `pages` WHERE (`pages`.`id` = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+
+
+Processing PagesController#show (for 127.0.0.1 at 2009-03-16 00:07:36) [GET]
+  Parameters: {"id"=>1}
+  [4;36;1mPage Load (0.3ms)[0m   [0;1mSELECT * FROM `pages` WHERE (`pages`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering pages/show
+  [4;35;1mSection Load (0.4ms)[0m   [0mSELECT DISTINCT `sections`.* FROM `sections` INNER JOIN `content_mappings` ON `sections`.id = `content_mappings`.section_id WHERE ((`content_mappings`.page_id = 1)) [0m
+  [4;36;1mContentMapping Load (0.2ms)[0m   [0;1mSELECT * FROM `content_mappings` WHERE (`content_mappings`.section_id = 1) [0m
+  [4;35;1mTextBlock Load (0.2ms)[0m   [0mSELECT * FROM `text_blocks` WHERE (`text_blocks`.`id` = 3) [0m
+  [4;36;1mTextBlock Load (0.2ms)[0m   [0;1mSELECT * FROM `text_blocks` WHERE (`text_blocks`.`id` = 4) [0m
+  [4;35;1mTextBlock Load (0.2ms)[0m   [0mSELECT * FROM `text_blocks` WHERE (`text_blocks`.`id` = 1) [0m
+  [4;36;1mTextBlock Load (0.2ms)[0m   [0;1mSELECT * FROM `text_blocks` WHERE (`text_blocks`.`id` = 2) [0m
+Rendered text_blocks/_text_block (1.0ms)
+Rendered text_blocks/_text_block (0.9ms)
+Rendered text_blocks/_text_block (0.9ms)
+Rendered text_blocks/_text_block (0.9ms)
+  [4;35;1mContentMapping Load (0.2ms)[0m   [0mSELECT * FROM `content_mappings` WHERE (`content_mappings`.section_id = 2) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `text_blocks` WHERE (`text_blocks`.`id` = 1) [0m
+Rendered text_blocks/_text_block (0.9ms)
+Completed in 23ms (View: 19, DB: 2) | 200 OK [http://www.example.com/]
+  [4;35;1mSQL (0.2ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+
+
+Processing PagesController#show (for 127.0.0.1 at 2009-03-16 00:07:36) [GET]
+  Parameters: {"id"=>1}
+  [4;35;1mPage Load (0.3ms)[0m   [0mSELECT * FROM `pages` WHERE (`pages`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering pages/show
+  [4;36;1mSection Load (0.4ms)[0m   [0;1mSELECT DISTINCT `sections`.* FROM `sections` INNER JOIN `content_mappings` ON `sections`.id = `content_mappings`.section_id WHERE ((`content_mappings`.page_id = 1)) [0m
+  [4;35;1mContentMapping Load (0.2ms)[0m   [0mSELECT * FROM `content_mappings` WHERE (`content_mappings`.section_id = 1) [0m
+  [4;36;1mTextBlock Load (0.2ms)[0m   [0;1mSELECT * FROM `text_blocks` WHERE (`text_blocks`.`id` = 3) [0m
+  [4;35;1mTextBlock Load (0.2ms)[0m   [0mSELECT * FROM `text_blocks` WHERE (`text_blocks`.`id` = 4) [0m
+  [4;36;1mTextBlock Load (0.2ms)[0m   [0;1mSELECT * FROM `text_blocks` WHERE (`text_blocks`.`id` = 1) [0m
+  [4;35;1mTextBlock Load (0.1ms)[0m   [0mSELECT * FROM `text_blocks` WHERE (`text_blocks`.`id` = 2) [0m
+Rendered text_blocks/_text_block (1.0ms)
+Rendered text_blocks/_text_block (0.9ms)
+Rendered text_blocks/_text_block (0.9ms)
+Rendered text_blocks/_text_block (0.9ms)
+  [4;36;1mContentMapping Load (0.2ms)[0m   [0;1mSELECT * FROM `content_mappings` WHERE (`content_mappings`.section_id = 2) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `text_blocks` WHERE (`text_blocks`.`id` = 1) [0m
+Rendered text_blocks/_text_block (0.9ms)
+Completed in 23ms (View: 19, DB: 2) | 200 OK [http://www.example.com/]
+  [4;36;1mTextBlock Load (0.2ms)[0m   [0;1mSELECT * FROM `text_blocks` LIMIT 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+
+
+Processing PagesController#show (for 127.0.0.1 at 2009-03-16 00:07:36) [GET]
+  Parameters: {"id"=>1}
+  [4;35;1mPage Load (0.3ms)[0m   [0mSELECT * FROM `pages` WHERE (`pages`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering pages/show
+  [4;36;1mSection Load (0.4ms)[0m   [0;1mSELECT DISTINCT `sections`.* FROM `sections` INNER JOIN `content_mappings` ON `sections`.id = `content_mappings`.section_id WHERE ((`content_mappings`.page_id = 1)) [0m
+  [4;35;1mContentMapping Load (0.2ms)[0m   [0mSELECT * FROM `content_mappings` WHERE (`content_mappings`.section_id = 1) [0m
+  [4;36;1mTextBlock Load (0.2ms)[0m   [0;1mSELECT * FROM `text_blocks` WHERE (`text_blocks`.`id` = 3) [0m
+  [4;35;1mTextBlock Load (0.2ms)[0m   [0mSELECT * FROM `text_blocks` WHERE (`text_blocks`.`id` = 4) [0m
+  [4;36;1mTextBlock Load (0.2ms)[0m   [0;1mSELECT * FROM `text_blocks` WHERE (`text_blocks`.`id` = 1) [0m
+  [4;35;1mTextBlock Load (0.2ms)[0m   [0mSELECT * FROM `text_blocks` WHERE (`text_blocks`.`id` = 2) [0m
+Rendered text_blocks/_text_block (1.0ms)
+Rendered text_blocks/_text_block (0.9ms)
+Rendered text_blocks/_text_block (0.8ms)
+Rendered text_blocks/_text_block (0.9ms)
+  [4;36;1mContentMapping Load (0.3ms)[0m   [0;1mSELECT * FROM `content_mappings` WHERE (`content_mappings`.section_id = 2) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `text_blocks` WHERE (`text_blocks`.`id` = 1) [0m
+Rendered text_blocks/_text_block (0.9ms)
+Completed in 24ms (View: 19, DB: 2) | 200 OK [http://www.example.com/]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+
+
+Processing PagesController#show (for 127.0.0.1 at 2009-03-16 00:07:36) [GET]
+  Parameters: {"id"=>1}
+  [4;36;1mPage Load (0.3ms)[0m   [0;1mSELECT * FROM `pages` WHERE (`pages`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering pages/show
+  [4;35;1mSection Load (0.4ms)[0m   [0mSELECT DISTINCT `sections`.* FROM `sections` INNER JOIN `content_mappings` ON `sections`.id = `content_mappings`.section_id WHERE ((`content_mappings`.page_id = 1)) [0m
+  [4;36;1mContentMapping Load (0.2ms)[0m   [0;1mSELECT * FROM `content_mappings` WHERE (`content_mappings`.section_id = 1) [0m
+  [4;35;1mTextBlock Load (0.2ms)[0m   [0mSELECT * FROM `text_blocks` WHERE (`text_blocks`.`id` = 3) [0m
+  [4;36;1mTextBlock Load (0.2ms)[0m   [0;1mSELECT * FROM `text_blocks` WHERE (`text_blocks`.`id` = 4) [0m
+  [4;35;1mTextBlock Load (0.2ms)[0m   [0mSELECT * FROM `text_blocks` WHERE (`text_blocks`.`id` = 1) [0m
+  [4;36;1mTextBlock Load (0.2ms)[0m   [0;1mSELECT * FROM `text_blocks` WHERE (`text_blocks`.`id` = 2) [0m
+Rendered text_blocks/_text_block (1.1ms)
+Rendered text_blocks/_text_block (0.9ms)
+Rendered text_blocks/_text_block (0.9ms)
+Rendered text_blocks/_text_block (1.0ms)
+  [4;35;1mContentMapping Load (0.3ms)[0m   [0mSELECT * FROM `content_mappings` WHERE (`content_mappings`.section_id = 2) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `text_blocks` WHERE (`text_blocks`.`id` = 1) [0m
+Rendered text_blocks/_text_block (1.0ms)
+Completed in 24ms (View: 20, DB: 2) | 200 OK [http://www.example.com/]
+  [4;35;1mSQL (0.2ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+
+
+Processing PagesController#show (for 127.0.0.1 at 2009-03-16 00:07:36) [GET]
+  Parameters: {"id"=>1}
+  [4;35;1mPage Load (0.3ms)[0m   [0mSELECT * FROM `pages` WHERE (`pages`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering pages/show
+  [4;36;1mSection Load (0.4ms)[0m   [0;1mSELECT DISTINCT `sections`.* FROM `sections` INNER JOIN `content_mappings` ON `sections`.id = `content_mappings`.section_id WHERE ((`content_mappings`.page_id = 1)) [0m
+  [4;35;1mContentMapping Load (0.2ms)[0m   [0mSELECT * FROM `content_mappings` WHERE (`content_mappings`.section_id = 1) [0m
+  [4;36;1mTextBlock Load (0.2ms)[0m   [0;1mSELECT * FROM `text_blocks` WHERE (`text_blocks`.`id` = 3) [0m
+  [4;35;1mTextBlock Load (0.2ms)[0m   [0mSELECT * FROM `text_blocks` WHERE (`text_blocks`.`id` = 4) [0m
+  [4;36;1mTextBlock Load (0.2ms)[0m   [0;1mSELECT * FROM `text_blocks` WHERE (`text_blocks`.`id` = 1) [0m
+  [4;35;1mTextBlock Load (0.2ms)[0m   [0mSELECT * FROM `text_blocks` WHERE (`text_blocks`.`id` = 2) [0m
+Rendered text_blocks/_text_block (1.1ms)
+Rendered text_blocks/_text_block (1.1ms)
+Rendered text_blocks/_text_block (0.9ms)
+Rendered text_blocks/_text_block (0.9ms)
+  [4;36;1mContentMapping Load (0.3ms)[0m   [0;1mSELECT * FROM `content_mappings` WHERE (`content_mappings`.section_id = 2) [0m
+  [4;35;1mCACHE (0.0ms)[0m   [0mSELECT * FROM `text_blocks` WHERE (`text_blocks`.`id` = 1) [0m
+Rendered text_blocks/_text_block (1.4ms)
+Completed in 98ms (View: 94, DB: 2) | 200 OK [http://www.example.com/]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+REQUESTING PAGE: GET / with {} and HTTP headers {}
+
+
+Processing PagesController#show (for 127.0.0.1 at 2009-03-16 00:07:36) [GET]
+  Parameters: {"id"=>1}
+  [4;36;1mPage Load (0.3ms)[0m   [0;1mSELECT * FROM `pages` WHERE (`pages`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering pages/show
+  [4;35;1mSection Load (0.4ms)[0m   [0mSELECT DISTINCT `sections`.* FROM `sections` INNER JOIN `content_mappings` ON `sections`.id = `content_mappings`.section_id WHERE ((`content_mappings`.page_id = 1)) [0m
+  [4;36;1mContentMapping Load (0.2ms)[0m   [0;1mSELECT * FROM `content_mappings` WHERE (`content_mappings`.section_id = 1) [0m
+  [4;35;1mTextBlock Load (0.2ms)[0m   [0mSELECT * FROM `text_blocks` WHERE (`text_blocks`.`id` = 3) [0m
+  [4;36;1mTextBlock Load (0.2ms)[0m   [0;1mSELECT * FROM `text_blocks` WHERE (`text_blocks`.`id` = 4) [0m
+  [4;35;1mTextBlock Load (0.2ms)[0m   [0mSELECT * FROM `text_blocks` WHERE (`text_blocks`.`id` = 1) [0m
+  [4;36;1mTextBlock Load (0.2ms)[0m   [0;1mSELECT * FROM `text_blocks` WHERE (`text_blocks`.`id` = 2) [0m
+Rendered text_blocks/_text_block (1.1ms)
+Rendered text_blocks/_text_block (1.3ms)
+Rendered text_blocks/_text_block (0.9ms)
+Rendered text_blocks/_text_block (0.9ms)
+  [4;35;1mContentMapping Load (0.3ms)[0m   [0mSELECT * FROM `content_mappings` WHERE (`content_mappings`.section_id = 2) [0m
+  [4;36;1mCACHE (0.0ms)[0m   [0;1mSELECT * FROM `text_blocks` WHERE (`text_blocks`.`id` = 1) [0m
+Rendered text_blocks/_text_block (1.0ms)
+Completed in 25ms (View: 20, DB: 2) | 200 OK [http://www.example.com/]
+  [4;35;1mSQL (0.2ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM `sections` [0m
+
+
+Processing SectionsController#create (for 0.0.0.0 at 2009-03-16 00:07:36) [POST]
+  Parameters: {"section"=>{}}
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mSection Create (0.2ms)[0m   [0mINSERT INTO `sections` (`position`, `created_at`, `title`, `updated_at`, `page_id`) VALUES(NULL, '2009-03-16 06:07:36', NULL, '2009-03-16 06:07:36', NULL)[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mRELEASE SAVEPOINT active_record_1[0m
+Redirected to #<Section:0x24cabec>
+Completed in 16ms (DB: 1) | 302 Found [http://test.host/sections?]
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT count(*) AS count_all FROM `sections` [0m
+  [4;36;1mSQL (1.3ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM `sections` [0m
+  [4;35;1mSection Load (0.2ms)[0m   [0mSELECT * FROM `sections` WHERE (`sections`.`id` = 1) [0m
+
+
+Processing SectionsController#destroy (for 0.0.0.0 at 2009-03-16 00:07:36) [DELETE]
+  Parameters: {"id"=>"1"}
+  [4;36;1mSection Load (0.2ms)[0m   [0;1mSELECT * FROM `sections` WHERE (`sections`.`id` = 1) [0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSAVEPOINT active_record_1[0m
+  [4;36;1mSection Destroy (0.2ms)[0m   [0;1mDELETE FROM `sections` WHERE `id` = 1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+Redirected to http://test.host/sections
+Completed in 3ms (DB: 3) | 302 Found [http://test.host/sections/1]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mSELECT count(*) AS count_all FROM `sections` [0m
+  [4;35;1mSQL (0.9ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+  [4;35;1mSection Load (0.2ms)[0m   [0mSELECT * FROM `sections` WHERE (`sections`.`id` = 1) [0m
+
+
+Processing SectionsController#edit (for 0.0.0.0 at 2009-03-16 00:07:36) [GET]
+  Parameters: {"id"=>"1"}
+  [4;36;1mSection Load (0.2ms)[0m   [0;1mSELECT * FROM `sections` WHERE (`sections`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering sections/edit
+Rendered sections/_form (4.6ms)
+Completed in 9ms (View: 8, DB: 2) | 200 OK [http://test.host/sections/1/edit]
+  [4;35;1mSQL (0.1ms)[0m   [0mROLLBACK[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mBEGIN[0m
+
+
+Processing SectionsController#index (for 0.0.0.0 at 2009-03-16 00:07:36) [GET]
+  [4;35;1mSection Load (0.3ms)[0m   [0mSELECT * FROM `sections` [0m
+Rendering template within layouts/application
+Rendering sections/index
+Completed in 8ms (View: 6, DB: 1) | 200 OK [http://test.host/sections]
+  [4;36;1mSQL (0.2ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+
+
+Processing SectionsController#new (for 0.0.0.0 at 2009-03-16 00:07:36) [GET]
+Rendering template within layouts/application
+Rendering sections/new
+Rendered sections/_form (3.9ms)
+Completed in 7ms (View: 6, DB: 0) | 200 OK [http://test.host/sections/new]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSection Load (0.3ms)[0m   [0;1mSELECT * FROM `sections` WHERE (`sections`.`id` = 1) [0m
+
+
+Processing SectionsController#show (for 0.0.0.0 at 2009-03-16 00:07:36) [GET]
+  Parameters: {"id"=>"1"}
+  [4;35;1mSection Load (0.2ms)[0m   [0mSELECT * FROM `sections` WHERE (`sections`.`id` = 1) [0m
+Rendering template within layouts/application
+Rendering sections/show
+Completed in 4ms (View: 2, DB: 1) | 200 OK [http://test.host/sections/1]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSection Load (0.2ms)[0m   [0;1mSELECT * FROM `sections` WHERE (`sections`.`id` = 1) [0m
+
+
+Processing SectionsController#update (for 0.0.0.0 at 2009-03-16 00:07:36) [PUT]
+  Parameters: {"section"=>{}, "id"=>"1"}
+  [4;35;1mSection Load (0.2ms)[0m   [0mSELECT * FROM `sections` WHERE (`sections`.`id` = 1) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSAVEPOINT active_record_1[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mRELEASE SAVEPOINT active_record_1[0m
+Redirected to #<Section:0x2405108>
+Completed in 5ms (DB: 1) | 302 Found [http://test.host/sections/1?]
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.2ms)[0m   [0;1mROLLBACK[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mBEGIN[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mROLLBACK[0m
