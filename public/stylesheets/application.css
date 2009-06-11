@@ -1,0 +1,9 @@
+/* Stylesheet for distribution */
+
+body{background: #444;}
+#site{background: #fff; margin: 0 auto; width: 960px;}
+
+h1{font-size: 36px; font-weight: bold; letter-spacing: -2px;}
+
+#main{border: 1px solid; width: 700px; float: right;}
+#side{border: 1px solid; width: 250px; float: left;}
