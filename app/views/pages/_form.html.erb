@@ -1,6 +1,12 @@
 
 <% semantic_form_for @page do |form| %>
-  <%= form.inputs :parent, :title, :file_name, :permalink %>
+  <%= form.input :parent, :label_method => :title %>
+  <%= form.input :title %>
+  
+  <div id="page_advanced" class="optional">
+    <%= form.inputs :file_name, :permalink %>
+  </div>
   <%= form.buttons %>
 <% end %>
+
 

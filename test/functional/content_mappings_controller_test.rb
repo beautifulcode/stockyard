@@ -1,6 +1,17 @@
 require 'test_helper'
 
 class ContentMappingsControllerTest < ActionController::TestCase
+  
+  should "create a new asset on the home page in the first section" do
+    assert_difference(Page.find(1).assets.size.to_s) do
+      post :create, :content_mapping => {:page_id => 1, :section_id => 1, :asset_type => 'TextBlock', :asset_id => 1}
+    end
+  end
+  
+  
+  
+  
+  
   test "should get index" do
     get :index
     assert_response :success

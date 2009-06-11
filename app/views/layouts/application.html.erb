@@ -5,13 +5,14 @@
 <head>
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
   <title>App Layout</title>
-  <%= stylesheet_link_tag 'scaffold', 'forms' %>
+  <%= stylesheet_link_tag 'blueprint', 'stockyard', 'forms', 'application' %>
 </head>
 <body>
-
-<p style="color: green"><%= flash[:notice] %></p>
-
-<%= yield  %>
-
+  <div id="global_admin_bar"></div>
+  <div id="notices"><%= flash[:notice] %></div>
+  
+  <div id="site" class="">
+    <%= yield %>  
+  </div>
 </body>
 </html>

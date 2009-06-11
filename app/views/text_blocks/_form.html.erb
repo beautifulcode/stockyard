@@ -1,0 +1,8 @@
+<% semantic_form_for @text_block do |form| %>
+  <%= form.inputs :title, :content %>
+  <%= form.buttons %>
+<% end %>
+
+<% @text_block.versions.each do |v| %>
+ <%= @text_block.title %> Version #<%= v.number %><br>
+<% end %>

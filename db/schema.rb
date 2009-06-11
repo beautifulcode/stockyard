@@ -9,12 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090315233332) do
-
-  create_table "assets", :force => true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+ActiveRecord::Schema.define(:version => 20090611152134) do
 
   create_table "content_mappings", :force => true do |t|
     t.integer  "page_id"
@@ -23,6 +18,7 @@ ActiveRecord::Schema.define(:version => 20090315233332) do
     t.integer  "asset_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "position"
   end
 
   create_table "page_templates", :force => true do |t|
@@ -56,9 +52,19 @@ ActiveRecord::Schema.define(:version => 20090315233332) do
 
   create_table "text_blocks", :force => true do |t|
     t.string   "title"
-    t.string   "content"
+    t.text     "content"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "versions", :force => true do |t|
+    t.integer  "versionable_id"
+    t.string   "versionable_type"
+    t.integer  "number"
+    t.text     "yaml"
+    t.datetime "created_at"
+  end
+
+  add_index "versions", ["versionable_id", "versionable_type"], :name => "index_versions_on_versionable_id_and_versionable_type"
 
 end
