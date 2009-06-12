@@ -5,8 +5,12 @@
     <% section.assets.each do |asset| %>
       <%= render :partial => asset %>
     <% end.else do %>
-    
+      <p>No Assets attached.</p>
     <% end %>
+    <p>Add Existing:
+    <% section.available_assets.each do |asset| %>
+    <%= link_to asset.class_name.underscore.humanize, new_content_mapping_url(:page_id => @page, :section_id => section.id, :asset_id => eval("#{asset.class_name}.new"), :asset_type => asset.class_name) %><br>
+    <% end %></p>
   </div>
 <% end.else do %>
   <div class="empty">

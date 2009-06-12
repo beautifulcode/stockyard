@@ -9,11 +9,12 @@
     <%= f.select(:section_id, Section.find(:all).collect {|s| [ s.title, s.id ] }) %>
   </p>
   <p>
-    <%= f.hidden_field :asset_type, 'TextBlock' %>
+    <%= f.hidden_field :asset_type, :value => params[:asset_type] %>
   </p>
   <p>
     <%= f.label :asset_id %><br />
-    <%= f.select(:asset_id, TextBlock.find(:all).collect {|a| [a.title, a.id]}) %>
+    <% asset_class = eval(params[:asset_type]) %>
+    <%= f.select(:asset_id, asset_class.find(:all).collect {|a| [a.title, a.id]}) %>
   </p>
   
   <p><%= f.label :position %><br />

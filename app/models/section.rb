@@ -10,6 +10,10 @@ class Section < ActiveRecord::Base
   
   def assets
     self.content_mappings.collect{|mapping| mapping.asset }
-  end  
+  end
+  
+  def available_assets
+    assets.collect{|asset| asset.class }.uniq
+  end
   
 end

@@ -9,7 +9,16 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090611152134) do
+ActiveRecord::Schema.define(:version => 20090612062036) do
+
+  create_table "basic_images", :force => true do |t|
+    t.string   "title"
+    t.string   "file_file_name"
+    t.string   "file_content_type"
+    t.string   "file_file_size"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "content_mappings", :force => true do |t|
     t.integer  "page_id"

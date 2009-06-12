@@ -7,7 +7,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :assets
   
   # Asset Types
-  map.resources :text_blocks
+  map.resources :text_blocks, :basic_images
 
 
   # The priority is based upon order of creation: first created -> highest priority.

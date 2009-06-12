@@ -1,1 +1,8 @@
-Generic Asset Form
+<% semantic_form_for @asset do |form| %>
+  <%= form.inputs %>
+  <%= form.buttons %>
+<% end %>
+
+<% @asset.versions.each do |v| %>
+ <%= @asset.title %> Version #<%= v.number %><br>
+<% end %>
