@@ -1,6 +1,15 @@
 class PagesController < ApplicationController
-  
+  # handles_sorting_of_nested_set
   # layout :determine_page_layout
+  
+  def sort
+    @page = Page.find(params[:page][:id])
+    @page.update_attribute(:parent_id, params[:page][:parent_id])
+    @page.update_attribute(:lft, params[:page][:left_id])
+    render :text => @page.inspect
+    # render :nothing => true
+  end
+
   
   # GET /pages
   # GET /pages.xml
@@ -16,8 +25,8 @@ class PagesController < ApplicationController
   # GET /pages/1
   # GET /pages/1.xml
   def show
-    @page = Page.find(params[:id])
-    
+    @page = Page.find(params[:id]) if params[:id]
+    @page ||= Page.find_by_permalink(params[:path].last)
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @page }

@@ -20,4 +20,10 @@ class Page < ActiveRecord::Base
     self.sections.collect{ |section| section.assets  }.flatten || []
   end
   
+  def permalink_path
+    ancestor_path = ancestors.collect{|a| a.permalink }.reverse << permalink
+    ancestor_path.shift
+    ancestor_path.join('/')
+  end
+  
 end

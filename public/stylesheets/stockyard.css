@@ -2,3 +2,26 @@
 
 #context_bar{height: 20px;overflow:hidden;}
 #context_bar #bar_title{}
+
+
+#tree,#tree ul{padding-left:0px;list-style-type:none;cursor:move;font: normal 12px Helvetica,Arial,Verdana,sans-serif;
+line-height: 28px;
+color: #444;}
+#tree{padding:0px;margin:12px;width:200px;}
+#tree li{margin-top:-6px;width: 100%; position: relative;}
+#tree li p{position: absolute; top: 0; right: -30px; display: none;}
+#tree li:hover > p{display: block;}
+#tree a{font-size: 11px; color: #333; text-decoration: none;}
+#tree li a.title{padding:4px 0 0 18px;background:url(/images/page.png) no-repeat left top; }
+#tree li a.folder{padding:4px 0 0 18px;background:url(/images/folder.png) no-repeat left top; }
+#tree li.file{padding-left:18px;}
+#tree li.file a.title{padding-left:18px;background:url(/images/file.png) no-repeat left top;}
+#tree li span.handle{display:block;float:left;width:15px;height:12px;margin:6px 3px 0 0;cursor:pointer;}
+#tree li span{background:url(/images/folder_open.png) no-repeat 3px 3px;}
+#tree li.closed span{background:url(/images/folder_closed.png) no-repeat 3px 3px;}
+#tree li.closed li{display:none;}
+#tree .drop_hover{background:url(/images/drag.png) no-repeat bottom left;}
+#tree .drop_top{background-position:12px top;}
+#tree .drop_bottom{background-position:12px bottom;}
+#tree .drop_insert{background-position:32px 100%;}
+#log{padding:12px;color:#999;line-height:12px;}
