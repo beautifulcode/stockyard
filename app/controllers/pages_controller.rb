@@ -4,10 +4,9 @@ class PagesController < ApplicationController
   
   def sort
     @page = Page.find(params[:page][:id])
-    @page.update_attribute(:parent_id, params[:page][:parent_id])
-    @page.update_attribute(:lft, params[:page][:left_id])
-    render :text => @page.inspect
-    # render :nothing => true
+    @page.move_to_child_of( params[:page][:parent_id] ) unless params[:page][:parent_id].blank?
+    @page.move_to_left_of( params[:page][:left_id] ) unless params[:page][:left_id].blank?
+    render :nothing => true
   end
 
   

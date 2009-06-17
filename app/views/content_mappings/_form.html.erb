@@ -13,8 +13,8 @@
   </p>
   <p>
     <%= f.label :asset_id %><br />
-    <% asset_class = eval(params[:asset_type]) %>
-    <%= f.select(:asset_id, asset_class.find(:all).collect {|a| [a.title, a.id]}) %>
+    <% asset_class = eval(params[:asset_type]) if params[:asset_type] %>
+    <%= f.select(:asset_id, asset_class.find(:all).collect {|a| [a.title, a.id]}) if asset_class %>
   </p>
   
   <p><%= f.label :position %><br />

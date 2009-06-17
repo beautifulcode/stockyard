@@ -1,43 +1,6 @@
 <h1>Listing pages</h1>
 
-<%= admin_page_tree %>
-
-
-
-<div id="log"></div>
-
-<script>
-  var tree = new SortableTree('tree', {
-    droppable: {
-      container: ':not(.file)'
-    },
-    onDrop: function(drag, drop, event){
-      $('log').update($('log').innerHTML + "<p>" + drag.to_params() + "</p>")
-      var params = drag.to_params('page')
-      new Ajax.Request('/pages/sort', {method: 'put', parameters: params});
-    }
-  });
-  tree.setSortable();
-
-  function log(line) {
-    // $('log').update($('log').innerHTML + "<p>" + line + "</p>");
-  }
-  
-  function toggle_folder(event) {
-    var element = event.element().ancestors().first();
-    if(element.hasClassName('closed')) {
-      element.removeClassName('closed');
-    } else {
-      element.addClassName('closed');
-    }
-  }
-  
-  Event.observe(window, "load", function(){
-    $$('.handle').each(function(element){
-      Event.observe(element, 'click', toggle_folder);
-    });
-  });
-</script>
+<%= render :partial => "tree" %>
 
 <ul>
 <% @pages.each do |page| %>
@@ -46,9 +9,8 @@
   <%= link_to 'Edit', edit_page_path(page) %>
   <%= link_to 'Destroy', page, :confirm => 'Are you sure?', :method => :delete %>
   </li>
-<% end.else do %>
-  <li>No Pages</li>
 <% end %>
+
 </ul>
 
 <br />

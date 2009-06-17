@@ -1,0 +1,9 @@
+%h1 Admin
+%ul.tabs
+  %li= link_to "Manage Pages", pages_path
+  %li= link_to "Manage Text", text_blocks_path
+  %li= link_to "Manage Images", basic_images_path
+  
+
+#tree
+  = render :partial => 'pages/tree'
