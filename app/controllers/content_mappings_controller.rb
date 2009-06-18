@@ -1,4 +1,5 @@
 class ContentMappingsController < ApplicationController
+  layout 'stockyard'
   # GET /content_mappings
   # GET /content_mappings.xml
   def index

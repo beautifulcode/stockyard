@@ -21,9 +21,17 @@ class Page < ActiveRecord::Base
   end
   
   def permalink_path
-    ancestor_path = ancestors.collect{|a| a.permalink }.reverse << permalink
+    ancestor_path = self_and_ancestors.collect{|a| a.permalink }
     ancestor_path.shift
     ancestor_path.join('/')
+  end
+  
+  def assets_for_section(title)
+    assets = []
+    section = Section.find_by_title(title)
+    # assets = ContentMapping.find_all_by_page_id_and_section_id(@page, section) if section
+    assets = assets.select{|asset| asset.section == section} if section
+    assets
   end
   
 end

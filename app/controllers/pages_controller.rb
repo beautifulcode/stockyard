@@ -1,4 +1,14 @@
 class PagesController < ApplicationController
+  layout 'stockyard', :except => :show
+  layout :determine_page_layout, :only => :show
+  
+  def determine_page_layout
+    template = @page.template
+    layout_file = template.file if template
+    layout_file ||= 'default'
+    layout_file
+  end
+  
   # handles_sorting_of_nested_set
   # layout :determine_page_layout
   

@@ -1,4 +1,5 @@
 class SectionsController < ApplicationController
+  layout 'stockyard'
   # GET /sections
   # GET /sections.xml
   def index

@@ -4,7 +4,7 @@ module PagesHelper
     if @page
       html = '<ul>'
       @page.children.each do |page|
-        html << "<li>#{link_to page.title, page_path(page.id)}"
+        html << "<li>#{link_to page.title, page.permalink_path}"
         html << nav_for(page) if page.children
         html << "</li>"
       end
@@ -17,10 +17,19 @@ module PagesHelper
   def nav_for(page)
     html = '<ul>'
     page.children.each do |page|
-      html << "<li>#{link_to page.title, page_path(page.id)}</li>"
+      html << "<li>#{link_to page.title, page.permalink_path}</li>"
     end
     html << '</ul>'
   end
+  
+  def sibling_nav
+    html = '<ul>'
+    @page.self_and_siblings.each do |page|
+      html << "<li>#{link_to page.title, page.permalink_path}</li>"
+    end
+    html << '</ul>'
+  end
+  
   
   
   def admin_page_tree_for(page, level)
@@ -71,6 +80,13 @@ module PagesHelper
       
     end
   end
+  
+  # def assets_for(section)
+  #   html = ''
+  #   section.assets.each do |asset|
+  #     html << render :partial => asset
+  #   html
+  # end
   
   
 end

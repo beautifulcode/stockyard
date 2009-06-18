@@ -1,6 +1,6 @@
 require 'fastercsv'
 class AdminController < ApplicationController
-  
+  layout 'stockyard'
   def import
     count = 0
     csv_file = params[:file]
@@ -39,6 +39,7 @@ class AdminController < ApplicationController
         count += 1
         
     end
+    Page.root.renumber_full_tree
     render :text => @message
   end
   
