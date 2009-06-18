@@ -3,7 +3,7 @@ module PagesHelper
   def site_nav
     if @page
       html = '<ul>'
-      @page.children.each do |page|
+      @page.root.children.visible.each do |page|
         html << "<li>#{link_to page.title, page.permalink_path}"
         html << nav_for(page) if page.children
         html << "</li>"
@@ -16,7 +16,7 @@ module PagesHelper
   
   def nav_for(page)
     html = '<ul>'
-    page.children.each do |page|
+    page.children.visible.each do |page|
       html << "<li>#{link_to page.title, page.permalink_path}</li>"
     end
     html << '</ul>'
@@ -25,7 +25,7 @@ module PagesHelper
   def sibling_nav
     html = '<ul>'
     @page.self_and_siblings.each do |page|
-      html << "<li>#{link_to page.title, page.permalink_path}</li>"
+      html << "<li>#{link_to page.title, page.permalink_path}</li>" if page.visible
     end
     html << '</ul>'
   end

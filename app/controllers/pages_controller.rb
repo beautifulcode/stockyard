@@ -2,12 +2,12 @@ class PagesController < ApplicationController
   layout 'stockyard', :except => :show
   layout :determine_page_layout, :only => :show
   
-  def determine_page_layout
-    template = @page.template
-    layout_file = template.file if template
-    layout_file ||= 'default'
-    layout_file
-  end
+  # def determine_page_layout
+  #   template = @page.template
+  #   layout_file = template.file if template
+  #   layout_file ||= 'default'
+  #   layout_file
+  # end
   
   # handles_sorting_of_nested_set
   # layout :determine_page_layout
@@ -34,6 +34,7 @@ class PagesController < ApplicationController
   # GET /pages/1
   # GET /pages/1.xml
   def show
+    
     @page = Page.find(params[:id]) if params[:id]
     @page ||= Page.find_by_permalink(params[:path].last)
     respond_to do |format|
@@ -104,11 +105,19 @@ class PagesController < ApplicationController
     end
   end
   
+  def rescue_action_in_public(error)
+    render :template => 'pages/missing'
+  end
+  
   
   protected
   
   def determine_page_layout
-    'home'
+    if @page && @page == Page.root
+      'home'
+    else
+      'default'
+    end
   end
   
   

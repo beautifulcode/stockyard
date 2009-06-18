@@ -4,7 +4,7 @@ class AdminController < ApplicationController
   def import
     count = 0
     csv_file = params[:file]
-    csv_file = '/Users/aaron/projects/mm/support/medical-site-structure-01.csv' unless params[:file]
+    csv_file = '/Users/aaron/projects/medical/support/medical-site-structure-01.csv' unless params[:file]
     @message = ''
     # Page.create(:title => )
     count = 0
@@ -13,8 +13,9 @@ class AdminController < ApplicationController
         old_url, old_page_name, page_name, page_id, new_url, keyword_mapping, redirect, meta_title, meta_description = row 
         # Old URL Old Page Name Page Name Page ID New URL Keyword Mapping   301 Redirect  Title Meta
 
-        if count > 0
-          page = Page.find_or_create_by_title(page_name) unless new_url.blank?
+        if count > 0 && !new_url.blank?
+          page = Page.find_or_create_by_title(page_name)
+          
           page.permalink = new_url
 
           # page.keywords = keyword_mapping
@@ -25,6 +26,7 @@ class AdminController < ApplicationController
             if page.title && page.title.include?(' - ')
               
               @parent = Page.find_or_create_by_title(page.title.split(' - ').first)
+              page.title = page.title.delete @parent.title
               @parent.add_child(page)
             else
               page.parent = Page.root

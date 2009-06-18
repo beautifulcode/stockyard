@@ -16,6 +16,10 @@ class Page < ActiveRecord::Base
   # Validations
   validates_presence_of :title
   
+  
+  # Scopes
+  named_scope :visible, :conditions => {:visible => true}
+  
   def assets
     self.sections.collect{ |section| section.assets  }.flatten || []
   end
