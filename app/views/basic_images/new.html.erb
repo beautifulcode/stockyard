@@ -1,6 +1,2 @@
 <h1>New Basic Image</h1>
-
-<% semantic_form_for( @basic_image, :html => {:multipart => true} )do |form| %>
- <%= form.inputs :title, :file %>
- <%= form.buttons %>
-<% end %>
+<%= render :partial => "form", :locals => {:basic_image => @basic_image} %>

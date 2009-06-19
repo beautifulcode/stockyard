@@ -1,4 +1,4 @@
 class BasicImagesController < AssetsController
   layout 'stockyard'
-  resource_controller
+  # resource_controller
 end

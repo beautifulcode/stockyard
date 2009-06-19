@@ -1,3 +1,4 @@
-
-<%= basic_image.title %>
+<%- asset_tag_for basic_image do %>
+<%- basic_image.title %>
 <%= image_tag basic_image.file.url %>
+<% end %>

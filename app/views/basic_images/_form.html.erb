@@ -1,0 +1,11 @@
+<% semantic_form_for( @basic_image, :html => {:multipart => true} )do |form| %>
+ <%= form.inputs :title, :file %>
+ <%= form.buttons %>
+<% end %>
+
+
+<% content_for :side do %>
+<% @basic_image.versions.each do |v| %>
+ <%= @basic_image.title %> Version #<%= v.number %><br>
+<% end %>
+<% end %>

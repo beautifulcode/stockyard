@@ -9,7 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20090612062036) do
+ActiveRecord::Schema.define(:version => 20090618042608) do
 
   create_table "basic_images", :force => true do |t|
     t.string   "title"
@@ -49,6 +49,10 @@ ActiveRecord::Schema.define(:version => 20090612062036) do
     t.datetime "updated_at"
     t.integer  "page_template_id"
     t.string   "permalink"
+    t.boolean  "visible"
+    t.boolean  "active"
+    t.text     "meta_keywords"
+    t.text     "meta_description"
   end
 
   create_table "sections", :force => true do |t|

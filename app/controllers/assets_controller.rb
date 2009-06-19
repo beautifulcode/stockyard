@@ -1,4 +1,6 @@
-class AssetsController < ApplicationController
+class AssetsController < ResourceController::Base
+
   layout 'stockyard'
-  resource_controller  
+  
+
 end

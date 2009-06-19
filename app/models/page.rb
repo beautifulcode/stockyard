@@ -30,12 +30,18 @@ class Page < ActiveRecord::Base
     ancestor_path.join('/')
   end
   
-  def assets_for_section(title)
-    assets = []
+  def content_for_section(title)
+    section_content = []
     section = Section.find_by_title(title)
-    # assets = ContentMapping.find_all_by_page_id_and_section_id(@page, section) if section
-    assets = assets.select{|asset| asset.section == section} if section
-    assets
+    section_content = ContentMapping.find_all_by_page_id_and_section_id(self, section)
+    section_content
+  end
+  
+  def assets_for_section(title)
+    section_assets = []
+    section = Section.find_by_title(title)
+    section_assets = ContentMapping.find_all_by_page_id_and_section_id(self, section).collect{|content| content.asset }
+    section_assets
   end
   
 end
