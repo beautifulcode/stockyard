@@ -1,0 +1,20 @@
+
+
+<ul class="content_menu">
+  <li class="content_menu_new">
+    Create New
+    <ul>
+    <% available_asset_types.each do |available_asset| %>
+      <li><%= link_to "#{available_asset}", new_polymorphic_path(available_asset.underscore.downcase) %></li>
+    <% end %>
+    </ul>
+  </li>
+  <li class="content_menu_existing">
+    Add Exisiting
+    <ul>
+    <% available_asset_types.each do |available_asset| %>
+      <li><%= link_to "#{available_asset}", "/pages/#{@page.id}/sections/#{section.id}/#{available_asset.underscore.downcase.pluralize}" %></li>
+    <% end %>
+    </ul>
+  </li>
+</ul>

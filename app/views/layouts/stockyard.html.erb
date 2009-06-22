@@ -5,15 +5,58 @@
 <head>
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
   <title>Stockyard Layout</title>
-  <%= stylesheet_link_tag 'blueprint', 'stockyard', 'forms', 'application' %>
+  <%= stylesheet_link_tag 'blueprint', 'stockyard', 'forms' %>
   <%= javascript_include_tag :all %>
 </head>
 <body>
   <div id="global_admin_bar"></div>
-  <div id="notices"><%= flash[:notice] %></div>
+  
   
   <div id="site" class="">
-    <%= yield %>  
+
+    <div id="header">
+      <ul class="hanging_tabs">
+        <li><%= link_to "Login", '/login' %></li>
+      </ul>
+      <ul id="global_nav">
+        <li><%= link_to "Pages", pages_path %></li>
+        <li><%= link_to "Sections", sections_path %></li>
+        <li><%= link_to "Content", content_mappings_path %></li>
+
+      </ul>
+      <div id="logo">
+        <%= link_to(image_tag('/images/stockyard/logo.png'), '/admin') %>
+      </div>
+      <h1>Stockyard CMS</h1>
+    </div>
+    
+    <div id="notices"><%= flash_messaging %></div>
+    
+    <div id="side" class="column span-4">
+      <ul class="sidetabs">
+        <li><%= link_to "Pages", pages_path %></li>
+        <li><%= link_to "Content", content_mappings_path %></li>
+        <li><%= link_to "Text Blocks", text_blocks_path %></li>
+        <li><%= link_to "Basic Images", basic_images_path %></li>
+        <li><%= link_to "Callouts", callouts_path %></li>
+      </ul>
+      <%= yield :side %>
+    </div>
+    <div id="main"  class="column span-18 prepend-1">
+      <%= yield %>        
+      <div class="clear">
+
+      </div>
+    </div>
+    <div class="clear">
+
+    </div>
+    <div id="footer">
+      <p>Stockyard CMS</p>
+    </div>
+    <div class="clear">
+
+    </div>
   </div>
 </body>
 </html>

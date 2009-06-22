@@ -1,6 +1,5 @@
 class PagesController < ApplicationController
-  layout 'stockyard', :except => :show
-  layout :determine_page_layout, :only => :show
+  layout :determine_page_layout
   
   # def determine_page_layout
   #   template = @page.template

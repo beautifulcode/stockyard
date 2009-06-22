@@ -1,4 +1,15 @@
-#site{}
+/* Stylesheet for distribution */
+
+body{background: #444;}
+#site{background: #fff; margin: 0 auto; width: 960px; overflow:hidden;}
+
+h1{font-size: 36px; font-weight: bold; letter-spacing: -2px;}
+
+#main{ float: left; }
+#side{ float: left; }
+
+#nav{}
+#nav li{list-style:none; margin: 0; padding: 5px 10px; float: left;}
 
 #context_bar{height: 20px;overflow:hidden;}
 #context_bar #bar_title{}
@@ -25,3 +36,6 @@ color: #444;}
 #tree .drop_bottom{background-position:12px bottom;}
 #tree .drop_insert{background-position:32px 100%;}
 #log{padding:12px;color:#999;line-height:12px;}
+
+
+

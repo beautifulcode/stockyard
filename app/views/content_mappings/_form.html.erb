@@ -2,22 +2,22 @@
 
   <p>
     <%= f.label :page_id %><br />
-    <%= f.select(:page_id, Page.find(:all).collect {|p| [ p.title, p.id ] })  %>
+    <%= f.select(:page_id, Page.all.collect {|p| [ p.title, p.id ] })  %>
   </p>
   <p>
     <%= f.label :section_id %><br />
-    <%= f.select(:section_id, Section.find(:all).collect {|s| [ s.title, s.id ] }) %>
+    <%= f.select(:section_id, Section.all.collect {|s| [ s.title, s.id ] }) %>
   </p>
   <p>
     <%= f.hidden_field :asset_type, :value => params[:asset_type] %>
   </p>
   <p>
-    <%= f.label :asset_id %><br />
-    <% asset_class = eval(params[:asset_type]) if params[:asset_type] %>
-    <% asset_type ||= @content_mapping.asset.class if @content_mapping.asset %>
-    <%= f.select(:asset_id, asset_class.find(:all).collect {|a| [a.title, a.id]}) if asset_class %>
+    <%= f.label :asset_id %>:
+    <%= @asset_class.name.humanize %><br />
+    <%= f.select(:asset_id, @asset_class.find(:all).collect {|a| [a.title, a.id]}) if @asset_class %>
     
   </p>
   
-  <p><%= f.label :position %><br />
-    <%= f.text_field :position %>
+  
+  <!--   <p><%= f.label :position %><br />
+      <%= f.text_field :position %></p> -->

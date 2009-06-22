@@ -1,10 +1,22 @@
 class ContentMappingsController < ApplicationController
   layout 'stockyard'
+  before_filter :determine_asset
+  
+  
+  def determine_asset
+    
+    asset_class = eval(params[:asset_type].classify) if params[:asset_type] 
+    mapping = ContentMapping.find(params[:id]) if params[:id]
+    asset_class ||= mapping.asset.class if mapping && mapping.asset
+    
+    @asset_class = asset_class
+
+  end
   # GET /content_mappings
   # GET /content_mappings.xml
   def index
     @content_mappings = ContentMapping.find(:all)
-
+    
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @content_mappings }
@@ -26,7 +38,7 @@ class ContentMappingsController < ApplicationController
   # GET /content_mappings/new.xml
   def new
     @content_mapping = ContentMapping.new
-
+    
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @content_mapping }

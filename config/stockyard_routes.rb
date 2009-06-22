@@ -2,15 +2,16 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resources :content_mappings, :as => 'content'
   map.resources :pages, 
-                        :has_many => :assets, :has_many => :content_mappings, :has_many => :sections, 
+                        :has_many => :sections, :has_many => :assets, :has_many => :content_mappings, 
                         :collection => {:sort => :put}
   map.resources :page_templates, :has_many => :sections
-  map.resources :sections, :has_many => :assets
+  map.resources :sections, :has_many => :assets,:has_many => :content_mappings
   map.resources :assets
   
   # Asset Types
   map.resources :text_blocks, :basic_images
 
+  map.connect '/pages/:page_id/sections/:section_id/:asset_type/:action', :controller => 'content_mappings'
   
 
   # You can have the root of your site routed with map.root -- just remember to delete public/index.html.

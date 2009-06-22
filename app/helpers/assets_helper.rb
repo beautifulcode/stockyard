@@ -5,7 +5,11 @@ module AssetsHelper
     html
   end
   
-  def editable?
-    false
+  def editable?(content)
+    true if logged_in?
+  end
+  
+  def available_asset_types
+    %w( TextBlock BasicImage NewsItem Callout )
   end
 end

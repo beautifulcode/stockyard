@@ -1,4 +1,4 @@
-<h1>Listing content_mappings</h1>
+<h1>Listing content</h1>
 
 <table>
   <tr>
@@ -10,10 +10,10 @@
 
 <% for content_mapping in @content_mappings %>
   <tr>
-    <td><%=h content_mapping.page_id %></td>
-    <td><%=h content_mapping.section_id %></td>
-    <td><%=h content_mapping.asset_type %></td>
-    <td><%=h content_mapping.asset_id %></td>
+    <td><%= link_to content_mapping.page.title, content_mapping.page %></td>
+    <td><%=h content_mapping.section.title %></td>
+    <td><%=h content_mapping.asset_type.humanize %></td>
+    <td><%=h content_mapping.asset.title %></td>
     <td><%= link_to 'Show', content_mapping %></td>
     <td><%= link_to 'Edit', edit_content_mapping_path(content_mapping) %></td>
     <td><%= link_to 'Destroy', content_mapping, :confirm => 'Are you sure?', :method => :delete %></td>
