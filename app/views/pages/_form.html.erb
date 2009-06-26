@@ -1,12 +1,37 @@
 
 <% semantic_form_for @page do |form| %>
-  <%= form.input :parent, :label_method => :title %>
-  <%= form.input :title %>
+<div id="<%= dom_id @page %>" class="page_options admin_block">
+  <h3>Basic Options</h3>
+  <div id="page_basic_options">
+    <ul style="list-style:none">
+    <%= form.input :parent, :label_method => :title %>
+    <%= form.input :title %>
+    </ul>    
+  </div>
   
-  <div id="page_advanced" class="optional">
+  <h3 id="page_advanced_options_toggle" onclick="$('page_advanced_options').toggle();">Advanced Options</h3>
+  <div id="page_advanced_options" class="optional" style="display: none;">
     <%= form.inputs :file_name, :permalink, :visible, :active, :meta_keywords, :meta_description %>
   </div>
+</div>  
   <%= form.buttons %>
 <% end %>
+
+<div id="<%= dom_id @page %>_content" class="admin_block ">
+  <h3>Page Content</h3>
+  
+  <% @page.content_mappings.collect{|s| s.section }.uniq.each do |section| %>
+    <h4><%= section.title %></h4>
+    <ol>
+    <% @page.content_mappings.select{|c| c.section == section }.each do |content| %>
+      <li><%= content.asset.title %> <%= link_to "Edit", edit_polymorphic_path(content.asset) %></li>
+    <% end %>  
+    </ol>
+    <%= link_to "New Text Block", new_content_mapping_path(:page_id => @page.id, :section_id => section.id, :asset_type => 'TextBlock') %>
+    <%= link_to "New Basic Image", new_content_mapping_path(:page_id => @page.id, :section_id => section.id, :asset_type => 'BasicImage') %>
+  <% end %>
+  
+</div>
+
 
 

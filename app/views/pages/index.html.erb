@@ -2,17 +2,6 @@
 
 <%= render :partial => "tree" %>
 
-<ul>
-<% @pages.each do |page| %>
-  <li>
-  <%= link_to page.title, page %>
-  <%= link_to 'Edit', edit_page_path(page) %>
-  <%= link_to 'Destroy', page, :confirm => 'Are you sure?', :method => :delete %>
-  </li>
-<% end %>
-
-</ul>
-
 <br />
 
 <%= link_to 'New page', new_page_path %>

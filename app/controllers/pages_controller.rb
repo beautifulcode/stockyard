@@ -114,8 +114,10 @@ class PagesController < ApplicationController
   def determine_page_layout
     if @page && @page == Page.root
       'home'
-    else
+    elsif params[:action] == 'show'
       'default'
+    else
+      'stockyard'
     end
   end
   
