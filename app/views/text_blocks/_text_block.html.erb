@@ -1,3 +1,4 @@
 <% asset_tag_for text_block do %>
-  <%= markdown text_block.content %>
+  <div class="rest_in_place" url="/text_blocks/<%= text_block.id %>" object="text_block" attribute="content" attribute_type="textarea"><%= markdown text_block.content %></div>
 <% end %>
+<%= link_to "Edit", edit_polymorphic_path(text_block) %>
