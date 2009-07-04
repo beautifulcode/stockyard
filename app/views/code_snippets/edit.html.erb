@@ -1,0 +1,13 @@
+<h1>Editing code_snippet</h1>
+
+<% form_for(@code_snippet) do |f| %>
+  <%= f.error_messages %>
+
+  <%= render :partial => 'form', :locals => {:f => f}  %>
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @code_snippet %> |
+<%= link_to 'Back', code_snippets_path %>

@@ -1,10 +1,17 @@
-<h1>Generic Asset Index</h1>
-
+<h1>All <%= @asset_class.to_s.underscore.humanize.titlecase.pluralize %></h1>
+<ul>
 <% @assets.each do |asset| %>
-  <%= link_to asset.title, asset %> - 
-  <%= link_to "Edit", edit_asset_path(asset) %>
-<% end.else do %>
-  <p>No Assets</p>
+  <li>
+    <%= link_to asset.title, asset %> - 
+    <%= link_to "Edit", edit_asset_path(asset) %>
+    <!-- <% if asset.content_mappings %>
+      <ul>
+        <% asset.content_mappings.sort_by{|item| item.page_id }.each do |content| %>
+        <li><%= link_to "#{content.page.title} - #{content.section.title}", edit_content_mapping_path(content) %></li>
+        <% end %>
+      </ul>
+    <% end %> -->
+  </li>
 <% end %>
-
-<p><%= link_to "New Asset", new_asset_path %></p>
+</ul>
+<p><%= link_to "New #{@asset_class.to_s.underscore.humanize.titlecase}", :action => 'new' %></p>

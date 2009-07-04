@@ -23,7 +23,7 @@
   <% @page.content_mappings.collect{|s| s.section }.uniq.each do |section| %>
     <h4><%= section.title %></h4>
     <ol>
-    <% @page.content_mappings.select{|c| c.section == section }.each do |content| %>
+    <% @page.content_mappings.select{|c| c.section == section }.sort_by{|c| c.position }.each do |content| %>
       <li><%= content.asset.title %> <%= link_to "Edit", edit_polymorphic_path(content.asset) %></li>
     <% end %>  
     </ol>

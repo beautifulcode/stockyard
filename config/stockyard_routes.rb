@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :code_snippets
+
 
   map.resources :content_mappings, :as => 'content'
   map.resources :pages, 

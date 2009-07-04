@@ -1,0 +1,3 @@
+class CodeSnippetsController < AssetsController
+  
+end
