@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
   layout :determine_page_layout
+  protect_from_forgery :except => [:sort]
   
   # def determine_page_layout
   #   template = @page.template
@@ -36,6 +37,10 @@ class PagesController < ApplicationController
     
     @page = Page.find(params[:id]) if params[:id]
     @page ||= Page.find_by_permalink(params[:path].last)
+
+    redirect_to @page.redirect_url and return unless @page.redirect_url.blank?
+    redirect_to page_path(@page.redirect_page_id) and return unless @page.redirect_page_id.blank?
+
     respond_to do |format|
       format.html # show.html.erb
       format.xml  { render :xml => @page }
@@ -64,7 +69,7 @@ class PagesController < ApplicationController
     @page = Page.new(params[:page])
 
     respond_to do |format|
-      if @page.save
+      if @page.save && @page.move_to_child_of(params[:page][:parent_page_id])
         flash[:notice] = 'Page was successfully created.'
         format.html { redirect_to(@page) }
         format.xml  { render :xml => @page, :status => :created, :location => @page }

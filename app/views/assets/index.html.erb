@@ -3,7 +3,7 @@
 <% @assets.each do |asset| %>
   <li>
     <%= link_to asset.title, asset %> - 
-    <%= link_to "Edit", edit_asset_path(asset) %>
+    <%= link_to "Edit", edit_polymorphic_path(asset) %>
     <!-- <% if asset.content_mappings %>
       <ul>
         <% asset.content_mappings.sort_by{|item| item.page_id }.each do |content| %>

@@ -5,6 +5,9 @@
 <div id="log"></div>
 
 <script>
+Event.observe(window, 'load', function(){
+  
+
   var tree = new SortableTree('tree', {
     droppable: {
       container: ':not(.file)'
@@ -12,10 +15,16 @@
     onDrop: function(drag, drop, event){
       $('log').update($('log').innerHTML + "<p>" + drag.to_params() + "</p>")
       var params = drag.to_params('page')
+      // params['authenticity_token'] = <%= form_authenticity_token() %>;
       new Ajax.Request('/pages/sort', {method: 'put', parameters: params});
     }
   });
   tree.setSortable();
+  
+  
+});
+
+
 
   function log(line) {
     // $('log').update($('log').innerHTML + "<p>" + line + "</p>");
@@ -35,4 +44,6 @@
       Event.observe(element, 'click', toggle_folder);
     });
   });
+  
+
 </script>

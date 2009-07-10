@@ -4,14 +4,20 @@
   <h3>Basic Options</h3>
   <div id="page_basic_options">
     <ul style="list-style:none">
-    <%= form.input :parent, :label_method => :title %>
+
+    <li>
+      <label>Parent Page</label>
+      <%= collection_select :page, :parent_page_id, Page.root.full_set, :id, :title %></li>
     <%= form.input :title %>
     </ul>    
   </div>
   
   <h3 id="page_advanced_options_toggle" onclick="$('page_advanced_options').toggle();">Advanced Options</h3>
   <div id="page_advanced_options" class="optional" style="display: none;">
-    <%= form.inputs :file_name, :permalink, :visible, :active, :meta_keywords, :meta_description %>
+    <%= form.inputs :permalink, :visible, :active %>
+    <%= form.inputs :redirect, :redirect_page_id, :redirect_url %>
+    <%= form.inputs :file_name, :meta_keywords, :meta_description %>
+    
   </div>
 </div>  
   <%= form.buttons %>
@@ -23,7 +29,8 @@
   <% @page.content_mappings.collect{|s| s.section }.uniq.each do |section| %>
     <h4><%= section.title %></h4>
     <ol>
-    <% @page.content_mappings.select{|c| c.section == section }.sort_by{|c| c.position }.each do |content| %>
+      <% section_content = @page.content_mappings.select{|c| c.section == section } %>
+    <% section_content.each do |content| %>
       <li><%= content.asset.title %> <%= link_to "Edit", edit_polymorphic_path(content.asset) %></li>
     <% end %>  
     </ol>

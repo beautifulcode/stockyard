@@ -12,9 +12,18 @@ class Page < ActiveRecord::Base
   has_permalink :title
   simply_versioned :keep => 10
   
-  
   # Validations
   validates_presence_of :title
+  
+  
+  def parent_page_id
+    parent_id
+  end
+  def parent_page_id=(id)
+    # parent_page = Page.find(id)
+    # self.move_to_child_of parent_page
+    # self.update_attribute(:parent_id, id)
+  end
   
   
   # Scopes
