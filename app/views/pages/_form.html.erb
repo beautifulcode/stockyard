@@ -15,13 +15,16 @@
   <h3 id="page_advanced_options_toggle" onclick="$('page_advanced_options').toggle();">Advanced Options</h3>
   <div id="page_advanced_options" class="optional" style="display: none;">
     <%= form.inputs :permalink, :visible, :active %>
-    <%= form.inputs :redirect, :redirect_page_id, :redirect_url %>
+    <%= form.inputs :css_class, :nav_item_css_class, :nav_item_parameters %>
+    <%= form.inputs :redirect, :redirect_url %>
+    <%= form.input :redirect_page, :include_blank => true  %>
     <%= form.inputs :file_name, :meta_keywords, :meta_description %>
+
     
   </div>
 </div>  
   <%= form.buttons %>
-<% end %>
+
 
 <div id="<%= dom_id @page %>_content" class="admin_block ">
   <h3>Page Content</h3>
@@ -31,7 +34,14 @@
     <ol>
       <% section_content = @page.content_mappings.select{|c| c.section == section } %>
     <% section_content.each do |content| %>
-      <li><%= content.asset.title %> <%= link_to "Edit", edit_polymorphic_path(content.asset) %></li>
+      <li>
+        <%= content.asset.title %> <%= link_to "Edit", edit_polymorphic_path(content.asset) %>
+        <div>
+          <%# @asset = content.asset %>
+          <%# form.inputs :for => @asset, :name => "Asset" %>
+        </div>
+      </li>
+      
     <% end %>  
     </ol>
     <%= link_to "New Text Block", new_content_mapping_path(:page_id => @page.id, :section_id => section.id, :asset_type => 'TextBlock') %>
@@ -39,6 +49,6 @@
   <% end %>
   
 </div>
-
+<% end %>
 
 

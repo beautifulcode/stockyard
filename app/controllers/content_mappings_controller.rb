@@ -16,7 +16,7 @@ class ContentMappingsController < ApplicationController
   # GET /content_mappings
   # GET /content_mappings.xml
   def index
-    @content_mappings = ContentMapping.find(:all)
+    @content_mappings = ContentMapping.find(:all, :order => 'page_id ASC')
     
     respond_to do |format|
       format.html # index.html.erb

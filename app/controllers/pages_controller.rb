@@ -1,6 +1,8 @@
 class PagesController < ApplicationController
-  layout :determine_page_layout
+  layout proc{ |c| c.request.xhr? ? :ajax : c.determine_page_layout }
+  # layout :determine_page_layout
   protect_from_forgery :except => [:sort]
+  
   
   # def determine_page_layout
   #   template = @page.template
@@ -37,9 +39,11 @@ class PagesController < ApplicationController
     
     @page = Page.find(params[:id]) if params[:id]
     @page ||= Page.find_by_permalink(params[:path].last)
-
-    redirect_to @page.redirect_url and return unless @page.redirect_url.blank?
-    redirect_to page_path(@page.redirect_page_id) and return unless @page.redirect_page_id.blank?
+    
+    if @page.redirect
+      redirect_to @page.redirect_url and return unless @page.redirect_url.blank?
+      redirect_to page_path(@page.redirect_page_id) and return unless @page.redirect_page_id.blank?
+    end
 
     respond_to do |format|
       format.html # show.html.erb
@@ -112,10 +116,7 @@ class PagesController < ApplicationController
   def rescue_action_in_public(error)
     render :template => 'pages/missing'
   end
-  
-  
-  protected
-  
+
   def determine_page_layout
     if @page && @page == Page.root
       'home'
@@ -124,7 +125,19 @@ class PagesController < ApplicationController
     else
       'stockyard'
     end
+    # false if request.xhr?
   end
+  protected
+  
+
+  
+  def perform_page_redirection
+
+  end
+
+
+  
+
   
   
   

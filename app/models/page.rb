@@ -5,6 +5,7 @@ class Page < ActiveRecord::Base
   has_many :content_mappings
   has_many :sections, :through => :content_mappings, :uniq => true
   # has_many :assets, :through => :content_mappings
+  belongs_to :redirect_page, :class_name => 'Page', :foreign_key => :redirect_page_id
 
   # Plugin Declarations
   acts_as_tree
