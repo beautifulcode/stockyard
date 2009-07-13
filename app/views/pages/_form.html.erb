@@ -1,12 +1,19 @@
-
+ <ul id="tabs_page_form" class="subsection_tabs">  
+     <li class="tab"><a href="#basic_page_details">Page Details</a></li>  
+     <li class="tab"><a href="#advanced_page_details">Advanced Page Details</a></li>  
+ </ul>
 <% semantic_form_for @page do |form| %>
-  <%= form.input :parent, :label_method => :title %>
-  <%= form.input :title %>
-  
-  <div id="page_advanced" class="optional">
+  <div id="basic_page_details">
+    <%= form.input :parent, :label_method => :title %>
+    <%= form.input :title %>
+  </div>
+  <div id="advanced_page_details" class="optional">
     <%= form.inputs :file_name, :permalink, :visible, :active, :meta_keywords, :meta_description %>
   </div>
   <%= form.buttons %>
 <% end %>
+<script type="text/javascript" charset="utf-8">
+  new Control.Tabs('tabs_page_form');  
+</script>
 
 

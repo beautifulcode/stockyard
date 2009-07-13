@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
-  layout :determine_page_layout
+  
+  layout 'stockyard'
   
   # def determine_page_layout
   #   template = @page.template
@@ -25,7 +26,7 @@ class PagesController < ApplicationController
     @pages = Page.find(:all)
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html { render :layout => 'stockyard'}
       format.xml  { render :xml => @pages }
     end
   end
@@ -37,7 +38,7 @@ class PagesController < ApplicationController
     @page = Page.find(params[:id]) if params[:id]
     @page ||= Page.find_by_permalink(params[:path].last)
     respond_to do |format|
-      format.html # show.html.erb
+      format.html { render :layout => determine_page_layout }
       format.xml  { render :xml => @page }
     end
   end
