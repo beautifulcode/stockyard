@@ -1,5 +1,5 @@
 class AssetsController < ResourceController::Base
-
+  before_filter :require_user
   layout :determine_layout
   
   

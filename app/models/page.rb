@@ -35,9 +35,9 @@ class Page < ActiveRecord::Base
   end
   
   def permalink_path
-    ancestor_path = self_and_ancestors.collect{|a| a.permalink }
-    ancestor_path.shift
-    ancestor_path.join('/')
+    @ancestor_path = self_and_ancestors.collect{|a| a.permalink }.uniq
+    @ancestor_path.delete('home')
+    "/#{@ancestor_path.join('/')}"
   end
   
   def content_for_section(title)

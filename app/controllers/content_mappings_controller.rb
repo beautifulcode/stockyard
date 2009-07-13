@@ -1,5 +1,7 @@
 class ContentMappingsController < ApplicationController
+  
   layout 'stockyard'
+  before_filter :require_user
   before_filter :determine_asset
   
   
@@ -16,7 +18,7 @@ class ContentMappingsController < ApplicationController
   # GET /content_mappings
   # GET /content_mappings.xml
   def index
-    @content_mappings = ContentMapping.find(:all, :order => 'page_id ASC')
+    @content_mappings = ContentMapping.find(:all, :order => 'page_id ASC, section_id ASC')
     
     respond_to do |format|
       format.html # index.html.erb

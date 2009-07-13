@@ -1,4 +1,5 @@
 class SectionsController < ApplicationController
+  before_filter :require_user
   layout 'stockyard'
   # GET /sections
   # GET /sections.xml

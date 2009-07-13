@@ -1,5 +1,8 @@
 require 'fastercsv'
 class AdminController < ApplicationController
+  
+  before_filter :require_user
+  
   layout 'stockyard'
   def import
     count = 0

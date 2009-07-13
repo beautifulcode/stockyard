@@ -1,4 +1,7 @@
 class PagesController < ApplicationController
+
+  before_filter :require_user
+
   layout proc{ |c| c.request.xhr? ? :ajax : c.determine_page_layout }
   # layout :determine_page_layout
   protect_from_forgery :except => [:sort]
@@ -40,10 +43,12 @@ class PagesController < ApplicationController
     @page = Page.find(params[:id]) if params[:id]
     @page ||= Page.find_by_permalink(params[:path].last)
     
-    if @page.redirect
+    if @page && @page.redirect
       redirect_to @page.redirect_url and return unless @page.redirect_url.blank?
       redirect_to page_path(@page.redirect_page_id) and return unless @page.redirect_page_id.blank?
     end
+    
+    render :template => 'pages/missing' and return unless @page
 
     respond_to do |format|
       format.html # show.html.erb

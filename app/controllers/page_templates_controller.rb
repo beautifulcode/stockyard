@@ -1,4 +1,5 @@
 class PageTemplatesController < ApplicationController
+  before_filter :require_user
   # GET /page_templates
   # GET /page_templates.xml
   def index

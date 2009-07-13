@@ -1,5 +1,8 @@
 <% semantic_form_for( @basic_image, :html => {:multipart => true} )do |form| %>
  <%= form.inputs :title, :file %>
+ <%= form.input :page_id, :include_blank => true %>
+ <%= form.input :link %>
+ 
  <%= form.buttons %>
 <% end %>
 
