@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
 
-  before_filter :require_user
+  before_filter :require_user, :except => ['show', 'missing']
 
   layout proc{ |c| c.request.xhr? ? :ajax : c.determine_page_layout }
   # layout :determine_page_layout
