@@ -1,4 +1,4 @@
 <div class="code_snippet">
-    <%= eval(code_snippet.body) %>
+    <%= render :inline => code_snippet.body %>
     <%= link_to "Edit", edit_code_snippet_path(code_snippet) %>
 </div>

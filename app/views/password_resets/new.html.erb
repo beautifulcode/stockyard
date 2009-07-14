@@ -1,0 +1,6 @@
+<h2>Forgotten Password</h2>
+<p>If you have forgotten your password, just <strong>enter your email</strong> (carefully) below and<br> you will <strong>receive a link via email</strong> to update your password to something more memorable.</p>
+<% form_tag do |form|  %>
+  <p><label>Email:</label><%= text_field_tag 'email' %></p>
+  <p><%= submit_tag 'Send Me The Link!' %></p>
+<% end %>

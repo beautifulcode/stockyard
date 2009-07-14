@@ -1,14 +1,20 @@
-<h1>Login</h1>
+<h2>Admin Login</h2>
  
 <% form_for @user_session, :url => user_session_path do |f| %>
   <%= f.error_messages %>
-  <%= f.label :login %><br />
-  <%= f.text_field :login %><br />
-  <br />
-  <%= f.label :password %><br />
-  <%= f.password_field :password %><br />
-  <br />
-  <%= f.check_box :remember_me %><%= f.label :remember_me %><br />
-  <br />
-  <%= f.submit "Login" %>
+  <p>
+  <%= f.label :login %>
+  <%= f.text_field :login %>
+  </p>
+<p>
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+</p>  
+<p>  
+  <%= f.label :remember_me %>
+  <%= f.check_box :remember_me %>
+</p>  
+  <%= f.submit "Login Now" %>
 <% end %>
+<br>
+<p><%= link_to "Forgot Your Password?", forgotten_password_path %></p>

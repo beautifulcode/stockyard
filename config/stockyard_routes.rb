@@ -27,7 +27,7 @@ ActionController::Routing::Routes.draw do |map|
   
   map.stockyard_login '/login', :controller => 'user_sessions', :action => 'new'
   map.stockyard_logout '/logout', :controller => 'user_sessions', :action => 'destroy'
-
+  map.forgotten_password '/forgot_password', :controller => 'password_resets', :action => 'new'
   
   map.root :controller => "pages", :action => "show", :id => 1
 

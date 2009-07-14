@@ -1,7 +1,5 @@
 class UserSessionsController < ApplicationController
   
-  layout 'stockyard'
-  
   
   before_filter :require_user, :only => :destroy
   

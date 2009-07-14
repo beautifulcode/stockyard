@@ -1,6 +1,7 @@
-class PasswordResetsController < ApplicationController  
+class PasswordResetsController < ApplicationController 
+  
   def new  
-    render  
+    render :layout => 'user_sessions'
   end  
   
   def create  
@@ -16,7 +17,7 @@ class PasswordResetsController < ApplicationController
     end  
   end  
   
-  before_filter :load_user_using_perishable_token, <img src="http://www.binarylogic.com/wp-includes/images/smilies/icon_surprised.gif" alt=":o" class="wp-smiley"> nly => [:edit, :update]  
+  before_filter :load_user_using_perishable_token, :only => [:edit, :update]  
     
   def edit  
     render  
@@ -24,7 +25,7 @@ class PasswordResetsController < ApplicationController
     
   def update  
     @user.password = params[:user][:password]  
-    @user.password_confirmation = params[:user][: password_confirmation]  
+    @user.password_confirmation = params[:user][:password_confirmation]  
     if @user.save  
       flash[:notice] = "Password successfully updated"  
       redirect_to account_url  

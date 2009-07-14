@@ -124,14 +124,16 @@ class PagesController < ApplicationController
   end
 
   def determine_page_layout
-    if @page && @page == Page.root
+    if request.xhr?
+      'ajax'
+    elsif @page && @page == Page.root
       'home'
     elsif params[:action] == 'show'
       'default'
     else
       'stockyard'
     end
-    # false if request.xhr?
+    
   end
   protected
   
