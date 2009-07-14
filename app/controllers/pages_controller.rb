@@ -1,6 +1,12 @@
 class PagesController < ApplicationController
   
   layout 'stockyard'
+
+  before_filter :require_user, :except => ['show', 'missing']
+
+  layout proc{ |c| c.request.xhr? ? :ajax : c.determine_page_layout }
+  # layout :determine_page_layout
+  protect_from_forgery :except => [:sort]
   
   # def determine_page_layout
   #   template = @page.template
@@ -37,6 +43,14 @@ class PagesController < ApplicationController
     
     @page = Page.find(params[:id]) if params[:id]
     @page ||= Page.find_by_permalink(params[:path].last)
+    
+    if @page && @page.redirect
+      redirect_to @page.redirect_url and return unless @page.redirect_url.blank?
+      redirect_to page_path(@page.redirect_page_id) and return unless @page.redirect_page_id.blank?
+    end
+    
+    render :template => 'pages/missing' and return unless @page
+
     respond_to do |format|
       format.html { render :layout => determine_page_layout }
       format.xml  { render :xml => @page }
@@ -65,7 +79,7 @@ class PagesController < ApplicationController
     @page = Page.new(params[:page])
 
     respond_to do |format|
-      if @page.save
+      if @page.save && @page.move_to_child_of(params[:page][:parent_page_id])
         flash[:notice] = 'Page was successfully created.'
         format.html { redirect_to(@page) }
         format.xml  { render :xml => @page, :status => :created, :location => @page }
@@ -108,17 +122,28 @@ class PagesController < ApplicationController
   def rescue_action_in_public(error)
     render :template => 'pages/missing'
   end
-  
-  
-  protected
-  
+
   def determine_page_layout
     if @page && @page == Page.root
       'home'
-    else
+    elsif params[:action] == 'show'
       'default'
+    else
+      'stockyard'
     end
+    # false if request.xhr?
   end
+  protected
+  
+
+  
+  def perform_page_redirection
+
+  end
+
+
+  
+
   
   
   

@@ -1,0 +1,22 @@
+<h1>Listing code_snippets</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Body</th>
+  </tr>
+
+<% for code_snippet in @code_snippets %>
+  <tr>
+    <td><%=h code_snippet.title %></td>
+    <td><%=h code_snippet.body %></td>
+    <td><%= link_to 'Show', code_snippet %></td>
+    <td><%= link_to 'Edit', edit_code_snippet_path(code_snippet) %></td>
+    <td><%= link_to 'Destroy', code_snippet, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New code_snippet', new_code_snippet_path %>

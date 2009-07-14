@@ -2,19 +2,26 @@
 
   <p>
     <%= f.label :page_id %><br />
-    <%= f.select(:page_id, Page.all.collect {|p| [ p.title, p.id ] })  %>
+    <%= f.select(:page_id, Page.root.full_set.collect {|p| [ "#{p.parent.title if p.parent} - #{p.title}", p.id ] })  %>
   </p>
   <p>
     <%= f.label :section_id %><br />
     <%= f.select(:section_id, Section.all.collect {|s| [ s.title, s.id ] }) %>
   </p>
-  <p>
-    <%= f.hidden_field :asset_type, :value => params[:asset_type] %>
-  </p>
-  <p>
-    <%= f.label :asset_id %>:
-    <%= @asset_class.name.humanize %><br />
-    <%= f.select(:asset_id, @asset_class.find(:all).collect {|a| [a.title, a.id]}) if @asset_class %>
+  <p id="asset_select">
+    
+    <% if @asset_class %>
+      <%= f.hidden_field :asset_type, :value => params[:asset_type_selector] %>
+      <%= f.label :asset_id %>:
+      <%= @asset_class.name.humanize %><br />
+      <%= f.select(:asset_id, @asset_class.find(:all).collect {|a| [a.title, a.id]}) if @asset_class %>
+    <br>
+    <% end %>
+
+    <b>Choose/Change Asset Type</b><br>
+    <%= f.collection_select :asset_type_selector, available_asset_types, :to_s, :to_s %>
+    
+    <%- link_to_remote ("New #{@asset_class}", :update => "asset_select", :url => new_polymorphic_path(@asset_class)) if @asset_class %>
     
   </p>
   

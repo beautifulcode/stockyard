@@ -1,5 +1,7 @@
 class ContentMappingsController < ApplicationController
+  
   layout 'stockyard'
+  before_filter :require_user
   before_filter :determine_asset
   
   
@@ -11,11 +13,12 @@ class ContentMappingsController < ApplicationController
     
     @asset_class = asset_class
 
+
   end
   # GET /content_mappings
   # GET /content_mappings.xml
   def index
-    @content_mappings = ContentMapping.find(:all)
+    @content_mappings = ContentMapping.find(:all, :order => 'page_id ASC, section_id ASC')
     
     respond_to do |format|
       format.html # index.html.erb
@@ -38,7 +41,9 @@ class ContentMappingsController < ApplicationController
   # GET /content_mappings/new.xml
   def new
     @content_mapping = ContentMapping.new
-    
+    @content_mapping.section = Section.find(params[:section_id]) if params[:section_id]
+    @content_mapping.page = Page.find(params[:page_id]) if params[:page_id]
+    @content_mapping.asset_type = params[:asset_type].classify if params[:asset_type]
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @content_mapping }

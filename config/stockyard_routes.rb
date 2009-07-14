@@ -1,5 +1,5 @@
 ActionController::Routing::Routes.draw do |map|
-
+  
   map.resources :content_mappings, :as => 'content'
   map.resources :pages, 
                         :has_many => :sections, :has_many => :assets, :has_many => :content_mappings, 
@@ -9,15 +9,20 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :assets
   
   # Asset Types
-  map.resources :text_blocks, :basic_images
+  map.resources :text_blocks, :basic_images, :code_snippets
 
-  map.connect '/pages/:page_id/sections/:section_id/:asset_type/:action', :controller => 'content_mappings'
+  map.connect '/pages/:page_id/sections/:section_id/content/:action', :controller => 'content_mappings'
+
+  # User Sessions for authlogic
+  map.resource :user_session
+  map.resource :account, :controller => "users"
+  map.resources :users
   
+  map.stockyard_login '/login', :controller => 'user_sessions', :action => 'new'
+  map.stockyard_logout '/logout', :controller => 'user_sessions', :action => 'destroy'
 
-  # You can have the root of your site routed with map.root -- just remember to delete public/index.html.
+  
   map.root :controller => "pages", :action => "show", :id => 1
-
-  # See how all your routes lay out with "rake routes"
 
   # Install the default routes as the lowest priority.
   # Note: These default routes make all actions in every controller accessible via GET requests. You should

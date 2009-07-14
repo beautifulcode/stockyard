@@ -5,15 +5,15 @@
     <th>Page</th>
     <th>Section</th>
     <th>Asset type</th>
-    <th>Asset</th>
+    <th colspan="3">Content Details</th>
   </tr>
 
 <% for content_mapping in @content_mappings %>
   <tr>
     <td><%= link_to content_mapping.page.title, content_mapping.page %></td>
     <td><%=h content_mapping.section.title %></td>
-    <td><%=h content_mapping.asset_type.humanize %></td>
-    <td><%=h content_mapping.asset.title %></td>
+    <td><%=h content_mapping.asset_type.humanize %> - <%= link_to "Edit", edit_polymorphic_path(content_mapping.asset) %></td>
+    
     <td><%= link_to 'Show', content_mapping %></td>
     <td><%= link_to 'Edit', edit_content_mapping_path(content_mapping) %></td>
     <td><%= link_to 'Destroy', content_mapping, :confirm => 'Are you sure?', :method => :delete %></td>

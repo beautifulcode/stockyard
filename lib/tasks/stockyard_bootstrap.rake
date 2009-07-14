@@ -24,8 +24,8 @@ namespace :stockyard do
     main = Section.create(:title => "Main")
     side = Section.create(:title => "Side")
     
-    welcome_text = TextBlock.create(:title => 'Welcome to Stockyard!', "This is generated content that was created when you installed Stockyard. Feel free to edit or remove.")
-    ContentMapping.create(:page_id => home_page, :section_id => main, :asset_type => 'TextBlock', :asset_id => welcome_text)
+    welcome_text = TextBlock.create(:title => 'Welcome to Stockyard!', :content => "This is generated content that was created when you installed Stockyard. Feel free to edit or remove.")
+    ContentMapping.create(:page_id => home_page.id, :section_id => main, :asset_type => 'TextBlock', :asset_id => welcome_text.id)
     
   end
 end

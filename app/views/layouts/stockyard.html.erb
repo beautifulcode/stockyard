@@ -5,8 +5,8 @@
 <head>
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
   <title>Stockyard CMS</title>
-  <%= stylesheet_link_tag 'blueprint', 'stockyard', 'forms' %>
-  <%= javascript_include_tag :all %>
+  <%= stylesheet_link_tag 'blueprint', 'stockyard', 'forms', 'lightwindow' %>
+  <%= javascript_include_tag :all, '/stockyard/javascripts/tree', '/stockyard/javascripts/tabs', '/stockyard/wmd/wmd' %>
 </head>
 <body>
   <div id="global_admin_bar"></div>
@@ -16,12 +16,16 @@
 
     <div id="header">
       <ul class="hanging_tabs">
-        <li><%= link_to "Login", '/login' %></li>
+        <li>
+          <%= link_to "Login", stockyard_login_path unless @current_user %>
+          <%= link_to "Logout", stockyard_logout_path if @current_user %>
+        </li>
       </ul>
       <ul id="global_nav">
         <li><%= link_to "Pages", pages_path %></li>
-        <li><%= link_to "Sections", sections_path %></li>
+        <!-- <li><%= link_to "Sections", sections_path %></li> -->
         <li><%= link_to "Content", content_mappings_path %></li>
+        <li><%= link_to "Users", users_path %></li>
 
       </ul>
       <div id="logo">
@@ -39,6 +43,7 @@
         <li><%= link_to "Text Blocks", text_blocks_path %></li>
         <li><%= link_to "Basic Images", basic_images_path %></li>
         <li><%= link_to "Callouts", callouts_path %></li>
+        <li><%= link_to "CodeSnippets", code_snippets_path %></li>
       </ul>
       <%= yield :side %>
     </div>

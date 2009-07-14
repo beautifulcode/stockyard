@@ -22,3 +22,4 @@ module Enumerable
     self.respond_to?('empty?') && self.empty? ? yield : self
   end
 end
+

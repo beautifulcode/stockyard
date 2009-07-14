@@ -1,0 +1,2 @@
+class CodeSnippet < Asset
+end

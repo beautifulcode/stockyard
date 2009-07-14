@@ -1,0 +1,13 @@
+<p>
+  <b>Title:</b>
+  <%=h @code_snippet.title %>
+</p>
+
+<p>
+  <b>Body:</b>
+  <%=h @code_snippet.body %>
+</p>
+
+
+<%= link_to 'Edit', edit_code_snippet_path(@code_snippet) %> |
+<%= link_to 'Back', code_snippets_path %>

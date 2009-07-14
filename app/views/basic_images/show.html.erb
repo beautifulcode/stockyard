@@ -2,3 +2,4 @@
 <h2><%= @basic_image.title %></h2>
 <%= image_tag @basic_image.file.url %>
 <p><%= link_to "Edit Image", edit_basic_image_path(@basic_image) %></p>
+<p><%= link_to "Create Image", new_basic_image_path %></p>

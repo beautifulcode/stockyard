@@ -5,6 +5,7 @@ class Page < ActiveRecord::Base
   has_many :content_mappings
   has_many :sections, :through => :content_mappings, :uniq => true
   # has_many :assets, :through => :content_mappings
+  belongs_to :redirect_page, :class_name => 'Page', :foreign_key => :redirect_page_id
 
   # Plugin Declarations
   acts_as_tree
@@ -12,9 +13,18 @@ class Page < ActiveRecord::Base
   has_permalink :title
   simply_versioned :keep => 10
   
-  
   # Validations
   validates_presence_of :title
+  
+  
+  def parent_page_id
+    parent_id
+  end
+  def parent_page_id=(id)
+    # parent_page = Page.find(id)
+    # self.move_to_child_of parent_page
+    # self.update_attribute(:parent_id, id)
+  end
   
   
   # Scopes
@@ -25,9 +35,9 @@ class Page < ActiveRecord::Base
   end
   
   def permalink_path
-    ancestor_path = self_and_ancestors.collect{|a| a.permalink }
-    ancestor_path.shift
-    ancestor_path.join('/')
+    @ancestor_path = self_and_ancestors.collect{|a| a.permalink }.uniq
+    @ancestor_path.delete('home')
+    "/#{@ancestor_path.join('/')}"
   end
   
   def content_for_section(title)
