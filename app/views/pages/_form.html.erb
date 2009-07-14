@@ -1,50 +1,66 @@
  <ul id="tabs_page_form" class="subsection_tabs">  
-     <li class="tab"><a href="#basic_page_details">Page Details</a></li>  
-     <li class="tab"><a href="#advanced_page_details">Advanced Page Details</a></li>  
+     <li class="tab"><a href="#basic_page_details">Basic Details</a></li>  
+     <li class="tab"><a href="#advanced_page_details">Advanced Options</a></li>  
+     <li class="tab"><a href="#page_content">Page Content Management</a></li>  
  </ul>
+
 <% semantic_form_for @page do |form| %>
-
-  <div id="basic_page_details">
-    <%= collection_select :page, :parent_page_id, Page.root.full_set, :id, :title %></li>
-    <%= form.input :title %>
-  </div>
-  <div id="advanced_page_details" class="optional">  
-    <%= form.inputs :permalink, :visible, :active %>
-    <%= form.inputs :css_class, :nav_item_css_class, :nav_item_parameters %>
-    <%= form.inputs :redirect, :redirect_url %>
-    <%= form.input :redirect_page, :include_blank => true  %>
-    <%= form.inputs :file_name, :meta_keywords, :meta_description %>
-  </div>
-</div>  
-  <%= form.buttons %>
-
-
-<div id="<%= dom_id @page %>_content" class="admin_block ">
-  <h3>Page Content</h3>
-  
-  <% @page.content_mappings.collect{|s| s.section }.uniq.each do |section| %>
-    <h4><%= section.title %></h4>
-    <ol>
-      <% section_content = @page.content_mappings.select{|c| c.section == section } %>
-    <% section_content.each do |content| %>
-      <li>
-        <%= content.asset.title %> <%= link_to "Edit", edit_polymorphic_path(content.asset) %>
-        <div>
-          <%# @asset = content.asset %>
-          <%# form.inputs :for => @asset, :name => "Asset" %>
-        </div>
-      </li>
-      
-    <% end %>  
-    </ol>
-    <%= link_to "New Text Block", new_content_mapping_path(:page_id => @page.id, :section_id => section.id, :asset_type => 'TextBlock') %>
-    <%= link_to "New Basic Image", new_content_mapping_path(:page_id => @page.id, :section_id => section.id, :asset_type => 'BasicImage') %>
-  <% end %>
-  
+<div id="clear">
+ 
 </div>
+  <div id="basic_page_details" class="tab_content">
+    <h3>Required Info</h3>
+    <p><label>Parent Page:</label><%= collection_select :page, :parent_page_id, Page.root.full_set, :id, :title %></li></p>
+    <%= form.input :title %><br><br><br>
+  </div>
+  
+  <div id="advanced_page_details" class="optional tab_content">  
+    <h3>Advanced Page Configuration</h3>
+    <% form.inputs :name => "File Name & Visibility" do %>
+      <%= form.input :permalink %>
+      <p><%= form.input :visible %> (Visibility in Navigation)</p>
+      <p><%= form.input :active %> (Disable Page Completely)</p>
+    <% end %>
+    <%= form.inputs :css_class, :nav_item_css_class, :nav_item_parameters, :name => "Custom CSS Values" %>
+    <% form.inputs :name => "Redirect Configuration", :for => :page do |redirection| %>
+      <%= form.input :redirect %>
+      <%= form.input :redirect_url %>
+      <%= form.input :redirect_page, :include_blank => true  %>
+    <% end %>
+    <% form.inputs :name => 'Search Engine Optimization' do  %>
+      <%= form.input :file_name %>
+      <%= form.input :meta_keywords, :style => 'height: 100px' %>
+      <%= form.input :meta_description, :style => 'height: 100px' %>
+    <% end %>
+  </div>
+  <div id="page_content" class="optional tab_content">  
+    <h3>Page Sections & Content</h3>
+
+    <% @page.content_mappings.collect{|s| s.section }.uniq.each do |section| %>
+      <h4><%= section.title %></h4>
+      <ol>
+        <% section_content = @page.content_mappings.select{|c| c.section == section } %>
+        <% section_content.each do |content| %>
+        <li><%= content.asset.title %> <%= link_to "Edit", edit_polymorphic_path(content.asset) %></li>
+        <% end %>  
+        <li><%= link_to "<b>Add Content</b> To #{section.title} ", new_page_section_content_mapping_path(@page, section) %></li>
+      </ol>
+      <div id="new_section_content_<%= section.id %>">
+        
+      </div>
+    <% end %>
+    
+  </div>
+  
+</div>  
+<br><br><br>
+<%= form.buttons %>
+
 <% end %>
 <script type="text/javascript" charset="utf-8">
-  new Control.Tabs('tabs_page_form');  
+  Event.observe(window, 'load', function(){
+    new Control.Tabs('tabs_page_form');  
+  })
 </script>
 
 

@@ -21,5 +21,9 @@ class Asset < ActiveRecord::Base
   #   # Do something when child is instantiate
   # end
   
+  def headline
+    title || "#{self.class.name} #{self.id}"
+  end
+  
   
 end

@@ -5,6 +5,15 @@ class ContentMappingsController < ApplicationController
   before_filter :determine_asset
   
   
+  def sort
+    @section = Section.find(params[:section_id])
+    @section.content_mappings.each do | c |
+      c.position = params["section-content-list-#{@section.id}"].index(c.id.to_s)+1
+      c.save
+    end
+    render :nothing => true
+  end
+  
   def determine_asset
     
     asset_class = eval(params[:asset_type].classify) if params[:asset_type] 

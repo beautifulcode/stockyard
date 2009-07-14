@@ -1,20 +1,20 @@
 <p>
-<%= f.label :name %><br />
-<%= f.text_field :name %><br />
+<%= f.label :name %>
+<%= f.text_field :name %>
 </p>
 <p>
-<%= f.label :email %><br />
-<%= f.text_field :email %><br />
+<%= f.label :email %>
+<%= f.text_field :email %>
 </p>
 <p>
-<%= f.label :login %><br />
-<%= f.text_field :login %><br />
+<%= f.label :login %>
+<%= f.text_field :login %>
 </p>
 <p>
-<%= f.label :password, f.object.new_record? ? nil : "Change password" %><br />
-<%= f.password_field :password %><br />
+<%= f.label :password, f.object.new_record? ? nil : "Password" %>
+<%= f.password_field :password %>
 </p>
 <p>
-<%= f.label :password_confirmation %><br />
-<%= f.password_field :password_confirmation %><br />
+<%= f.label :password_confirmation, 'Confirm' %>
+<%= f.password_field :password_confirmation %> 
 </p>

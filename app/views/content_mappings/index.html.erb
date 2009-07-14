@@ -1,25 +1,53 @@
 <h1>Listing content</h1>
 
-<table>
-  <tr>
-    <th>Page</th>
-    <th>Section</th>
-    <th>Asset type</th>
-    <th colspan="3">Content Details</th>
-  </tr>
+<p><h2><%= link_to(content_tag( :span, "+ Create or Add Content To A Page"), new_content_mapping_path, :id => 'new_content_button') %></h2></p>
 
+<!-- <table>
+  <tr>
+    <th>Site Content Listing</th>
+    <th colspan="3">Actions</th>
+  </tr>
+<% prev_page = '' %>
 <% for content_mapping in @content_mappings %>
   <tr>
-    <td><%= link_to content_mapping.page.title, content_mapping.page %></td>
-    <td><%=h content_mapping.section.title %></td>
-    <td><%=h content_mapping.asset_type.humanize %> - <%= link_to "Edit", edit_polymorphic_path(content_mapping.asset) %></td>
-    
+    <td><%= content_tag :strong, content_mapping.page.title, :style => "#{'visibility: hidden;display: block; float: left; width: 50px; height: 30px;' if prev_page == content_mapping.page.id}"  %> | <%=h content_mapping.section.title %> | <%= content_mapping.asset.headline %> <%=h content_mapping.asset_type.humanize %> </td>    
     <td><%= link_to 'Show', content_mapping %></td>
-    <td><%= link_to 'Edit', edit_content_mapping_path(content_mapping) %></td>
+    <td><%= link_to 'Edit', edit_polymorphic_path(content_mapping.asset) %></td>
     <td><%= link_to 'Destroy', content_mapping, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
+  <% prev_page = content_mapping.page.id %>
 <% end %>
-</table>
+</table> -->
+
+<div id="pages">
+<% Page.root.all_children.sort_by{|p| p.permalink_path }.each do |page| %>
+  <div class="page" style="float: left; width: 700px; border-bottom: 1px solid #666;">
+    Page: <%= content_tag :strong, page.title  %>
+    <div class="sections">
+      <% page.sections.each do |section| %>
+        <div class="section" style="float: left; margin-left: 30px; clear: both;">
+            Section: <strong><%= section.title %></strong>
+            <ul id="section-content-list-<%= section.id %>" style="cursor: move; margin-left: 50px; list-style: none; clear: both;">
+              <% ContentMapping.find_all_by_page_id_and_section_id(page.id, section.id).each do |content| %>
+              <li id="content_mapping_<%= content.id %>"><strong><%= content.asset.headline %></strong> | <%= link_to 'Edit', edit_polymorphic_path(content_mapping.asset) %> | <%= link_to 'Destroy', content_mapping, :confirm => 'Are you sure?', :method => :delete %></li>
+              <% end %>
+            </ul>
+            <%= sortable_element "section-content-list-#{section.id}",
+            :url => sort_section_content_mappings_path(section),
+            :complete => visual_effect(:highlight, "section-content-list-#{section.id}")
+            %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+<% end %>
+
+</div>
+
+<% for content_mapping in @content_mappings %>
+
+<% end %>
+
 
 <br />
 

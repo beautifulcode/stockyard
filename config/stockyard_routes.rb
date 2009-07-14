@@ -1,12 +1,19 @@
 ActionController::Routing::Routes.draw do |map|
   
-  map.resources :content_mappings, :as => 'content'
-  map.resources :pages, 
-                        :has_many => :sections, :has_many => :assets, :has_many => :content_mappings, 
-                        :collection => {:sort => :put}
-  map.resources :page_templates, :has_many => :sections
-  map.resources :sections, :has_many => :assets,:has_many => :content_mappings
+  map.resources :content_mappings, :as => 'content', :collection => {:sort => :put}
   map.resources :assets
+  map.resources :pages, :collection => {:sort => :put} do |page|
+    page.resource :assets
+    page.resources :sections do |page_section|
+      page_section.resources :content_mappings
+    end
+  end
+
+  map.resources :sections do |section|
+    section.resources :assets
+    section.resources :content_mappings, :collection => {:sort => :put}
+  end
+  map.resources :page_templates, :has_many => :sections
   
   # Asset Types
   map.resources :text_blocks, :basic_images, :code_snippets
