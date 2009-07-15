@@ -1,5 +1,7 @@
 <%- asset_tag_for basic_image do %>
-<%= link_to image_tag(basic_image.file.url), basic_image.page.permalink if basic_image.page %>
-<%= link_to image_tag(basic_image.file.url), basic_image.link unless basic_image.page && basic_image.link.blank? %>
+<% link = basic_image.page.permalink if basic_image.page %>
+<% link ||= basic_image.link unless basic_image.page && basic_image.link.blank? %>
+<%= link_to image_tag(basic_image.file.url), link if link %>
+<%= image_tag(basic_image.file.url) unless link  %>
 <%= asset_edit_link_for basic_image %>
 <% end %>

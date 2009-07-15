@@ -1,4 +1,5 @@
 <% asset_tag_for text_block do %>
   <div class="rest_in_place" url="/text_blocks/<%= text_block.id %>" object="text_block" attribute="content" attribute_type="textarea"><%= markdown text_block.content %></div>
 <% end %>
-<%= asset_edit_link_for text_block %>
+<%= link_to "Edit #{text_block.class.name}", edit_polymorphic_path(text_block) if @current_user %>
+<%= logged_in? %>

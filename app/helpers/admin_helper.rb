@@ -16,6 +16,6 @@ module AdminHelper
   end
   
   def asset_edit_link_for(asset)
-    link_to "Edit #{asset.class.name}", edit_polymorphic_path(asset) if admin?
+    link_to "Edit #{asset.class.name}", edit_polymorphic_path(asset) if @current_user
   end
 end

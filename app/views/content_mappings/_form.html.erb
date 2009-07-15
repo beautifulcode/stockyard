@@ -3,7 +3,7 @@
   
   <b>Choose/Change Asset Type</b><br>
   
-  <%= f.collection_select :asset_type_selector, available_asset_types, :to_s, :to_s %>
+  <%= f.collection_select :asset_type_selector, available_asset_types, :to_s, :to_s, :prompt => 'Choose:' %>
   <p id="asset_select">
     
     <% if @asset_class %>
