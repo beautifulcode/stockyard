@@ -8,7 +8,8 @@
   <%= stylesheet_link_tag  'blueprint', 'application' %>
 </head>
 <body>
-
+  <div class="ajax">
+    <%= link_to "Close", '#', :class=>"lightwindow_action ajax_close", :rel=>"deactivate" %>
     <%= yield :main %>  
     <%= yield %>  
   </div>

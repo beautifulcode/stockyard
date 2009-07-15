@@ -1,12 +1,10 @@
 module AdminHelper
   def admin?
-    # true
-    false
+    @current_user
   end
   
   def logged_in?
-    # true
-    false
+    @current_user
   end
   
   def flash_messaging
@@ -15,5 +13,9 @@ module AdminHelper
       html << "<div class='flash #{key}'>#{value}<span id='flash-left'></span><span id='flash-right'></span></div>"
     end
     html
+  end
+  
+  def asset_edit_link_for(asset)
+    link_to "Edit #{asset.class.name}", edit_polymorphic_path(asset) if admin?
   end
 end
