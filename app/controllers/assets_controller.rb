@@ -1,5 +1,5 @@
 class AssetsController < ResourceController::Base
-  before_filter :require_user
+  before_filter :require_user, :except => 'show'
   layout :determine_layout
   
   

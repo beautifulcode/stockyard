@@ -17,7 +17,7 @@ module PagesHelper
   def nav_for(page)
     html = '<ul>'
     page.children.visible.each do |page|
-      html << "<li>"
+      html << "<li class='#{active_class(page)}'>"
       html << link_to( "#{page.title}", page.permalink_path, :class => page.nav_item_css_class, :params => page.nav_item_parameters) if page.visible
       html << "</li>"
     end
@@ -27,14 +27,17 @@ module PagesHelper
   def sibling_nav
     html = '<ul>'
     @page.self_and_siblings.each do |page|
-      html << "<li>"
+      html << "<li class='#{active_class(page)}'>"
       html << link_to( "#{page.title}", page.permalink_path, :class => page.nav_item_css_class, :params => page.nav_item_parameters) if page.visible
       html << "</li>"
     end
     html << '</ul>'
   end
   
-  
+  def active_class(page)
+    # 'active' if page == @page || page.ancestors.include?( @page)
+    'active' if request.request_uri.include? page.permalink_path
+  end
   
   def admin_page_tree_for(page, level)
     html = '<ul>'

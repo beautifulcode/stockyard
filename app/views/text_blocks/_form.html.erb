@@ -1,8 +1,13 @@
-
-
 <% semantic_form_for @text_block do |form| %>
-  <%= form.inputs :title, :content %>
+
+  <% form.inputs do %>
+    <%= form.input :title %>
+    <span style="position: absolute; right: 90px; top: 50px"><%= link_to "Formatting Help", '/help/markdown', :target => "_blank" %></span><br>
+    <%= form.input :content %>
+
+  <% end %>
   <%= form.buttons %>
+
 <% end %>
 
 <div class="wmd-preview"></div>
@@ -24,7 +29,9 @@
 		autostart: true
 	};
 </script>
-  <script type="text/javascript" src="/wmd/wmd.js""></script>
+  <script type="text/javascript" src="/wmd/wmd.js"></script>
+
+
 
 <% @text_block.versions.each do |v| %>
  <%= @text_block.title %> Version #<%= v.number %><br>
