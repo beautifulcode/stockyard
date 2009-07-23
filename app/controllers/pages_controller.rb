@@ -49,7 +49,7 @@ class PagesController < ApplicationController
       redirect_to page_path(@page.redirect_page_id) and return unless @page.redirect_page_id.blank?
     end
     
-    render :template => 'pages/missing' and return unless @page
+    render :template => 'pages/missing', :status => 404 and return unless @page
 
     respond_to do |format|
       format.html { render :layout => determine_page_layout }
