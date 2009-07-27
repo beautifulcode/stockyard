@@ -65,7 +65,15 @@ module PagesHelper
       html = '<div>'
       html << '<ul id="tree">'
       level = 1
-      html << "<li id='page_1' class=''>#{link_to root_page.title, page_path(root_page)}</li>"
+      html << "<li id='page_1' class=''>#{link_to root_page.title, page_path(root_page)}"
+      html << "<span class='handle'></span>"
+      html << link_to( root_page.title, root_page.permalink_path, :class => "title #{'folder' if root_page.children.size > 0 }")
+      html << ' <p>'
+      html << link_to( 'Edit', edit_page_path(root_page.id), :class => 'edit')
+      html << ' | '
+      html << link_to( 'Delete', page_path(root_page.id), :class => 'destroy', :method => 'delete', :confirm => 'Are you sure?')
+      html << '</p>'
+      html << "</li>"
       root_page.children.each do |page|
         html << "<li id='page_#{page.id}' class=''>"
         html << "<span class='handle'></span>"

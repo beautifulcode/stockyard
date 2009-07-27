@@ -24,6 +24,11 @@
     <%= f.label :section_id %><br />
     <%= f.select(:section_id, Section.all.collect {|s| [ s.title, s.id ] }) %>
   </p>
+  
+  <p>
+    <%= f.label :asset_template %><br />
+    <%= f.text_field :asset_template %>
+  </p>
 
 
 

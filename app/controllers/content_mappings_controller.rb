@@ -71,8 +71,8 @@ class ContentMappingsController < ApplicationController
 
     respond_to do |format|
       if @content_mapping.save
-        flash[:notice] = 'ContentMapping was successfully created.'
-        format.html { redirect_to(@content_mapping) }
+        flash[:notice] = "Content (#{@content_mapping.asset_type.humanize}) was successfully added to page."
+        format.html { redirect_to("/pages/#{@content_mapping.page.id}/edit#page_content") }
         format.xml  { render :xml => @content_mapping, :status => :created, :location => @content_mapping }
       else
         format.html { render :action => "new" }
@@ -88,8 +88,8 @@ class ContentMappingsController < ApplicationController
 
     respond_to do |format|
       if @content_mapping.update_attributes(params[:content_mapping])
-        flash[:notice] = 'ContentMapping was successfully updated.'
-        format.html { redirect_to(@content_mapping) }
+        flash[:notice] = "Content (#{@content_mapping.asset_type.humanize}) was successfully updated."
+        format.html { redirect_to("/pages/#{@content_mapping.page.id}/edit#page_content") }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

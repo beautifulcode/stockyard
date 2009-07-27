@@ -126,7 +126,7 @@ class PagesController < ApplicationController
   def determine_page_layout
     if request.xhr?
       'ajax'
-    elsif @page && @page == Page.root
+    elsif @page && @page == Page.root && !@current_user
       'home'
     elsif params[:action] == 'show'
       'default'

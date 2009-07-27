@@ -20,23 +20,30 @@
       <%= form.input :permalink %>
       <p><%= form.input :visible %> (Visibility in Navigation)</p>
       <p><%= form.input :active %> (Disable Page Completely)</p>
-    <% end %>
-    <%= form.inputs :css_class, :nav_item_css_class, :nav_item_parameters, :name => "Custom CSS Values" %>
-    <% form.inputs :name => "Redirect Configuration", :for => :page do |redirection| %>
-      <%= form.input :redirect %>
-      <%= form.input :redirect_url %>
-      <%= form.input :redirect_page, :include_blank => true  %>
+      <p><%= form.input :lightwindow %> (Launch Page In Overlay)</p>
     <% end %>
     <% form.inputs :name => 'Search Engine Optimization' do  %>
       <%= form.input :file_name %>
       <%= form.input :meta_keywords, :style => 'height: 100px' %>
       <%= form.input :meta_description, :style => 'height: 100px' %>
     <% end %>
+
+    <% form.inputs :name => "Redirect Configuration", :for => :page do |redirection| %>
+      <p><%= form.input :redirect %></p>
+
+      <p><%= form.input :redirect_url %></p>
+      <%= form.input :redirect_page, :include_blank => true  %>
+    <% end %>
+    <% form.inputs :name => "Developer Customization (CSS etc)", :for => :page do |css_overrides|%>
+      <%= form.input :css_class, :label => "Page CSS"  %>
+      <%= form.input :nav_item_css_class, :label => "Nav CSS"  %>
+      <%= form.input :nav_item_parameters, :label => "Nav Params" %>
+    <% end %>
   </div>
   <div id="page_content" class="optional tab_content">  
     <h3>Page Sections & Content</h3>
 
-    <% @page.content_mappings.collect{|s| s.section }.uniq.each do |section| %>
+    <% Section.all.each do |section| %>
       <h4><%= section.title %></h4>
       <ol>
         <% section_content = @page.content_mappings.select{|c| c.section == section } %>
@@ -45,10 +52,30 @@
         <% end %>  
         <li><%= link_to "<b>Add Content</b> To #{section.title} ", new_page_section_content_mapping_path(@page, section) %></li>
       </ol>
-      <div id="new_section_content_<%= section.id %>">
+      <div id="new_section_content_<%= section.id %>" class="droppable">
         
       </div>
+      <%= drop_receiving_element("new_section_content_#{section.id}", # The id of the receiving element
+        :accept => "draggable",                                         # The CSS class of the dropped element
+        :with   => "page_id=#{@page.id}&section_id=#{section.id}'&asset_type=' + (element.id.split('asset_').last())",     # The query string parameters
+        :url    => '/'                         # The action to call
+      )%>
     <% end %>
+    
+    <div id="available_assets">
+      <h3>Available Assets</h3>
+      <h4>Drag to Section</h4>
+      <ul>
+        <li class="draggable" id="asset_basic_image"><span>Basic Image</span></li>
+        <li class="draggable" id="asset_text_block"><span>Text Block</span></li>
+        <li class="draggable" id="asset_callout"><span>Callout</span></li>
+        <li class="draggable" id="asset_code_snippet"><span>Code Snippets</span></li>
+      </ul>
+    </div>
+    <%= draggable_element(:asset_basic_image, :revert=>true) %>
+    <%= draggable_element(:asset_text_block, :revert=>true) %>
+    <%= draggable_element(:asset_callout, :revert=>true) %>
+    <%= draggable_element(:asset_code_snippet, :revert=>true) %>
     
   </div>
   
