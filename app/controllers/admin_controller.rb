@@ -4,6 +4,13 @@ class AdminController < ApplicationController
   before_filter :require_user
   
   layout 'stockyard'
+  
+  def clear_cache
+    
+  end
+  
+  
+  
   def import
     count = 0
     csv_file = params[:file]

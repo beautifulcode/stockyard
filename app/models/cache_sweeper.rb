@@ -1,5 +1,5 @@
 class CacheSweeper < ActionController::Caching::Sweeper
-  observe Page
+  observe Page if Page
 
   def after_save(record)
     self.class::sweep
