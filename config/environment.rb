@@ -37,6 +37,8 @@ config.action_controller.session = { :key => "_myapp_session", :secret => "thisi
 
   # Activate observers that should always be running
   # config.active_record.observers = :cacher, :garbage_collector, :forum_observer
+  config.active_record.observers = :cache_sweeper
+  config.action_controller.page_cache_directory = RAILS_ROOT+"/public/cache/"
 
   # Set Time.zone default to the specified zone and make Active Record auto-convert to this zone.
   # Run "rake -D time" for a list of tasks for finding time zone names.

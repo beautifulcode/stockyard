@@ -8,6 +8,8 @@ class PagesController < ApplicationController
   # layout :determine_page_layout
   protect_from_forgery :except => [:sort]
   
+  caches_page :show
+  
   # def determine_page_layout
   #   template = @page.template
   #   layout_file = template.file if template
