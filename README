@@ -1,6 +1,6 @@
 == Welcome to Stockyard
 
-Stockyard is a content management "engine" or plugin for Ruby on Rails
+Stockyard is a content management "engine" or plugin for Ruby on Rails applications.
 It provides the concepts of pages, sections, and assets. Assets are a generic term for
 pieces of content that can be added to a page within a section. Assets can be created 
 for virtually any type of content, and the system comes with Text, Images, Documents
