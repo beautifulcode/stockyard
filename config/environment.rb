@@ -16,6 +16,8 @@ Rails::Initializer.run do |config|
   # config.load_paths += %W( #{RAILS_ROOT}/extras )
 config.action_controller.session = { :key => "_myapp_session", :secret => "thisismysecretphrase123345504803948-2098542-0854u" }
   # Specify gems that this application depends on and have them installed with rake gems:install
+  SITE_NAME = "Sample Site"
+  GOOGLE_ANALYTICS = ''
   config.gem "haml"
   config.gem "thoughtbot-shoulda", :lib => "shoulda", :source => "http://gems.github.com"
   config.gem "thoughtbot-factory_girl", :lib => "factory_girl", :source => "http://gems.github.com"

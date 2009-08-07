@@ -1,46 +1,27 @@
 !!! Transitional
 %html
   %head
-    %title= "Medical Marijuana | #{page_meta_title}"
+    %title= "#{SITE_NAME} - Powered By Stockyard"
     %meta{:name => 'keywords', :content => page_keywords}
     %meta{:name => 'description', :content => page_meta_description}
     = stylesheet_link_tag 'blueprint', 'application', 'lightwindow'
     = javascript_include_tag :defaults, 'lightwindow'
     = "<!--[if IE]>#{stylesheet_link_tag 'ie', :media => 'screen'}<![endif]-->"
     = "<script>rails_authenticity_token = '#{form_authenticity_token}'</script>"
+    
+%body{:class => page_css_class}
+  #site
+    #header
+      / = render :partial => "shared/header"
+    #content
+      #primary_content
+        = yield :main
 
-  %body
-    #site{:class => page_css_class}
-      #header
-        = render :partial => "shared/header"
 
-      #content
-        #masthead
-          = breadcrumbs
-          %h1= yield :title
-          #banner= yield :banner
-        #main
-          = flash_messaging
-          = yield :main
-          = yield
-        #side
-          = yield :side
+      #secondary_content
+        = yield :side
 
-      #nav_side
-        - if @page
-          -unless @page.parent == Page.root
-            %h2= link_to @page.parent.title, @page.parent.permalink_path 
-          - if @page.parent == Page.root
-            %h2= @page.title
-            = nav_for @page
-          -unless @page.children.size > 0
-            = sibling_nav 
-          -unless @page.siblings.size > 0
-            = nav_for @page.parent 
-        - else
-          %h2 Menu
-          = nav_for Page.root
       .clear
-      #footer
-        = render :partial => '/shared/footer'
-    = render :partial => '/shared/google_analytics'
+    #footer
+      / = render :partial => '/shared/footer'
+  / = render :partial => '/shared/google_analytics'

@@ -1,5 +1,35 @@
 module PagesHelper
+  def page_keywords
+    if @page
+      @page.meta_keywords
+    else
+      ''
+    end
+  end
   
+  def page_meta_description
+    if @page
+      @page.meta_description
+    else
+      ''
+    end
+  end
+  
+  def page_meta_title
+    if @page
+      @page.title
+    else
+      ''
+    end
+  end
+  
+  def page_css_class
+    if @page
+      @page.css_class
+    else
+      ''
+    end
+  end
   def site_nav
     if @page
       html = '<ul>'

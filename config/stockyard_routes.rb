@@ -29,7 +29,7 @@ ActionController::Routing::Routes.draw do |map|
   map.stockyard_logout '/logout', :controller => 'user_sessions', :action => 'destroy'
   map.forgotten_password '/forgot_password', :controller => 'password_resets', :action => 'new'
   
-  map.root :controller => "pages", :action => "show", :id => Page.root.id
+  map.root :controller => "pages", :action => "show", :id => Page.root.id if Page
 
   # Install the default routes as the lowest priority.
   # Note: These default routes make all actions in every controller accessible via GET requests. You should
