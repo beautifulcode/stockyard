@@ -73,7 +73,7 @@ module PagesHelper
       html << ' | '
       html << link_to( 'Delete', page_path(root_page.id), :class => 'destroy', :method => 'delete', :confirm => 'Are you sure?')
       html << '</p>'
-      html << "</li>"
+
       root_page.children.each do |page|
         html << "<li id='page_#{page.id}' class=''>"
         html << "<span class='handle'></span>"
@@ -87,9 +87,10 @@ module PagesHelper
         html << admin_page_tree_for(page, level) if page.children
         html << "</li>"
       end
+      html << "</li>"
       html << '</ul>'
       html << '</div>'
-      html << '<script type="text/javascript">  var page_tree = Sortable.create("page_tree", {tree:true,scroll:window});</script>'
+      # html << '<script type="text/javascript">  var page_tree = Sortable.create("page_tree", {tree:true,scroll:window});</script>'
       
     else
       

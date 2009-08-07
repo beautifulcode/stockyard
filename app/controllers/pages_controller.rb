@@ -21,9 +21,10 @@ class PagesController < ApplicationController
   # layout :determine_page_layout
   
   def sort
-    @page = Page.find(params[:page][:id])
-    @page.move_to_child_of( params[:page][:parent_id] ) unless params[:page][:parent_id].blank?
-    @page.move_to_left_of( params[:page][:left_id] ) unless params[:page][:left_id].blank?
+    @page = Page.find(params[:page][:id].to_i)
+    @page.move_to_child_of( params[:page][:parent_id].to_i ) unless params[:page][:parent_id].blank?
+    @page.move_to_left_of( params[:page][:left_id].to_i ) unless params[:page][:left_id].blank?
+    @page.save
     render :nothing => true
   end
 
