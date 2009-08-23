@@ -1,41 +1,100 @@
 /* Stylesheet for distribution */
 
-body{background: #444;}
-#site{background: #fff; margin: 0 auto; width: 960px; overflow:hidden;}
+body{background: #444;border-top: 2px solid #C52F24;}
+#site{background: #fff; margin: 0 auto; width: 960px; overflow:hidden;  }
+a{text-decoration: none;color: #C52F24;}
 
-h1{font-size: 36px; font-weight: bold; letter-spacing: -2px;}
+#header{position: relative; background: #ccc; border-bottom: 1px solid #333;padding: 0 0 0 80px; margin-bottom: 20px;}
+.hanging_tabs{float: right;}
+.hanging_tabs li{float:left; list-style:none; padding: 0; margin: 0;margin-right: 2px;}
+.hanging_tabs li a{color: #fff; background: #C52F24; padding: 3px 5px; text-transform: uppercase; font-size: 11px; font-weight: bold;}
+#header h1{padding: 30px 0 0px 0; margin-bottom: 5px;}
+#header #logo{position: absolute; top: 25px; left: 10px;}
+h1{color: #333;font-size: 36px; font-weight: bold; letter-spacing: -2px;}
 
-#main{ float: left; }
-#side{ float: left; }
 
-#nav{}
-#nav li{list-style:none; margin: 0; padding: 5px 10px; float: left;}
+#main{ float: left; border-left: 1px solid #ccc;}
+#main table{width: 500px;}
+#side{ float: left; margin-left: 10px;}
+#side h3{padding: 15px 5px 5px 5px; color: #fff; background: #777; border-bottom: 2px solid #333; margin: 0px;}
+.sidetabs{margin: 0;}
+.sidetabs li{list-style: none; border-bottom: 1px solid; position: relative;}
+.sidetabs li i{display: none; position: absolute; top: 0; left: 100%; background: #333; color: #fff; display: none; padding: 10px 20px; width: 200px; border: 1px solid;}
+.sidetabs li:hover i{display: block; opacity: 0.8;}
+.sidetabs a{display: block; padding: 10px 40px 10px 20px; }
 
-#context_bar{height: 20px;overflow:hidden;}
+.subsection_tabs{list-style: none; float: left; width: 700px; display: block; clear: both; margin-left: 0;}
+.subsection_tabs li{background: #ccc; display: block; float: left; margin-right: 2px;}
+.subsection_tabs li a{color: #333; font-weight: bold; display: block; padding: 5px 7px; border-top: 1px solid;}
+.subsection_tabs li a.active{background: #fff; color: #111;}
+.tab_content{display: block; clear: both;}
+
+.content_menu li{position: relative; }
+.content_menu li ul{display: none; position: absolute; right: 0; bottom: 15px;}
+.content_menu li:hover ul{display: block;}
+
+#global_nav{position: absolute; bottom: 0; right: 0; margin-bottom: 3px; background: #a6a6a6;}
+#global_nav li{list-style:none; margin: 0; padding: 0; float: left; margin-right: 1px;}
+#global_nav li a{padding: 5px 10px; color: #fff; background: #444;}
+
+#context_bar{}
 #context_bar #bar_title{}
 
+fieldset{position: relative;}
+fieldset ol{list-style: none;margin: 0; padding: 0;}
+.inputs label{display: block; clear: both;}
+.inputs .date label{display: none;}
+.inputs .date li{float: left;}
+.commit input{text-transform: capitalize;}
+
+.help{}
+
+.draggable{text-decoration: none; color: #333; cursor: hand;}
+.droppable{border: 1px dashed #ccc; background: #efefef; padding: 20px; }
+.droppable:hover{padding: 30px; visibility: visible;}
+
+input{font-size: 16px; padding: 4px;}
+select{font-size: 16px; padding: 4px;}
+
+form li{list-style: none; display: block; clear: both; /*border: 1px solid;*/}
+form label{display: block; float: left; line-height: 30px; width: 180px;}
+form label abbr{text-decoration: none;}
+form label span{font-size: 10px; color: #777;}
+
+.image_row{float: left; width: 100%;  display: block; clear: both;}
+
+
+#footer{background: #333; border-top: 1px solid #111; color: #ccc; height: 100px; line-height: 100px; text-align: center; margin-top: 50px;}
 
 #tree,#tree ul{padding-left:0px;list-style-type:none;cursor:move;font: normal 12px Helvetica,Arial,Verdana,sans-serif;
 line-height: 28px;
 color: #444;}
-#tree{padding:0px;margin:12px;width:200px;}
+#tree{padding:0px;margin:12px;width:400px;}
 #tree li{margin-top:-6px;width: 100%; position: relative;}
-#tree li p{position: absolute; top: 0; right: -30px; display: none;}
+#tree li ul{margin-left: 40px;}
+#tree li p{position: absolute; top: 0; right: 0px; display: none;}
 #tree li:hover > p{display: block;}
+#tree li li:hover{background: #efefef; border-bottom: 1px solid #ccc;}
 #tree a{font-size: 11px; color: #333; text-decoration: none;}
-#tree li a.title{padding:4px 0 0 18px;background:url(/images/page.png) no-repeat left top; }
-#tree li a.folder{padding:4px 0 0 18px;background:url(/images/folder.png) no-repeat left top; }
+#tree li a.title{padding:4px 0 0 18px;background:url(/stockyard/images/page.png) no-repeat left top; }
+#tree li a.folder{padding:4px 0 0 18px;background:url(/stockyard/images/folder.png) no-repeat left top; }
 #tree li.file{padding-left:18px;}
-#tree li.file a.title{padding-left:18px;background:url(/images/file.png) no-repeat left top;}
+#tree li.file a.title{padding-left:18px;background:url(/stockyard/images/file.png) no-repeat left top;}
 #tree li span.handle{display:block;float:left;width:15px;height:12px;margin:6px 3px 0 0;cursor:pointer;}
-#tree li span{background:url(/images/folder_open.png) no-repeat 3px 3px;}
-#tree li.closed span{background:url(/images/folder_closed.png) no-repeat 3px 3px;}
+#tree li span{background:url(/stockyard/images/folder_open.png) no-repeat 3px 3px;}
+#tree li.closed span{background:url(/stockyard/images/folder_closed.png) no-repeat 3px 3px;}
 #tree li.closed li{display:none;}
-#tree .drop_hover{background:url(/images/drag.png) no-repeat bottom left;}
+#tree .drop_hover{background:url(/stockyard/images/drag.png) no-repeat bottom left;}
 #tree .drop_top{background-position:12px top;}
 #tree .drop_bottom{background-position:12px bottom;}
 #tree .drop_insert{background-position:32px 100%;}
 #log{padding:12px;color:#999;line-height:12px;}
 
-
+.error, .notice, .success {padding:.8em;margin-bottom:1em;border:2px solid #ddd; border-width:2px 0; font-weight: bold;}
+.error {background:#FBE3E4;color:#8a1f11;border-color:#FBC2C4;}
+.notice {background:#FFF6BF;color:#514721;border-color:#FFD324;}
+.success {background:#E6EFC2;color:#264409;border-color:#C6D880;}
+.error a {color:#8a1f11;}
+.notice a {color:#514721;}
+.success a {color:#264409;}
 

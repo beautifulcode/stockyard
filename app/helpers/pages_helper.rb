@@ -16,8 +16,10 @@ module PagesHelper
   end
   
   def page_meta_title
-    if @page
-      @page.title
+    if @meta_title
+      @meta_title
+    elsif @page
+      @page.meta_title
     else
       ''
     end
@@ -33,12 +35,15 @@ module PagesHelper
   def site_nav
     if @page
       html = '<ul>'
-      @page.root.children.visible.each do |page|
+
+      Page.root.children.visible.each do |page|
         html << "<li>#{link_to page.title, page.permalink_path, :class => page.nav_item_css_class, :params => page.nav_item_parameters}"
         html << nav_for(page) if page.children
         html << "</li>"
       end
+
       html << '</ul>'
+      
     else
       
     end

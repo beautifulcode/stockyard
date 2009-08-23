@@ -5,8 +5,8 @@
 <head>
   <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
   <title>Stockyard CMS</title>
-  <%= stylesheet_link_tag 'blueprint', 'stockyard', 'forms', 'lightwindow' %>
-  <%= javascript_include_tag :all, '/stockyard/javascripts/tree', '/stockyard/javascripts/tabs', '/stockyard/wmd/wmd' %>
+  <%= stylesheet_link_tag '/stockyard/stylesheets/blueprint', '/stockyard/stylesheets/stockyard', '/stockyard/stylesheets/forms', '/stockyard/stylesheets/lightwindow' %>
+  <%= javascript_include_tag '/stockyard/javascripts/prototype', '/stockyard/javascripts/effects', '/stockyard/javascripts/tree', '/stockyard/javascripts/tabs', '/stockyard/wmd/wmd' %>
 </head>
 <body>
   <div id="global_admin_bar"></div>
@@ -24,7 +24,7 @@
       </ul>
 
       <div id="logo">
-        <%= link_to(image_tag('/images/stockyard/logo.png'), '/admin') %>
+        <%= link_to(image_tag('/stockyard/images/logo.png'), '/admin') %>
       </div>
       <h1>Stockyard CMS</h1>
     </div>

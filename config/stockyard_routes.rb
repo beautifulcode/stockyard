@@ -1,8 +1,10 @@
 ActionController::Routing::Routes.draw do |map|
   
+  # CONTENT MAPPINGS = PAGES -> SECTIONS -> ASSETS
   map.resources :content_mappings, :as => 'content', :collection => {:sort => :put}
   map.resources :assets
-  map.resources :pages, :collection => {:sort => :put} do |page|
+
+  map.resources :pages do |page|
     page.resource :assets
     page.resources :sections do |page_section|
       page_section.resources :content_mappings
@@ -15,20 +17,23 @@ ActionController::Routing::Routes.draw do |map|
   end
   map.resources :page_templates, :has_many => :sections
   
-  # Asset Types
-  map.resources :text_blocks, :basic_images, :code_snippets
-
+  # BASE ASSET TYPES
+  map.resources :text_blocks, :basic_images, :code_snippets, :callouts
   map.connect '/pages/:page_id/sections/:section_id/content/:action', :controller => 'content_mappings'
 
-  # User Sessions for authlogic
+  # USER LOGIN - Authlogic
   map.resource :user_session
   map.resource :account, :controller => "users"
   map.resources :users
-  
   map.stockyard_login '/login', :controller => 'user_sessions', :action => 'new'
   map.stockyard_logout '/logout', :controller => 'user_sessions', :action => 'destroy'
   map.forgotten_password '/forgot_password', :controller => 'password_resets', :action => 'new'
   
+  # ADMIN PATHS
+  map.connect '/admin/:controller/:action/:id', :layout => 'stockyard'
+  map.connect '/admin/:controller/:action/:id.:format', :layout => 'stockyard'
+  
+  # HOMEPAGE
   map.root :controller => "pages", :action => "show", :id => Page.root.id if Page
 
   # Install the default routes as the lowest priority.
@@ -37,5 +42,6 @@ ActionController::Routing::Routes.draw do |map|
   map.connect ':controller/:action/:id'
   map.connect ':controller/:action/:id.:format'
   
+  # CATCHALL ROUTE - For Pages. Provides path array via params
   map.connect '*path', :controller => 'pages', :action => 'show'
 end

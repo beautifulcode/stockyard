@@ -1,0 +1,12 @@
+- if @page
+  -content_for :title do
+    = @page.title unless @page.parent == Page.root
+    = "Overview" if @page.parent == Page.root
+
+  - Section.all.each do |section|    
+    - content_for section.title.downcase.to_sym do
+      - @page.content_for_section(section.title).each do |content|
+        = render :partial => content.partial, :locals => {content.asset_template.split('/').last.to_sym => content.asset} unless content.asset_template.blank?
+        = render :partial => content.partial if content.asset_template.blank?
+        = render :partial => 'assets/controls', :locals => {:content => content} if editable? content
+      / = render :partial => 'content_mappings/menu', :locals => {:section => section} 

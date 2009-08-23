@@ -1,0 +1,5 @@
+<div id="basic_page_details" class="tab_content">
+    <h3>Required Info</h3>
+    <p><label>Parent Page:</label><%= collection_select :page, :parent_page_id, Page.all, :id, :title %></li></p>
+    <%= form.input :title %><br><br><br>
+  </div>

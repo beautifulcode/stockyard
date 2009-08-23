@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
   
   layout 'stockyard'
-  before_filter :require_user_unless_empty, :only => [:new, :create]
-  before_filter :require_user, :only => [:show, :edit, :update]
+  # before_filter :require_user_unless_empty, :only => [:new, :create]
+  # before_filter :require_user, :only => [:show, :edit, :update]
   
   def require_user_unless_empty
     User.count == 0
