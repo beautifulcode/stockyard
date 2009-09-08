@@ -53,7 +53,7 @@ module PagesHelper
     html = '<ul>'
     page.children.visible.each do |page|
       html << "<li class='#{active_class(page)}'>"
-      html << link_to( "#{page.title}", page.permalink_path, :class => page.nav_item_css_class, :params => page.nav_item_parameters) if page.visible
+      html << link_to( "<span>#{page.title}</span>", page.permalink_path, :class => page.nav_item_css_class, :params => page.nav_item_parameters, :id => "page_#{page.id}") if page.visible
       html << "</li>"
     end
     html << '</ul>'

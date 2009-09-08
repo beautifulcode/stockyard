@@ -1,5 +1,6 @@
 class BasicImage < Asset
   belongs_to :page
+  translates :title, :caption
   # Paperclip
   has_attached_file :file,
     :styles => {

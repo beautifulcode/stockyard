@@ -10,6 +10,6 @@ module AssetsHelper
   end
   
   def available_asset_types
-    %w( TextBlock BasicImage NewsItem Callout CodeSnippet )
+    %w( TextBlock BasicImage NewsItem Callout CodeSnippet FlashPiece )
   end
 end

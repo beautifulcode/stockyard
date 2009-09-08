@@ -1,5 +1,5 @@
 class AssetsController < ResourceController::Base
-  before_filter :require_user, :except => 'show'
+  before_filter :require_user, :only => ['new', 'create', 'edit', 'update', 'destroy']
   layout :determine_layout
   
   
@@ -18,7 +18,11 @@ class AssetsController < ResourceController::Base
   def index
     @asset_class = params[:controller].classify.constantize
     @assets = @asset_class.paginate :all, :per_page => 20, :page => params[:page]
-    render :template => 'assets/index'
+    respond_to do |wants|
+      wants.html { render :template => 'assets/index' }
+      wants.xml { render :template => "#{@asset_class.tableize}/index" }
+    end
+    
   end
 
 end

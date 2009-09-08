@@ -10,6 +10,10 @@ class ContentMapping < ActiveRecord::Base
   
   attr_accessor :asset_type_selector
   
+  def asset_type
+    asset.class.name
+  end
+  
   def partial
     template = asset_template unless asset_template.blank?
     template ||= asset 
