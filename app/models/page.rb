@@ -21,15 +21,20 @@ class Page < ActiveRecord::Base
   def parent_page_id
     parent_id
   end
+  
   def parent_page_id=(id)
     parent_page = Page.find(id)
     self.move_to_child_of parent_page
     self.update_attribute(:parent_id, id)
   end
   
+  def params
+    ''
+  end
   
   # Scopes
-  named_scope :visible, :conditions => {:visible => true}
+  named_scope :visible, :conditions => {:visible => true, :active => true}
+  named_scope :active, :conditions => {:active => true}
   
   def assets
     self.sections.collect{ |section| section.assets  }.flatten || []
@@ -37,8 +42,10 @@ class Page < ActiveRecord::Base
   
   def permalink_path
     @ancestor_path = self_and_ancestors.collect{|a| a.permalink }.uniq
-    @ancestor_path.delete('home')
-    "/#{@ancestor_path.join('/')}"
+    @ancestor_path.shift
+    path = "/#{@ancestor_path.join('/')}"
+    path = "/#{params[:locale]}#{path}" if params[:locale]
+    path
   end
   
   def content_for_section(title)
@@ -53,6 +60,10 @@ class Page < ActiveRecord::Base
     section = Section.find_by_title(title)
     section_assets = ContentMapping.find_all_by_page_id_and_section_id(self, section).collect{|content| content.asset }
     section_assets
+  end
+  
+  def add_content(asset, options = {})
+    self.content_mappings << ContentMapping.create(:asset_id => asset.id, :asset_type => asset.class.name, :section_id => 1)
   end
   
 end
