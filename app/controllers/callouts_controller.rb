@@ -1,0 +1,3 @@
+class CalloutsController < AssetsController
+  
+end

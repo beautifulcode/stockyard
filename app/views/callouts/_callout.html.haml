@@ -1,0 +1,12 @@
+.callout
+  .callout_image
+    = image_tag callout.image.url if callout.image
+  %h4.callout_title
+    - link = callout.page.permalink_path if callout.page && callout.link.blank?
+    - link ||= callout.link unless callout.link.blank?
+    - link ||= "#"
+    =link_to "+ #{callout.title}", link, :class => "#{'lightwindow' if callout.lightwindow }"
+  .callout_content
+    = markdown(callout.text)
+    
+= asset_edit_link_for callout

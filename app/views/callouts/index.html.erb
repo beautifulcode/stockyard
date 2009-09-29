@@ -1,0 +1,24 @@
+<h1>Listing callouts</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Text</th>
+    <th>Image</th>
+  </tr>
+
+<% for callout in @callouts %>
+  <tr>
+    <td><%=h callout.title %></td>
+    <td><%=h callout.text %></td>
+    <td><%=h callout.image %></td>
+    <td><%= link_to 'Show', callout %></td>
+    <td><%= link_to 'Edit', edit_callout_path(callout) %></td>
+    <td><%= link_to 'Destroy', callout, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New callout', new_callout_path %>
