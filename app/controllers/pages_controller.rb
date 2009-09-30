@@ -102,6 +102,7 @@ class PagesController < ApplicationController
   
     respond_to do |format|
       if @page.update_attributes(params[:page])
+        @page.move_to_child_of(params[:page][:parent_page_id])
         flash[:notice] = 'Page was successfully updated.'
         format.html { redirect_to(@page) }
         format.xml  { head :ok }
