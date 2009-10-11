@@ -2,26 +2,20 @@
     <h3>Page Sections & Content</h3>
 
     <% Section.all.each do |section| %>
+    <div class="column span-6">
       <h4><%= section.title %></h4>
-      <ol id="section_<%= section.id %>_content">
+      <ol id="section_<%=section.id%>_content">
         <% section_content = @page.content_mappings.select{|c| c.section == section } %>
         <% section_content.each do |content| %>
         <li id="<%= dom_id(content) %>"><%= content.asset.title %> <%= link_to "Edit", edit_polymorphic_path(content.asset) %> | <%= link_to 'Remove', content, :confirm => 'Are you sure?', :method => :delete %></li></li>
         <% end %>  
-        <li><%= link_to "<b>Add Content</b> To #{section.title} ", new_page_section_content_mapping_path(@page, section) %></li>
       </ol>
-      <%= sortable_element("section_#{section.id}_content".to_sym) %>
-      <div id="new_section_content_<%= section.id %>" class="droppable">
-        
-      </div>
-      <%= drop_receiving_element("new_section_content_#{section.id}", # The id of the receiving element
-        :accept => "draggable",                                         # The CSS class of the dropped element
-        :with   => "page_id=#{@page.id}&section_id=#{section.id}'&asset_type=' + (element.id.split('asset_').last())",     # The query string parameters
-        :url    => '/'                         # The action to call
-      )%>
+      <p><%= link_to "<b>Add Content</b> To #{section.title} ", new_page_section_content_mapping_path(@page, section) %></p>
+      <%= sortable_element("section_#{section.id}_content".to_sym, :url => {:controller => "content_mappings", :action => "sort", :section_id => section.id, :page_id => @page.id }) %>
+    </div>
     <% end %>
     
-    <div id="available_assets">
+    <!-- <div id="available_assets">
       <h3>Available Assets</h3>
       <h4>Drag to Section</h4>
       <ul>
@@ -35,5 +29,8 @@
     <%= draggable_element(:asset_text_block, :revert=>true) %>
     <%= draggable_element(:asset_callout, :revert=>true) %>
     <%= draggable_element(:asset_code_snippet, :revert=>true) %>
+     -->
+  </div>
+  <div class="clear">
     
   </div>
