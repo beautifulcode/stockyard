@@ -3,15 +3,16 @@
 
     <% Section.all.each do |section| %>
     <div class="column span-6">
-      <h4><%= section.title %></h4>
-      <ol id="section_<%=section.id%>_content">
+      <h4><%= section.title %> </h4>
+      <ol id="section_<%=section.id%>_content" class="sortable_list" >
         <% section_content = @page.content_mappings.select{|c| c.section == section } %>
         <% section_content.each do |content| %>
-        <li id="<%= dom_id(content) %>"><%= content.asset.title %> <%= link_to "Edit", edit_polymorphic_path(content.asset) %> | <%= link_to 'Remove', content, :confirm => 'Are you sure?', :method => :delete %></li></li>
+        <li id="<%= dom_id(content) %>"><%= content.asset.title %> <%= link_to "Edit", edit_polymorphic_path(content.asset) %> | <%= link_to_remote "Remove", :url => content, :complete => "$('content_mapping_#{content.id}').fade();", :method => :delete, :html => { :class  => "destructive" } %></li></li>
         <% end %>  
       </ol>
       <p><%= link_to "<b>Add Content</b> To #{section.title} ", new_page_section_content_mapping_path(@page, section) %></p>
       <%= sortable_element("section_#{section.id}_content".to_sym, :url => {:controller => "content_mappings", :action => "sort", :section_id => section.id, :page_id => @page.id }) %>
+
     </div>
     <% end %>
     

@@ -11,7 +11,9 @@ a{text-decoration: none;color: #C52F24;}
 #header h1{padding: 30px 0 0px 0; margin-bottom: 5px;}
 #header #logo{position: absolute; top: 25px; left: 10px;}
 h1{color: #333;font-size: 36px; font-weight: bold; letter-spacing: -2px;}
-
+h2{}
+h3{}
+h4{margin: 0; margin-bottom: 3px; border-bottom: 1px solid; font-weight: bold;}
 
 #main{ float: left; border-left: 1px solid #ccc;}
 #main table{width: 500px;}
@@ -89,6 +91,9 @@ color: #444;}
 #tree .drop_bottom{background-position:12px bottom;}
 #tree .drop_insert{background-position:32px 100%;}
 #log{padding:12px;color:#999;line-height:12px;}
+
+
+.sortable_list li:hover, .sortable_list li.hover{background:url(/stockyard/images/drag_handle.gif) no-repeat center left;padding-left: 15px !important; cursor: move;}
 
 .error, .notice, .success {padding:.8em;margin-bottom:1em;border:2px solid #ddd; border-width:2px 0; font-weight: bold;}
 .error {background:#FBE3E4;color:#8a1f11;border-color:#FBC2C4;}

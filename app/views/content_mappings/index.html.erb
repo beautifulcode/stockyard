@@ -12,7 +12,7 @@
             Section: <strong><%= section.title %></strong>
             <ul id="section-content-list-<%= section.id %>" style="cursor: move; margin-left: 50px; list-style: none; clear: both;">
               <% ContentMapping.find_all_by_page_id_and_section_id(page.id, section.id).each do |content| %>
-              <li id="content_mapping_<%= content.id %>"><strong><%= content.asset.headline %></strong> | <%= link_to 'Edit', edit_polymorphic_path(content.asset) %> | <%= link_to 'Remove', content, :confirm => 'Are you sure?', :method => :delete %> | <%= link_to "View Page", page.permalink_path %></li>
+              <li id="content_mapping_<%= content.id %>"><strong><%= content.asset.headline %></strong> | <%= link_to "Edit #{content.asset.class.name.humanize}", edit_polymorphic_path(content.asset) %> | <%= link_to 'Edit Content Context', edit_polymorphic_path(content) %> | <%= link_to 'Remove', content, :confirm => 'Are you sure?', :method => :delete %> | <%= link_to "View Page", page.permalink_path %></li>
               <% end %>
             </ul>
             <%= sortable_element "section-content-list-#{section.id}",

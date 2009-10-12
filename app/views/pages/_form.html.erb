@@ -10,6 +10,7 @@
   <%= render :partial => 'advanced', :locals => {:form => form} %>
   <%= render :partial => "content", :locals => {:form => form} %>
   <%= form.buttons %>
+  <%= link_to "Back", :back %> | <%= link_to "Page Listing", pages_path %>
 <% end %>
 
 <script type="text/javascript" charset="utf-8">

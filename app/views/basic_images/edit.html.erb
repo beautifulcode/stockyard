@@ -1,2 +1,12 @@
-Existing Image: <%= link_to( image_tag( @basic_image.file.url), @basic_image.file.url) %>
+<h2>Editing Image</h2>
+<p>
+  <% if @basic_image.file %>
+    Existing Image: 
+    <%= link_to( image_tag( @basic_image.file.url), @basic_image.file.url) %>
+  <% else %>
+    No Current Image
+  <% end %>
+</p>
 <%= render :partial => "form", :locals => {:basic_image => @basic_image} %>
+
+<p><%= link_to 'Delete Image Asset Completely', @basic_image, :confirm => 'Are you sure?', :method => :delete, :class => 'delete' %></p>
