@@ -13,6 +13,7 @@ class Page < ActiveRecord::Base
   has_permalink :title
   simply_versioned :keep => 10
   translates :title, :meta_title, :meta_keywords, :meta_description
+  accepts_nested_attributes_for :globalize_translations 
   
   # Validations
   validates_presence_of :title

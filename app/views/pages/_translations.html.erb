@@ -1,0 +1,17 @@
+<div id="page_translations" class="optional tab_content"> 
+  <% @page.globalize_translations.build(:locale => "fr") if @page.globalize_translations.empty? %>
+    <% count = 0 %>
+    <% form.fields_for :globalize_translations do |trans| %>
+      <% unless @page.globalize_translations[count].locale == :en %>
+      <div id="<%= @page.globalize_translations[count].locale %>_translation" class="optional tab_content">
+        <%= trans.hidden_field :locale %>
+        <ul>
+          <li><label>Title: <%= @page.globalize_translations[count].locale %></label> <%= trans.text_field :title %></li>
+          <li><label>Keywords:</label> <%= trans.text_area :meta_keywords %></li>
+          <li><label>Description:</label> <%= trans.text_area :meta_description %></li>
+        </ul>
+      </div> 
+      <% end %>
+      <% count += 1 %>
+    <% end %>
+</div>
