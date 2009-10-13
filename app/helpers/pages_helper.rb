@@ -74,6 +74,11 @@ module PagesHelper
     'active' if request.request_uri.include? page.permalink_path
   end
   
+  def current_class(page)
+    # 'active' if page == @page || page.ancestors.include?( @page)
+    'current' if @page == page
+  end
+  
   def admin_page_tree_for(page, level)
     html = '<ul>'
     last_page = page.children.last
