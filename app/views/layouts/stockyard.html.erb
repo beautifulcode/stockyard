@@ -41,10 +41,10 @@
     <div id="side" class="column span-4">
       <h3>Available Assets</h3>
       <ul class="sidetabs">
-        <li><%= link_to "Text Blocks", text_blocks_path %><i>Blocks of text with basic formatting.</i></li>
-        <li><%= link_to "Basic Images", basic_images_path %><i>Images with an optional link.</i></li>
-        <li><%= link_to "Callouts", callouts_path %><i>Linked images with a title & short description</i></li>
-        <li><%= link_to "Code Snippets", code_snippets_path %><i>(Be Careful)</i></li>
+        <li><%= link_to "Text Blocks", "/admin/text_blocks" %><i>Blocks of text with basic formatting.</i></li>
+        <li><%= link_to "Basic Images", "/admin/basic_images" %><i>Images with an optional link.</i></li>
+        <li><%= link_to "Callouts", "/admin/callouts" %><i>Linked images with a title & short description</i></li>
+        <li><%= link_to "Code Snippets", "/admin/code_snipets" %><i>(Be Careful)</i></li>
       </ul>
       <h3>Administration</h3>
       <%= render :partial => 'shared/admin_tabs' %>

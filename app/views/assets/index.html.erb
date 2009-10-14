@@ -9,5 +9,5 @@
   </li>
 <% end %>
 </ul>
-<p><%= link_to "New #{@asset_class.to_s.underscore.humanize.titlecase}", :action => 'new' %></p>
-<%= will_paginate @assets %>
+<p><%= link_to "New #{@asset_class.to_s.underscore.humanize.titlecase}", :action => 'new', :prefix => 'admin' %></p>
+<%= will_paginate @assets, :params => {:controller => "/admin/#{@asset_class.name.tableize}"} %>
