@@ -8,7 +8,7 @@
         <% section_content = @page.content_mappings.select{|c| c.section == section } %>
         <% section_content.each do |content| %>
         <% if content.asset %>
-        <li id="<%= dom_id(content) %>"><%= content.asset.title %> <%= link_to "Edit", edit_polymorphic_path(content.asset) %> | <%= link_to_remote "Remove", :url => content, :complete => "$('content_mapping_#{content.id}').fade();", :method => :delete, :html => { :class  => "destructive" } %></li></li>
+        <li id="<%= dom_id(content) %>"><%= content.asset.title %> <%= link_to "Edit", edit_polymorphic_path(content.asset) %> | <%= link_to_remote "Remove", :url => content, :complete => "$('content_mapping_#{content.id}').fade();", :method => :delete, :html => { :class  => "destructive" }, :confirm => "Are you sure?" %></li></li>
         <% else %>
           Missing: <%= content.id  %>
         <% end %>
