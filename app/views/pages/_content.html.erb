@@ -7,7 +7,11 @@
       <ol id="section_<%=section.id%>_content" class="sortable_list" >
         <% section_content = @page.content_mappings.select{|c| c.section == section } %>
         <% section_content.each do |content| %>
+        <% if content.asset %>
         <li id="<%= dom_id(content) %>"><%= content.asset.title %> <%= link_to "Edit", edit_polymorphic_path(content.asset) %> | <%= link_to_remote "Remove", :url => content, :complete => "$('content_mapping_#{content.id}').fade();", :method => :delete, :html => { :class  => "destructive" } %></li></li>
+        <% else %>
+          Missing: <%= content.id  %>
+        <% end %>
         <% end %>  
       </ol>
       <p><%= link_to "<b>Add Content</b> To #{section.title} ", new_page_section_content_mapping_path(@page, section) unless @page.new_record? %></p>

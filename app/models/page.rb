@@ -25,7 +25,7 @@ class Page < ActiveRecord::Base
   
   def parent_page_id=(id)
     parent_page = Page.find(id)
-    self.move_to_child_of parent_page
+    self.move_to_child_of parent_page unless self.new_record?
     # self.update_attribute(:parent_id, id)
   end
   
