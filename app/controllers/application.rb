@@ -13,6 +13,8 @@ class ApplicationController < ActionController::Base
    end
    
    def require_user
+     params[:locale] = :en
+     session[:locale] = :en
      unless current_user
        store_location
        flash[:notice] = "You must be logged in to access this page"
