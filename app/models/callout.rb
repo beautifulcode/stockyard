@@ -6,4 +6,6 @@ class Callout < Asset
       :small  => "150x150>",
       :medium => "300x300>",
       :large  =>   "400x400>" }
+  translates :text, :title
+  accepts_nested_attributes_for :globalize_translations 
 end
