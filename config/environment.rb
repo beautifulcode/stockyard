@@ -18,15 +18,21 @@ config.action_controller.session = { :key => "_myapp_session", :secret => "thisi
   # Specify gems that this application depends on and have them installed with rake gems:install
   SITE_NAME = "Sample Site"
   GOOGLE_ANALYTICS = ''
-  config.gem "haml"
+
+  # TESTING GEMS
   config.gem "thoughtbot-shoulda", :lib => "shoulda", :source => "http://gems.github.com"
   config.gem "thoughtbot-factory_girl", :lib => "factory_girl", :source => "http://gems.github.com"
-  config.gem "thoughtbot-paperclip", :lib => 'paperclip', :source => "http://gems.github.com"
   config.gem "webrat", :source => "http://github.com/"
-  config.gem 'mislav-will_paginate', :version => '~> 2.2.3', :lib => 'will_paginate', :source => 'http://gems.github.com'
-  config.gem "justinfrench-formtastic", :lib => 'formtastic', :source => 'http://gems.github.com', :version => '0.1.1'
-  config.gem "binarylogic-searchlogic", :lib => 'searchlogic', :source => 'http://gems.github.com', :version => '~> 2.0.0'
+  
+  # APP DEPENDENCIES
+  config.gem "haml"
   config.gem "authlogic", :lib => 'authlogic', :source => 'http://gems.github.com'
+  config.gem "binarylogic-searchlogic", :lib => 'searchlogic', :source => 'http://gems.github.com', :version => '~> 2.0.0'
+  config.gem "justinfrench-formtastic", :lib => 'formtastic', :source => 'http://gems.github.com', :version => '0.1.1'
+  config.gem "mislav-will_paginate", :version => '~> 2.2.3', :lib => 'will_paginate', :source => 'http://gems.github.com'
+  config.gem "thoughtbot-paperclip", :lib => 'paperclip', :source => "http://gems.github.com"
+
+  # MARKDOWN PARSING
   config.gem "rdiscount"
   
   # Only load the plugins named here, in the order given (default is alphabetical).
