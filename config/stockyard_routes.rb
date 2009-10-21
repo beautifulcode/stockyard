@@ -20,6 +20,7 @@ ActionController::Routing::Routes.draw do |map|
   # BASE ASSET TYPES
   map.resources :text_blocks, :basic_images, :code_snippets, :callouts
   map.connect '/pages/:page_id/sections/:section_id/content/:action', :controller => 'content_mappings'
+  map.uploaded '/uploads/:controller/:id.:format', :action => 'upload'
 
   # USER LOGIN - Authlogic
   map.resource :user_session

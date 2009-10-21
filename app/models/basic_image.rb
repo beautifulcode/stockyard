@@ -8,4 +8,9 @@ class BasicImage < Asset
       :small  => "150x150>",
       :medium => "300x300>",
       :large  =>   "400x400>" }
+      
+      
+  def upload_permalink
+    file.url
+  end
 end

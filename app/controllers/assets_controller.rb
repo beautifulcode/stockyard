@@ -24,5 +24,15 @@ class AssetsController < ResourceController::Base
     end
     
   end
+  
+  def upload
+    begin
+      @asset_class = params[:controller].classify.constantize
+      @asset_instance = @asset_class.find(params[:id])
+      render :text => @asset_instance.upload_permalink
+    rescue
+      render :text => '/images/missing.png'
+    end
+  end
 
 end
