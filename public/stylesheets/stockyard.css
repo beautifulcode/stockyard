@@ -55,6 +55,9 @@ fieldset ol{list-style: none;margin: 0; padding: 0;}
 .droppable{border: 1px dashed #ccc; background: #efefef; padding: 20px; }
 .droppable:hover{padding: 30px; visibility: visible;}
 
+#available_image_tray .asset_tray_item{clear: both;}
+#available_image_tray .asset_tray_item p{float: left;margin-right: 20px;}
+
 input{font-size: 16px; padding: 4px;}
 select{font-size: 16px; padding: 4px;}
 

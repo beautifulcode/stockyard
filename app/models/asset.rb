@@ -25,5 +25,8 @@ class Asset < ActiveRecord::Base
     title || "#{self.class.name} #{self.id}"
   end
   
+  def upload_permalink
+    "Implement in Asset"
+  end
   
 end
