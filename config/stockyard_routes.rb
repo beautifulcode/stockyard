@@ -4,7 +4,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :content_mappings, :as => 'content', :collection => {:sort => :put}
   map.resources :assets
 
-  map.resources :pages do |page|
+  map.resources :pages, :collection => {:sort => :put} do |page|
     page.resource :assets
     page.resources :sections do |page_section|
       page_section.resources :content_mappings

@@ -36,7 +36,7 @@ module PagesHelper
     if @page
       html = '<ul>'
 
-      Page.root.children.visible.each do |page|
+      Page.root.children.ordered.visible.each do |page|
         html << "<li>#{link_to page.title, page.permalink_path, :class => page.nav_item_css_class, :params => page.nav_item_parameters}"
         html << nav_for(page) if page.children
         html << "</li>"
@@ -51,7 +51,7 @@ module PagesHelper
   
   def nav_for(page)
     html = '<ul>'
-    page.children.visible.each do |page|
+    page.children.ordered.visible.each do |page|
       html << "<li class='#{active_class(page)}'>"
       html << link_to( "<span>#{page.title}</span>", page.permalink_path, :class => page.nav_item_css_class, :params => page.nav_item_parameters, :id => "page_#{page.id}") if page.visible
       html << "</li>"
@@ -61,7 +61,7 @@ module PagesHelper
   
   def sibling_nav
     html = '<ul>'
-    @page.self_and_siblings.each do |page|
+    @page.self_and_siblings.ordered.each do |page|
       html << "<li class='#{active_class(page)}'>"
       html << link_to( "#{page.title}", page.permalink_path, :class => page.nav_item_css_class, :params => page.nav_item_parameters) if page.visible
       html << "</li>"
@@ -81,9 +81,9 @@ module PagesHelper
   
   def admin_page_tree_for(page, level)
     html = '<ul>'
-    last_page = page.children.last
+    last_page = page.children.ordered.last
     
-    page.children.each do |page|
+    page.children.ordered.each do |page|
       html << "<li id='page_#{page.id}' class='level_#{level}'>"
       html << "<span class='handle'></span>" if page.children.size > 0
       html << link_to( page.title, page.permalink_path, :class => "title #{'folder' if page.children.size > 0 }")
@@ -114,7 +114,7 @@ module PagesHelper
       html << link_to( 'Delete', page_path(root_page.id), :class => 'destroy', :method => 'delete', :confirm => 'Are you sure?')
       html << '</p>'
 
-      root_page.children.each do |page|
+      root_page.children.ordered.each do |page|
         html << "<li id='page_#{page.id}' class=''>"
         html << "<span class='handle'></span>"
         html << link_to( page.title, page.permalink_path, :class => "title #{'folder' if page.children.size > 0 }")

@@ -22,10 +22,10 @@ class PagesController < ApplicationController
    
    def sort
      @page = Page.find(params[:page][:id].to_i)
-     @page.move_to_child_of( params[:page][:parent_id].to_i ) unless params[:page][:parent_id].blank?
+     @page.move_to_child_of( params[:page][:parent_id].to_i ) unless params[:page][:parent_id].to_i == 0
      @page.move_to_left_of( params[:page][:left_id].to_i ) unless params[:page][:left_id].blank?
      @page.save
-     render :nothing => true
+     render :text => @page.save
    end
    
    
