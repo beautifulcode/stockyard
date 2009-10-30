@@ -15,6 +15,13 @@ Event.observe(window, 'load', function(){
     onDrop: function(drag, drop, event){
       $('log').update($('log').innerHTML + "<p>" + drag.to_params() + "</p>")
       var params = drag.to_params('page')
+      var serial = drop.element.up().select('li').pluck('id')
+      // console.log(serial)
+      serial.each(function(s){
+      params = params + "page[page_ids][]=" + s + "&"  
+      })
+      
+      // console.log(params)
       // params['authenticity_token'] = <%= form_authenticity_token() %>;
       new Ajax.Request('/pages/sort', {method: 'put', parameters: params});
     }
