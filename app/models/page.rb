@@ -36,7 +36,7 @@ class Page < ActiveRecord::Base
   # Scopes
   named_scope :visible, :conditions => {:visible => true, :active => true}
   named_scope :active, :conditions => {:active => true}
-  named_scope :ordered, :order => "lft ASC"
+  named_scope :ordered, :order => "position ASC"
   
   def assets
     self.sections.collect{ |section| section.assets  }.flatten || []

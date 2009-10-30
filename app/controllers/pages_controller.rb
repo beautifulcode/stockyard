@@ -22,10 +22,18 @@ class PagesController < ApplicationController
    
    def sort
      @page = Page.find(params[:page][:id].to_i)
-     @page.move_to_child_of( params[:page][:parent_id].to_i ) unless params[:page][:parent_id].to_i == 0
-     @page.move_to_left_of( params[:page][:left_id].to_i ) unless params[:page][:left_id].blank?
+     parent_id = params[:page][:parent_id].to_i unless params[:page][:parent_id].nil? || params[:page][:parent_id].to_i == 0
+     parent_id ||= 1
+     @page.move_to_child_of( parent_id )  
+     pos = params["page"]["page_ids"]
+     @page.parent.children.each do | f |
+       f.position = pos.index("page_"+f.id.to_s)+1
+       f.save
+     end
      @page.save
-     render :text => @page.save
+     # @page.renumber_full_tree
+     # render :text => pos
+     render :nothing => true
    end
    
    
