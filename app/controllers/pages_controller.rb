@@ -58,7 +58,7 @@ class PagesController < ApplicationController
      
      if @page && @page.redirect
        redirect_to @page.redirect_url and return unless @page.redirect_url.blank?
-       redirect_to page_path(@page.redirect_page_id) and return unless @page.redirect_page_id.blank?
+       redirect_to Page.find(@page.redirect_page_id).permalink_path and return unless @page.redirect_page_id.blank?
      end
      
      render :template => 'pages/missing', :status => 404 and return unless @page
