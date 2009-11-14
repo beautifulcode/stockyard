@@ -19,7 +19,13 @@ class AssetsController < ResourceController::Base
     @asset_class = params[:controller].classify.constantize
     @assets = @asset_class.paginate :all, :per_page => 20, :page => params[:page]
     respond_to do |wants|
-      wants.html { render :template => 'assets/index' }
+      wants.html do
+        if File.exists? "#{RAILS_ROOT}/#{@asset_class.tableize}/index"
+          render :template => "#{@asset_class.tableize}/index"
+        else
+          render :template => 'assets/index'
+        end
+      end
       wants.xml { render :template => "#{@asset_class.tableize}/index" }
     end
     
