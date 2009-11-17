@@ -187,7 +187,9 @@ SortableTree.Node = Class.create({
     var leftNode = this.previousSibling();
     return name + '[id]=' + this.id() + '&' + 
            name + '[parent_id]=' + this.parent.id() + '&' + 
-           name + '[left_id]=' + (leftNode ? leftNode.id() : ''); // null
+           name + '[left_id]=' + (leftNode ? leftNode.id() : '') + '&' 
+           name + '[page_ids]=' + this.parent.children.pluck('id')
+           ; // null
   },
   
   firstChild: function() {
