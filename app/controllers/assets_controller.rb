@@ -20,13 +20,13 @@ class AssetsController < ResourceController::Base
     @assets = @asset_class.paginate :all, :per_page => 20, :page => params[:page]
     respond_to do |wants|
       wants.html do
-        if File.exists? "#{RAILS_ROOT}/#{@asset_class.tableize}/index"
-          render :template => "#{@asset_class.tableize}/index"
+        if File.exists? "#{RAILS_ROOT}/#{@asset_class.to_s.tableize}/index"
+          render :template => "#{@asset_class.to_s.tableize}/index"
         else
           render :template => 'assets/index'
         end
       end
-      wants.xml { render :template => "#{@asset_class.tableize}/index" }
+      wants.xml { render :template => "#{@asset_class.to_s.tableize}/index" }
     end
     
   end
