@@ -1,5 +1,5 @@
 class AssetsController < ResourceController::Base
-  before_filter :require_user, :only => ['new', 'create', 'edit', 'update', 'destroy']
+  before_filter :require_user, :only => ['index', 'new', 'create', 'edit', 'update', 'destroy']
   layout :determine_layout
   
   
